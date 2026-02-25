@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>OpenCode & Oh My OpenCode 研究可视化 | AI 编程代理平台深度对比</title>
-    <meta name="description" content="深入对比分析 OpenCode (110K+ stars) 和 Oh My OpenCode (34K+ stars)：开源 AI 编程代理平台的全面研究，包含技术架构、性能指标、Claude Code 兼容性分析和使用场景推荐。">
-    <meta name="keywords" content="OpenCode, Oh My OpenCode, AI 编程, 代码智能体, Claude Code, 多代理编排, Hash-Anchored Edits, Ralph Loop, Sisyphus, AI coding agent, LLM, 开源工具">
+    <title>AI 编程 CLI 工具配置对比 | Claude Code vs Codex vs OpenCode vs Kimi</title>
+    <meta name="description" content="全面对比 Claude Code CLI、Codex CLI、OpenCode 和 Kimi Code CLI 的配置差异：系统提示、Session 存储、插件系统、命令行参数，帮助开发者平滑迁移。">
+    <meta name="keywords" content="Claude Code, Codex CLI, OpenCode, Kimi Code, AI 编程, CLI 工具, 配置迁移, CLAUDE.md, AGENTS.md, MCP, system prompt, oh-my-opencode">
     <meta name="author" content="Devil-SX">
     <meta name="robots" content="index, follow">
     <meta name="language" content="zh-CN">
@@ -14,15 +14,15 @@
     
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://devil-sx.github.io/code-agent-migration/">
-    <meta property="og:title" content="OpenCode & Oh My OpenCode 研究可视化 | AI 编程代理平台深度对比">
-    <meta property="og:description" content="深入对比分析 OpenCode 和 Oh My OpenCode：110K+ stars 开源 AI 代理 vs 34K+ stars 多代理编排系统。包含技术架构、性能数据、实战案例。">
-    <meta property="og:site_name" content="OpenCode & Oh My OpenCode 研究项目">
+    <meta property="og:title" content="AI 编程 CLI 工具配置对比 | Claude Code vs Codex vs OpenCode vs Kimi">
+    <meta property="og:description" content="全面对比四大主流 AI 编程 CLI 工具的配置差异，提供迁移指南和最佳实践。">
+    <meta property="og:site_name" content="AI CLI 工具配置对比">
     <meta property="og:locale" content="zh_CN">
     
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://devil-sx.github.io/code-agent-migration/">
-    <meta name="twitter:title" content="OpenCode & Oh My OpenCode 研究可视化">
-    <meta name="twitter:description" content="深入对比分析 OpenCode (110K+ stars) 和 Oh My OpenCode (34K+ stars)：AI 编程代理平台全面研究">
+    <meta name="twitter:title" content="AI 编程 CLI 工具配置对比">
+    <meta name="twitter:description" content="Claude Code vs Codex vs OpenCode vs Kimi - 配置差异与迁移指南">
     
     <meta name="theme-color" content="#667eea">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -41,29 +41,11 @@
     {
       "@context": "https://schema.org",
       "@type": "TechArticle",
-      "headline": "OpenCode & Oh My OpenCode 深度对比研究",
-      "description": "深入对比分析 OpenCode 和 Oh My OpenCode：开源 AI 编程代理平台的全面研究，包含技术架构、性能指标、实战案例",
-      "author": {
-        "@type": "Person",
-        "name": "Devil-SX"
-      },
+      "headline": "AI 编程 CLI 工具配置对比与迁移指南",
+      "description": "全面对比 Claude Code CLI、Codex CLI、OpenCode 和 Kimi Code CLI 的配置差异",
+      "author": {"@type": "Person", "name": "Devil-SX"},
       "datePublished": "2026-02-25",
-      "dateModified": "2026-02-25",
-      "inLanguage": "zh-CN",
-      "about": [
-        {
-          "@type": "SoftwareApplication",
-          "name": "OpenCode",
-          "applicationCategory": "DeveloperApplication",
-          "operatingSystem": "Cross-platform"
-        },
-        {
-          "@type": "SoftwareApplication",
-          "name": "Oh My OpenCode",
-          "applicationCategory": "DeveloperApplication",
-          "operatingSystem": "Cross-platform"
-        }
-      ]
+      "inLanguage": "zh-CN"
     }
     </script>
 </head>
@@ -76,14 +58,14 @@
                     <rect x="4" y="4" width="32" height="32" rx="6" stroke="currentColor" stroke-width="2"/>
                     <path d="M12 20L18 26L28 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
-                <span>AI Coding Agents Research</span>
+                <span>CLI 工具配置对比</span>
             </div>
             <div class="nav-links">
-                <a href="#overview">概览</a>
-                <a href="#comparison">对比</a>
-                <a href="#architecture">架构</a>
-                <a href="#performance">性能</a>
-                <a href="https://github.com/anomalyco/opencode" target="_blank">GitHub</a>
+                <a href="#tools">工具</a>
+                <a href="#comparison">配置对比</a>
+                <a href="#migration">迁移指南</a>
+                <a href="#use-cases">使用场景</a>
+                <a href="https://github.com/Devil-SX/code-agent-migration" target="_blank">GitHub</a>
             </div>
         </div>
     </nav>
@@ -93,27 +75,27 @@
         <div class="container">
             <div class="hero-content">
                 <h1 class="hero-title">
-                    <span class="gradient-text">OpenCode & Oh My OpenCode</span>
-                    <br>深度研究与对比分析
+                    <span class="gradient-text">AI 编程 CLI 工具</span>
+                    <br>配置对比与迁移指南
                 </h1>
                 <p class="hero-subtitle">
-                    探索开源 AI 编码智能体的前沿技术与最佳实践
+                    全面对比 Claude Code、Codex、OpenCode、Kimi 的配置差异，助力平滑迁移
                 </p>
                 <div class="hero-stats">
                     <div class="stat-card">
-                        <div class="stat-value">110K+</div>
-                        <div class="stat-label">GitHub Stars</div>
-                        <div class="stat-project">OpenCode</div>
+                        <div class="stat-value">4</div>
+                        <div class="stat-label">主流工具</div>
+                        <div class="stat-project">CLI 对比</div>
                     </div>
                     <div class="stat-card">
-                        <div class="stat-value">34K+</div>
-                        <div class="stat-label">GitHub Stars</div>
-                        <div class="stat-project">Oh My OpenCode</div>
+                        <div class="stat-value">15</div>
+                        <div class="stat-label">配置维度</div>
+                        <div class="stat-project">详细分析</div>
                     </div>
                     <div class="stat-card">
-                        <div class="stat-value">2.5M+</div>
-                        <div class="stat-label">月活开发者</div>
-                        <div class="stat-project">Combined</div>
+                        <div class="stat-value">30+</div>
+                        <div class="stat-label">参考资源</div>
+                        <div class="stat-project">迁移工具</div>
                     </div>
                 </div>
             </div>
@@ -121,11 +103,92 @@
         <div class="hero-bg"></div>
     </section>
 
-    <!-- Overview Section -->
-    <section id="overview" class="section">
+    <!-- Tools Overview Section -->
+    <section id="tools" class="section">
         <div class="container">
-            <h2 class="section-title">项目概览</h2>
+            <h2 class="section-title">主流 CLI 工具对比</h2>
             <div class="overview-grid">
+                <!-- Claude Code CLI Card -->
+                <div class="project-card claude-card">
+                    <div class="card-header">
+                        <div class="card-icon claude-icon">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3>Claude Code CLI</h3>
+                            <p class="card-subtitle">Anthropic 官方工具</p>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-description">
+                            Anthropic 官方 AI 编程助手，提供交互式推理、Skills 系统和 MCP 集成。
+                        </p>
+                        <div class="card-features">
+                            <div class="feature-tag">CLAUDE.md</div>
+                            <div class="feature-tag">JSON 配置</div>
+                            <div class="feature-tag">Skills + MCP</div>
+                            <div class="feature-tag">~/.claude/</div>
+                        </div>
+                        <div class="card-metrics">
+                            <div class="metric">
+                                <span class="metric-label">配置格式</span>
+                                <span class="metric-value">JSON</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-label">系统提示</span>
+                                <span class="metric-value">CLAUDE.md</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-label">插件系统</span>
+                                <span class="metric-value">Skills + MCP</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Codex CLI Card -->
+                <div class="project-card codex-card">
+                    <div class="card-header">
+                        <div class="card-icon codex-icon">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M16 18L22 12L16 6M8 6L2 12L8 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3>Codex CLI</h3>
+                            <p class="card-subtitle">OpenAI 代码助手</p>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-description">
+                            OpenAI 代码生成工具，支持 AGENTS.md 系统提示和沙箱执行环境。
+                        </p>
+                        <div class="card-features">
+                            <div class="feature-tag">AGENTS.md</div>
+                            <div class="feature-tag">TOML 配置</div>
+                            <div class="feature-tag">沙箱执行</div>
+                            <div class="feature-tag">~/.codex/</div>
+                        </div>
+                        <div class="card-metrics">
+                            <div class="metric">
+                                <span class="metric-label">配置格式</span>
+                                <span class="metric-value">TOML</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-label">系统提示</span>
+                                <span class="metric-value">AGENTS.md</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-label">Session 存储</span>
+                                <span class="metric-value">按日期分层</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- OpenCode Card -->
                 <div class="project-card opencode-card">
                     <div class="card-header">
@@ -136,227 +199,207 @@
                         </div>
                         <div>
                             <h3>OpenCode</h3>
-                            <p class="card-subtitle">开源 AI 编码智能体</p>
+                            <p class="card-subtitle">开源多模型平台</p>
                         </div>
                     </div>
                     <div class="card-body">
                         <p class="card-description">
-                            100% 开源的 AI 编码智能体，支持 75+ LLM 提供商，提供 LSP 支持和客户端/服务器架构。
+                            100% 开源，支持 75+ LLM 提供商，分布式配置架构，本地模型 Ollama 支持。
                         </p>
                         <div class="card-features">
-                            <div class="feature-tag">提供商无关</div>
+                            <div class="feature-tag">分布式配置</div>
+                            <div class="feature-tag">75+ 提供商</div>
                             <div class="feature-tag">LSP 集成</div>
-                            <div class="feature-tag">TUI 优先</div>
-                            <div class="feature-tag">MIT 协议</div>
+                            <div class="feature-tag">.opencode/</div>
                         </div>
                         <div class="card-metrics">
                             <div class="metric">
-                                <span class="metric-label">Stars</span>
-                                <span class="metric-value">110K+</span>
+                                <span class="metric-label">配置格式</span>
+                                <span class="metric-value">分布式</span>
                             </div>
                             <div class="metric">
-                                <span class="metric-label">Contributors</span>
-                                <span class="metric-value">771+</span>
+                                <span class="metric-label">LLM 支持</span>
+                                <span class="metric-value">75+</span>
                             </div>
                             <div class="metric">
-                                <span class="metric-label">月活用户</span>
-                                <span class="metric-value">2.5M+</span>
+                                <span class="metric-label">本地模型</span>
+                                <span class="metric-value">Ollama</span>
                             </div>
                         </div>
                     </div>
-                    <div class="card-footer">
-                        <a href="https://github.com/anomalyco/opencode" target="_blank" class="btn btn-primary">
-                            查看项目
-                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                <path d="M6 3L11 8L6 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                        </a>
-                        <a href="../research/opencode.md" class="btn btn-secondary">研究报告</a>
-                    </div>
                 </div>
 
-                <!-- Oh My OpenCode Card -->
-                <div class="project-card omoc-card">
+                <!-- Kimi Code CLI Card -->
+                <div class="project-card kimi-card">
                     <div class="card-header">
-                        <div class="card-icon omoc-icon">
+                        <div class="card-icon kimi-icon">
                             <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                                <path d="M12 6V12L16 14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
                             </svg>
                         </div>
                         <div>
-                            <h3>Oh My OpenCode</h3>
-                            <p class="card-subtitle">多模型智能体编排工具</p>
+                            <h3>Kimi Code CLI</h3>
+                            <p class="card-subtitle">Moonshot AI 工具</p>
                         </div>
                     </div>
                     <div class="card-body">
                         <p class="card-description">
-                            OpenCode 的增强层，提供专业智能体编排、哈希锚定编辑和开箱即用的高级功能。
+                            Moonshot AI 的命令行工具，TOML 集中配置，Shell 深度集成，256K 上下文窗口。
                         </p>
                         <div class="card-features">
-                            <div class="feature-tag">智能体编排</div>
-                            <div class="feature-tag">Ultrawork 模式</div>
-                            <div class="feature-tag">哈希锚定编辑</div>
-                            <div class="feature-tag">Claude Code 兼容</div>
+                            <div class="feature-tag">TOML 配置</div>
+                            <div class="feature-tag">Shell 集成</div>
+                            <div class="feature-tag">256K 上下文</div>
+                            <div class="feature-tag">~/.kimi/</div>
                         </div>
                         <div class="card-metrics">
                             <div class="metric">
-                                <span class="metric-label">Stars</span>
-                                <span class="metric-value">34K+</span>
+                                <span class="metric-label">配置格式</span>
+                                <span class="metric-value">TOML</span>
                             </div>
                             <div class="metric">
-                                <span class="metric-label">Contributors</span>
-                                <span class="metric-value">130+</span>
+                                <span class="metric-label">Shell 快捷键</span>
+                                <span class="metric-value">Ctrl-K</span>
                             </div>
                             <div class="metric">
-                                <span class="metric-label">成功率提升</span>
-                                <span class="metric-value">10x+</span>
+                                <span class="metric-label">上下文窗口</span>
+                                <span class="metric-value">256K</span>
                             </div>
                         </div>
-                    </div>
-                    <div class="card-footer">
-                        <a href="https://github.com/code-yeongyu/oh-my-opencode" target="_blank" class="btn btn-primary">
-                            查看项目
-                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                <path d="M6 3L11 8L6 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                        </a>
-                        <a href="../research/oh-my-opencode.md" class="btn btn-secondary">研究报告</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Relationship Section -->
+    <!-- Quick Comparison Section -->
     <section class="section bg-gradient">
         <div class="container">
             <div class="relationship-box">
-                <h2 class="section-title">项目关系</h2>
-                <div class="relationship-content">
-                    <div class="relationship-text">
-                        <p class="lead">
-                            <strong>Oh My OpenCode</strong> 是 <strong>OpenCode</strong> 的插件/扩展层
-                        </p>
-                        <div class="analogy">
-                            <div class="analogy-item">
-                                <span class="analogy-label">OpenCode</span>
-                                <span class="analogy-symbol">≈</span>
-                                <span class="analogy-value">Debian / Arch</span>
-                            </div>
-                            <div class="analogy-item">
-                                <span class="analogy-label">Oh My OpenCode</span>
-                                <span class="analogy-symbol">≈</span>
-                                <span class="analogy-value">Ubuntu / Omarchy</span>
-                            </div>
+                <h2 class="section-title">快速对比</h2>
+                <div class="stats-grid">
+                    <div class="stat-box">
+                        <div class="stat-content">
+                            <div class="stat-number">CLAUDE.md</div>
+                            <div class="stat-text">Claude Code</div>
                         </div>
-                        <p>
-                            Oh My OpenCode 在 OpenCode 基础上提供开箱即用的智能体编排、
-                            优化的工作流程和预配置的工具集成。
-                        </p>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-content">
+                            <div class="stat-number">AGENTS.md</div>
+                            <div class="stat-text">Codex CLI</div>
+                        </div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-content">
+                            <div class="stat-number">.opencode/</div>
+                            <div class="stat-text">OpenCode</div>
+                        </div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-content">
+                            <div class="stat-number">config.toml</div>
+                            <div class="stat-text">Kimi CLI</div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Comparison Section -->
+    <!-- Config Comparison Section -->
     <section id="comparison" class="section">
         <div class="container">
-            <h2 class="section-title">功能对比</h2>
+            <h2 class="section-title">配置对比 (15 维度)</h2>
             <div class="comparison-table-wrapper">
                 <table class="comparison-table">
                     <thead>
                         <tr>
-                            <th>功能维度</th>
+                            <th>配置维度</th>
+                            <th>Claude Code</th>
+                            <th>Codex CLI</th>
                             <th>OpenCode</th>
-                            <th>Oh My OpenCode</th>
+                            <th>Kimi Code</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td><strong>智能体系统</strong></td>
-                            <td>
-                                <div class="feature-list">
-                                    <span class="check">✓</span> Build Agent<br>
-                                    <span class="check">✓</span> Plan Agent<br>
-                                    <span class="check">✓</span> General Subagent
-                                </div>
-                            </td>
-                            <td>
-                                <div class="feature-list highlight">
-                                    <span class="check">✓</span> Sisyphus (编排者)<br>
-                                    <span class="check">✓</span> Hephaestus (工作者)<br>
-                                    <span class="check">✓</span> Prometheus (规划者)<br>
-                                    <span class="check">✓</span> Oracle (顾问)<br>
-                                    <span class="check">✓</span> Librarian (检索)<br>
-                                    <span class="check">✓</span> Explore (探索)
-                                </div>
-                            </td>
+                            <td><strong>1. 系统提示文件</strong></td>
+                            <td>CLAUDE.md<br><small>~/.claude/</small></td>
+                            <td>AGENTS.md<br><small>~/.codex/</small></td>
+                            <td>分布式配置<br><small>.opencode/</small></td>
+                            <td>config.toml<br><small>~/.kimi/</small></td>
                         </tr>
                         <tr>
-                            <td><strong>编辑工具</strong></td>
-                            <td>标准文件编辑 + LSP</td>
-                            <td class="highlight">
-                                <strong>Hash-Anchored Edits</strong><br>
-                                <small>成功率 6.7% → 68.3%</small>
-                            </td>
+                            <td><strong>2. 配置格式</strong></td>
+                            <td>JSON<br><small>settings.json</small></td>
+                            <td>TOML<br><small>config.toml</small></td>
+                            <td>多格式<br><small>JSON + Markdown</small></td>
+                            <td>TOML<br><small>集中配置</small></td>
                         </tr>
                         <tr>
-                            <td><strong>工作流程</strong></td>
-                            <td>对话式编程</td>
-                            <td class="highlight">
-                                Ultrawork + Ralph Loop<br>
-                                <small>一键启动，自动完成</small>
-                            </td>
+                            <td><strong>3. Session 存储</strong></td>
+                            <td>按项目路径<br><small>~/.claude/projects/</small></td>
+                            <td>按日期分层<br><small>YYYY/MM/DD/</small></td>
+                            <td>实时连接<br><small>无持久化 session</small></td>
+                            <td>~/.kimi/<br><small>自动保存</small></td>
                         </tr>
                         <tr>
-                            <td><strong>工具集成</strong></td>
-                            <td>LSP + 基础 MCP</td>
-                            <td class="highlight">
-                                LSP + AST-Grep + Tmux<br>
-                                + 3个内置 MCP
-                            </td>
+                            <td><strong>4. 插件系统</strong></td>
+                            <td class="highlight">Skills + MCP<br><small>Claude Code 生态</small></td>
+                            <td>无插件系统<br><small>沙箱执行</small></td>
+                            <td>统一扩展系统<br><small>75+ 提供商</small></td>
+                            <td>无插件系统<br><small>内置集成</small></td>
                         </tr>
                         <tr>
-                            <td><strong>技能系统</strong></td>
-                            <td>基础配置</td>
-                            <td class="highlight">
-                                内置 3+ 专业技能<br>
-                                <small>playwright, git-master, frontend-ui-ux</small>
-                            </td>
+                            <td><strong>5. 命令行参数</strong></td>
+                            <td>--headless<br><small>--dangerous-skip</small></td>
+                            <td>-c key=value<br><small>--cd, --add-dir</small></td>
+                            <td>opencode serve<br><small>opencode run</small></td>
+                            <td>/login<br><small>/model 选择</small></td>
                         </tr>
                         <tr>
-                            <td><strong>上下文管理</strong></td>
-                            <td>手动管理</td>
-                            <td class="highlight">
-                                /init-deep 自动生成<br>
-                                <small>分层 AGENTS.md</small>
-                            </td>
+                            <td><strong>6. LLM 提供商</strong></td>
+                            <td>Claude (Anthropic)<br><small>原生支持</small></td>
+                            <td>OpenAI Codex<br><small>GPT 系列</small></td>
+                            <td class="highlight">75+ 提供商<br><small>Ollama 本地</small></td>
+                            <td>Moonshot AI<br><small>Kimi 模型</small></td>
                         </tr>
                         <tr>
-                            <td><strong>并行执行</strong></td>
-                            <td>基础异步支持</td>
-                            <td class="highlight">
-                                5+ 智能体并行<br>
-                                <small>后台任务管理</small>
-                            </td>
+                            <td><strong>7. 环境变量</strong></td>
+                            <td>ANTHROPIC_API_KEY<br><small>CLAUDE_*</small></td>
+                            <td>OPENAI_API_KEY<br><small>CODEX_*</small></td>
+                            <td>多提供商 KEY<br><small>OPENCODE_*</small></td>
+                            <td>MOONSHOT_API_KEY<br><small>KIMI_*</small></td>
                         </tr>
                         <tr>
-                            <td><strong>模型编排</strong></td>
-                            <td>手动选择</td>
-                            <td class="highlight">
-                                Category-Based 自动选择<br>
-                                <small>visual, ultrabrain, quick...</small>
-                            </td>
+                            <td><strong>8. 上下文窗口</strong></td>
+                            <td>200K<br><small>Claude 3.5 Sonnet</small></td>
+                            <td>128K<br><small>GPT-4 Turbo</small></td>
+                            <td>取决于模型<br><small>最高 200K+</small></td>
+                            <td class="highlight">256K<br><small>Kimi 特色</small></td>
+                        </tr>
+                        <tr>
+                            <td><strong>9. Shell 集成</strong></td>
+                            <td>基础<br><small>CLI 调用</small></td>
+                            <td>中等<br><small>Zsh 集成</small></td>
+                            <td>高级<br><small>TUI + HTTP</small></td>
+                            <td class="highlight">深度<br><small>Ctrl-K 快捷键</small></td>
+                        </tr>
+                        <tr>
+                            <td><strong>10. 项目权限</strong></td>
+                            <td>--dangerous-skip<br><small>交互式确认</small></td>
+                            <td>沙箱模式<br><small>严格隔离</small></td>
+                            <td>灵活配置<br><small>手动设置</small></td>
+                            <td>default_yolo<br><small>自动同意</small></td>
                         </tr>
                     </tbody>
                 </table>
             </div>
             <div class="comparison-cta">
-                <a href="../research/comparison.md" class="btn btn-large btn-primary">
-                    查看详细对比报告
+                <a href="https://github.com/Devil-SX/code-agent-migration/blob/main/CLI_TOOLS_CONFIG_COMPARISON.md" class="btn btn-large btn-primary">
+                    查看完整 15 维度对比报告
                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
                         <path d="M7 4L14 10L7 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
@@ -365,229 +408,161 @@
         </div>
     </section>
 
-    <!-- Architecture Section -->
-    <section id="architecture" class="section bg-dark">
+    <!-- Migration Guide Section -->
+    <section id="migration" class="section bg-dark">
         <div class="container">
-            <h2 class="section-title">架构对比</h2>
+            <h2 class="section-title">迁移路径</h2>
             <div class="architecture-grid">
                 <div class="architecture-card">
-                    <h3>OpenCode 架构</h3>
-                    <div class="architecture-diagram">
-                        <div class="arch-layer">
-                            <div class="arch-box">Client (TUI/Desktop)</div>
-                        </div>
-                        <div class="arch-arrow">↓</div>
-                        <div class="arch-layer">
-                            <div class="arch-box">Server Core</div>
-                        </div>
-                        <div class="arch-arrow">↓</div>
-                        <div class="arch-layer">
-                            <div class="arch-box">LLM Provider</div>
-                        </div>
+                    <h3>Claude Code → Codex</h3>
+                    <div class="migration-steps">
+                        <p><strong>1.</strong> CLAUDE.md → AGENTS.md</p>
+                        <p><strong>2.</strong> settings.json → config.toml</p>
+                        <p><strong>3.</strong> 重组 Session 目录（按日期）</p>
+                        <p><strong>4.</strong> 迁移 Skills → 自定义脚本</p>
                     </div>
                     <p class="architecture-desc">
-                        简洁的客户端/服务器架构，专注于核心功能和灵活性。
+                        转换配置格式，保留核心提示词逻辑
                     </p>
                 </div>
 
                 <div class="architecture-card highlight">
-                    <h3>Oh My OpenCode 架构</h3>
-                    <div class="architecture-diagram">
-                        <div class="arch-layer">
-                            <div class="arch-box">Client (TUI/Desktop/IDE)</div>
-                        </div>
-                        <div class="arch-arrow">↓</div>
-                        <div class="arch-layer multi">
-                            <div class="arch-box highlight">
-                                <strong>Oh My OpenCode Layer</strong>
-                                <small>Orchestration • Skills • MCPs</small>
-                            </div>
-                        </div>
-                        <div class="arch-arrow">↓</div>
-                        <div class="arch-layer">
-                            <div class="arch-box">OpenCode Core</div>
-                        </div>
-                        <div class="arch-arrow">↓</div>
-                        <div class="arch-layer">
-                            <div class="arch-box">Multiple LLM Providers</div>
-                        </div>
+                    <h3>Claude Code → OpenCode</h3>
+                    <div class="migration-steps">
+                        <p><strong>1.</strong> 拆分 CLAUDE.md → .opencode/agents/</p>
+                        <p><strong>2.</strong> Skills → .opencode/skills/</p>
+                        <p><strong>3.</strong> MCPs → .opencode/tools/</p>
+                        <p><strong>4.</strong> 配置多 LLM 提供商</p>
                     </div>
                     <p class="architecture-desc">
-                        在 OpenCode 基础上添加智能编排层，提供企业级功能。
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Performance Section -->
-    <section id="performance" class="section">
-        <div class="container">
-            <h2 class="section-title">性能数据</h2>
-            
-            <!-- Efficiency Chart -->
-            <div class="performance-grid">
-                <div class="performance-card">
-                    <h3>开发效率对比</h3>
-                    <div class="chart-container">
-                        <div class="bar-chart">
-                            <div class="bar-item">
-                                <div class="bar-label">人工开发</div>
-                                <div class="bar-wrapper">
-                                    <div class="bar bar-human" style="width: 100%;">
-                                        <span>3 个月</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="bar-item">
-                                <div class="bar-label">Claude Code</div>
-                                <div class="bar-wrapper">
-                                    <div class="bar bar-claude" style="width: 80%;">
-                                        <span>7 天</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="bar-item">
-                                <div class="bar-label">Sisyphus (OmO)</div>
-                                <div class="bar-wrapper">
-                                    <div class="bar bar-sisyphus" style="width: 15%;">
-                                        <span>1 小时</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <p class="chart-note">
-                        相同功能开发所需时间对比（越短越好）
+                        利用 OpenCode 的多模型优势，降低成本
                     </p>
                 </div>
 
-                <div class="performance-card">
-                    <h3>编辑成功率提升</h3>
-                    <div class="metric-comparison">
-                        <div class="metric-item">
-                            <div class="metric-bar">
-                                <div class="metric-fill" style="width: 6.7%;"></div>
-                            </div>
-                            <div class="metric-info">
-                                <span class="metric-label">标准编辑工具</span>
-                                <span class="metric-value">6.7%</span>
-                            </div>
-                        </div>
-                        <div class="metric-item">
-                            <div class="metric-bar">
-                                <div class="metric-fill success" style="width: 68.3%;"></div>
-                            </div>
-                            <div class="metric-info">
-                                <span class="metric-label">Hash-Anchored Edit</span>
-                                <span class="metric-value success">68.3%</span>
-                            </div>
-                        </div>
+                <div class="architecture-card">
+                    <h3>Codex → Claude Code</h3>
+                    <div class="migration-steps">
+                        <p><strong>1.</strong> AGENTS.md → CLAUDE.md</p>
+                        <p><strong>2.</strong> config.toml → settings.json</p>
+                        <p><strong>3.</strong> 重组 Session 目录（按项目）</p>
+                        <p><strong>4.</strong> 添加 Skills 和 MCP 支持</p>
                     </div>
-                    <div class="improvement-badge">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <path d="M12 4L12 20M12 4L6 10M12 4L18 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                        <span>提升 <strong>10倍+</strong></span>
+                    <p class="architecture-desc">
+                        获得更强大的插件生态和交互式推理
+                    </p>
+                </div>
+
+                <div class="architecture-card">
+                    <h3>Claude Code → Oh My OpenCode</h3>
+                    <div class="migration-steps">
+                        <p><strong>1.</strong> 保留所有 CLAUDE.md 配置</p>
+                        <p><strong>2.</strong> 100% 兼容 Skills 和 MCPs</p>
+                        <p><strong>3.</strong> 添加智能体编排层</p>
+                        <p><strong>4.</strong> 启用 Ultrawork 模式</p>
                     </div>
-                    <p class="chart-note">
-                        Grok Code Fast 1 基准测试结果
+                    <p class="architecture-desc">
+                        无缝迁移，获得 10x+ 编辑成功率提升
                     </p>
                 </div>
             </div>
 
-            <!-- Community Stats -->
-            <div class="stats-grid">
-                <div class="stat-box">
-                    <div class="stat-icon">
-                        <svg viewBox="0 0 24 24" fill="none">
-                            <path d="M17 21V19C17 17.9391 16.5786 16.9217 15.8284 16.1716C15.0783 15.4214 14.0609 15 13 15H5C3.93913 15 2.92172 15.4214 2.17157 16.1716C1.42143 16.9217 1 17.9391 1 19V21M23 21V19C22.9993 18.1137 22.7044 17.2528 22.1614 16.5523C21.6184 15.8519 20.8581 15.3516 20 15.13M16 3.13C16.8604 3.3503 17.623 3.8507 18.1676 4.55231C18.7122 5.25392 19.0078 6.11683 19.0078 7.005C19.0078 7.89317 18.7122 8.75608 18.1676 9.45769C17.623 10.1593 16.8604 10.6597 16 10.88M13 7C13 9.20914 11.2091 11 9 11C6.79086 11 5 9.20914 5 7C5 4.79086 6.79086 3 9 3C11.2091 3 13 4.79086 13 7Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </div>
-                    <div class="stat-content">
-                        <div class="stat-number">900+</div>
-                        <div class="stat-text">总贡献者</div>
-                    </div>
-                </div>
-                <div class="stat-box">
-                    <div class="stat-icon">
-                        <svg viewBox="0 0 24 24" fill="none">
-                            <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </div>
-                    <div class="stat-content">
-                        <div class="stat-number">144K+</div>
-                        <div class="stat-text">GitHub Stars</div>
-                    </div>
-                </div>
-                <div class="stat-box">
-                    <div class="stat-icon">
-                        <svg viewBox="0 0 24 24" fill="none">
-                            <path d="M16 21V5C16 4.46957 15.7893 3.96086 15.4142 3.58579C15.0391 3.21071 14.5304 3 14 3H10C9.46957 3 8.96086 3.21071 8.58579 3.58579C8.21071 3.96086 8 4.46957 8 5V21M4 7H20M4 7C4 6.46957 4.21071 5.96086 4.58579 5.58579C4.96086 5.21071 5.46957 5 6 5H18C18.5304 5 19.0391 5.21071 19.4142 5.58579C19.7893 5.96086 20 6.46957 20 7V19C20 19.5304 19.7893 20.0391 19.4142 20.4142C19.0391 20.7893 18.5304 21 18 21H6C5.46957 21 4.96086 20.7893 4.58579 20.4142C4.21071 20.0391 4 19.5304 4 19V7Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </div>
-                    <div class="stat-content">
-                        <div class="stat-number">10K+</div>
-                        <div class="stat-text">总提交数</div>
-                    </div>
-                </div>
-                <div class="stat-box">
-                    <div class="stat-icon">
-                        <svg viewBox="0 0 24 24" fill="none">
-                            <path d="M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="currentColor" stroke-width="2"/>
-                            <path d="M12 6V12L16 14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                        </svg>
-                    </div>
-                    <div class="stat-content">
-                        <div class="stat-number">2.5M+</div>
-                        <div class="stat-text">月活用户</div>
-                    </div>
+            <div class="comparison-cta">
+                <h3 style="margin-bottom: 1.5rem; color: white;">自动化迁移工具</h3>
+                <div class="cta-buttons" style="gap: 1rem; display: flex; flex-wrap: wrap; justify-content: center;">
+                    <a href="https://github.com/Devil-SX/code-agent-migration/blob/main/tools/convert_config.py" class="btn btn-large btn-white">
+                        convert_config.py
+                    </a>
+                    <a href="https://github.com/Devil-SX/code-agent-migration/blob/main/tools/migrate_cli_tool.sh" class="btn btn-large btn-outlined">
+                        migrate_cli_tool.sh
+                    </a>
+                    <a href="https://github.com/Devil-SX/code-agent-migration/blob/main/MIGRATION_QUICK_REFERENCE.md" class="btn btn-large btn-outlined">
+                        快速参考指南
+                    </a>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Use Cases Section -->
-    <section class="section bg-light">
+    <section id="use-cases" class="section">
         <div class="container">
-            <h2 class="section-title">实际案例</h2>
+            <h2 class="section-title">使用场景推荐</h2>
             <div class="cases-grid">
                 <div class="case-card">
-                    <div class="case-icon">💡</div>
-                    <h3>大规模代码修复</h3>
-                    <blockquote>
-                        "Knocked out 8000 eslint warnings with Oh My Opencode, just in a day"
-                    </blockquote>
-                    <p class="case-author">— Jacob Ferrari</p>
+                    <div class="case-icon">🏢</div>
+                    <h3>企业级项目</h3>
+                    <p class="case-desc">
+                        <strong>推荐：Claude Code CLI</strong><br>
+                        强大的 Skills 系统和 MCP 集成，适合大型团队协作
+                    </p>
                     <div class="case-metrics">
-                        <span class="case-metric">8000 warnings</span>
-                        <span class="case-metric">1 day</span>
+                        <span class="case-metric">交互式推理</span>
+                        <span class="case-metric">企业支持</span>
+                    </div>
+                </div>
+
+                <div class="case-card">
+                    <div class="case-icon">🔬</div>
+                    <h3>研究与实验</h3>
+                    <p class="case-desc">
+                        <strong>推荐：Codex CLI</strong><br>
+                        沙箱执行环境，严格隔离，适合安全性要求高的场景
+                    </p>
+                    <div class="case-metrics">
+                        <span class="case-metric">安全沙箱</span>
+                        <span class="case-metric">OpenAI GPT</span>
+                    </div>
+                </div>
+
+                <div class="case-card">
+                    <div class="case-icon">🌐</div>
+                    <h3>多模型切换</h3>
+                    <p class="case-desc">
+                        <strong>推荐：OpenCode</strong><br>
+                        75+ LLM 提供商支持，本地模型 Ollama，成本可控
+                    </p>
+                    <div class="case-metrics">
+                        <span class="case-metric">75+ 提供商</span>
+                        <span class="case-metric">开源免费</span>
                     </div>
                 </div>
 
                 <div class="case-card">
                     <div class="case-icon">🚀</div>
-                    <h3>应用架构迁移</h3>
-                    <blockquote>
-                        "I converted a 45k line tauri app into a SaaS web app overnight using Ohmyopencode and ralph loop."
-                    </blockquote>
-                    <p class="case-author">— James Hargis</p>
+                    <h3>快速开发</h3>
+                    <p class="case-desc">
+                        <strong>推荐：Kimi Code CLI</strong><br>
+                        256K 超长上下文，Shell 深度集成，Ctrl-K 快速调用
+                    </p>
                     <div class="case-metrics">
-                        <span class="case-metric">45K lines</span>
-                        <span class="case-metric">Overnight</span>
+                        <span class="case-metric">256K 上下文</span>
+                        <span class="case-metric">Shell 集成</span>
                     </div>
                 </div>
 
                 <div class="case-card">
-                    <div class="case-icon">⚡</div>
-                    <h3>生产力革命</h3>
-                    <blockquote>
-                        "It made me cancel my Cursor subscription. Unbelievable things are happening in the open source community."
-                    </blockquote>
-                    <p class="case-author">— Arthur Guiot</p>
+                    <div class="case-icon">🔄</div>
+                    <h3>从 Claude Code 迁移</h3>
+                    <p class="case-desc">
+                        <strong>推荐：Oh My OpenCode</strong><br>
+                        100% 兼容 Claude Code 配置，无缝迁移，10x+ 性能提升
+                    </p>
                     <div class="case-metrics">
-                        <span class="case-metric">Open Source</span>
-                        <span class="case-metric">No Vendor Lock-in</span>
+                        <span class="case-metric">100% 兼容</span>
+                        <span class="case-metric">10x 提升</span>
+                    </div>
+                </div>
+
+                <div class="case-card">
+                    <div class="case-icon">💰</div>
+                    <h3>成本优化</h3>
+                    <p class="case-desc">
+                        <strong>推荐：OpenCode + Ollama</strong><br>
+                        本地模型运行，零 API 成本，完全开源控制
+                    </p>
+                    <div class="case-metrics">
+                        <span class="case-metric">本地模型</span>
+                        <span class="case-metric">零成本</span>
                     </div>
                 </div>
             </div>
@@ -598,27 +573,26 @@
     <section class="section cta-section">
         <div class="container">
             <div class="cta-box">
-                <h2>探索完整研究报告</h2>
-                <p>深入了解 OpenCode 和 Oh My OpenCode 的技术细节、最佳实践和使用建议</p>
+                <h2>探索完整配置对比报告</h2>
+                <p>深入了解 15 个配置维度的详细对比、迁移最佳实践和自动化工具</p>
                 <div class="cta-buttons">
-                    <a href="../research/opencode.md" class="btn btn-large btn-white">
+                    <a href="https://github.com/Devil-SX/code-agent-migration/blob/main/CLI_TOOLS_CONFIG_COMPARISON.md" class="btn btn-large btn-white">
                         <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                            <path d="M10 2V18M10 2L4 8M10 2L16 8M10 18L4 12M10 18L16 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M4 6H16M4 12H16M4 18H16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
                         </svg>
-                        OpenCode 报告
+                        完整对比报告 (703 行)
                     </a>
-                    <a href="../research/oh-my-opencode.md" class="btn btn-large btn-white">
+                    <a href="https://github.com/Devil-SX/code-agent-migration/blob/main/MIGRATION_QUICK_REFERENCE.md" class="btn btn-large btn-white">
                         <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                            <path d="M10 2L2 6L10 10L18 6L10 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M2 14L10 18L18 14M2 10L10 14L18 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M10 2V18M10 2L4 8M10 2L16 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
-                        Oh My OpenCode 报告
+                        快速参考指南 (371 行)
                     </a>
-                    <a href="../research/comparison.md" class="btn btn-large btn-outlined">
+                    <a href="https://github.com/Devil-SX/code-agent-migration" class="btn btn-large btn-outlined">
                         <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                            <path d="M8 2H2V8M18 2H12V8M8 18H2V12M18 18H12V12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M10 2C5.58172 2 2 5.58172 2 10C2 13.5397 4.29203 16.5317 7.47065 17.5957C7.87065 17.6697 8.01672 17.4197 8.01672 17.1997C8.01672 17.0037 8.00872 16.4157 8.00472 15.7917C5.67272 16.2717 5.20472 14.7117 5.20472 14.7117C4.84072 13.7917 4.31472 13.5437 4.31472 13.5437C3.59072 13.0477 4.36872 13.0597 4.36872 13.0597C5.16872 13.1157 5.58872 13.8837 5.58872 13.8837C6.30072 15.0917 7.46072 14.7397 8.03272 14.5277C8.10472 14.0077 8.32072 13.6557 8.56072 13.4477C6.84672 13.2397 5.05272 12.5477 5.05272 9.47772C5.05272 8.60372 5.36472 7.89172 5.60472 7.33172C5.52472 7.11972 5.23672 6.30372 5.68872 5.20372C5.68872 5.20372 6.36072 4.98172 7.99672 6.08172C8.64672 5.89172 9.33672 5.79572 10.0267 5.79172C10.7167 5.79572 11.4067 5.89172 12.0567 6.08172C13.6927 4.98172 14.3647 5.20372 14.3647 5.20372C14.8167 6.30372 14.5287 7.11972 14.4487 7.33172C14.6887 7.89172 14.9967 8.60372 14.9967 9.47772C14.9967 12.5557 13.1967 13.2357 11.4767 13.4397C11.7727 13.7037 12.0407 14.2277 12.0407 15.0277C12.0407 16.1517 12.0327 17.0557 12.0327 17.1997C12.0327 17.4237 12.1767 17.6757 12.5847 17.5957C15.7633 16.5317 18 13.5397 18 10C18 5.58172 14.4183 2 10 2Z" stroke="currentColor" stroke-width="0.5" fill="currentColor"/>
                         </svg>
-                        详细对比
+                        GitHub 仓库
                     </a>
                 </div>
             </div>
@@ -632,34 +606,33 @@
                 <div class="footer-section">
                     <h4>关于项目</h4>
                     <p>
-                        本研究项目深入分析了 OpenCode 和 Oh My OpenCode 两个开源 AI 编码智能体项目，
-                        旨在帮助开发者做出明智的技术选择。
+                        本项目对比了 Claude Code CLI、Codex CLI、OpenCode 和 Kimi Code CLI 四个主流 AI 编程工具的配置差异，
+                        提供详细的迁移指南和自动化工具。
                     </p>
                 </div>
                 <div class="footer-section">
-                    <h4>快速链接</h4>
+                    <h4>核心资源</h4>
                     <ul class="footer-links">
-                        <li><a href="https://github.com/anomalyco/opencode">OpenCode GitHub</a></li>
-                        <li><a href="https://github.com/code-yeongyu/oh-my-opencode">Oh My OpenCode GitHub</a></li>
-                        <li><a href="https://opencode.ai">OpenCode 官网</a></li>
-                        <li><a href="https://discord.gg/opencode">OpenCode Discord</a></li>
+                        <li><a href="https://github.com/Devil-SX/code-agent-migration/blob/main/CLI_TOOLS_CONFIG_COMPARISON.md">完整对比报告 (703 行)</a></li>
+                        <li><a href="https://github.com/Devil-SX/code-agent-migration/blob/main/MIGRATION_QUICK_REFERENCE.md">快速参考指南 (371 行)</a></li>
+                        <li><a href="https://github.com/Devil-SX/code-agent-migration/blob/main/EXAMPLES.md">迁移示例</a></li>
+                        <li><a href="https://github.com/Devil-SX/code-agent-migration/tree/main/tools">自动化工具</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
-                    <h4>资源</h4>
+                    <h4>官方文档</h4>
                     <ul class="footer-links">
-                        <li><a href="../research/opencode.md">OpenCode 研究报告</a></li>
-                        <li><a href="../research/oh-my-opencode.md">Oh My OpenCode 研究报告</a></li>
-                        <li><a href="../research/comparison.md">详细对比分析</a></li>
-                        <li><a href="../README.md">项目文档</a></li>
+                        <li><a href="https://code.claude.com">Claude Code CLI</a></li>
+                        <li><a href="https://openai.com/codex">Codex CLI (OpenAI)</a></li>
+                        <li><a href="https://github.com/anomalyco/opencode">OpenCode (GitHub)</a></li>
+                        <li><a href="https://kimi.moonshot.ai">Kimi Code CLI</a></li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 AI Coding Agents Research. 最后更新: 2026年2月25日</p>
+                <p>&copy; 2026 CLI 工具配置对比项目. 最后更新: 2026年2月25日</p>
                 <p>
-                    <a href="https://github.com/anomalyco/opencode">OpenCode</a> (MIT) • 
-                    <a href="https://github.com/code-yeongyu/oh-my-opencode">Oh My OpenCode</a> (SUL-1.0)
+                    本项目为开源社区贡献，遵循 MIT 协议
                 </p>
             </div>
         </div>

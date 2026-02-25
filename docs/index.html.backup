@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>AI 编程 CLI 工具配置对比 | Claude Code vs Codex vs OpenCode vs Kimi</title>
+    <meta name="description" content="全面对比 Claude Code CLI、Codex CLI、OpenCode 和 Kimi Code CLI 的配置差异：系统提示、Session 存储、插件系统、命令行参数，帮助开发者平滑迁移。">
+    <meta name="keywords" content="Claude Code, Codex CLI, OpenCode, Kimi Code, AI 编程, CLI 工具, 配置迁移, CLAUDE.md, AGENTS.md, MCP, system prompt, oh-my-opencode">
+    <meta name="author" content="Devil-SX">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="zh-CN">
+    <link rel="canonical" href="https://devil-sx.github.io/code-agent-migration/">
+    
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://devil-sx.github.io/code-agent-migration/">
+    <meta property="og:title" content="AI 编程 CLI 工具配置对比 | Claude Code vs Codex vs OpenCode vs Kimi">
+    <meta property="og:description" content="全面对比四大主流 AI 编程 CLI 工具的配置差异，提供迁移指南和最佳实践。">
+    <meta property="og:site_name" content="AI CLI 工具配置对比">
+    <meta property="og:locale" content="zh_CN">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://devil-sx.github.io/code-agent-migration/">
+    <meta name="twitter:title" content="AI 编程 CLI 工具配置对比">
+    <meta name="twitter:description" content="Claude Code vs Codex vs OpenCode vs Kimi - 配置差异与迁移指南">
+    
+    <meta name="theme-color" content="#667eea">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="AI Coding Agents">
+    
+    <meta name="format-detection" content="telephone=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "headline": "AI 编程 CLI 工具配置对比与迁移指南",
+      "description": "全面对比 Claude Code CLI、Codex CLI、OpenCode 和 Kimi Code CLI 的配置差异",
+      "author": {"@type": "Person", "name": "Devil-SX"},
+      "datePublished": "2026-02-25",
+      "inLanguage": "zh-CN"
+    }
+    </script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <svg class="logo-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="4" y="4" width="32" height="32" rx="6" stroke="currentColor" stroke-width="2"/>
+                    <path d="M12 20L18 26L28 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span>AI Coding Agents Research</span>
+            </div>
+            <div class="nav-links">
+                <a href="#overview">概览</a>
+                <a href="#comparison">对比</a>
+                <a href="#architecture">架构</a>
+                <a href="#performance">性能</a>
+                <a href="https://github.com/anomalyco/opencode" target="_blank">GitHub</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    <span class="gradient-text">OpenCode & Oh My OpenCode</span>
+                    <br>深度研究与对比分析
+                </h1>
+                <p class="hero-subtitle">
+                    探索开源 AI 编码智能体的前沿技术与最佳实践
+                </p>
+                <div class="hero-stats">
+                    <div class="stat-card">
+                        <div class="stat-value">110K+</div>
+                        <div class="stat-label">GitHub Stars</div>
+                        <div class="stat-project">OpenCode</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">34K+</div>
+                        <div class="stat-label">GitHub Stars</div>
+                        <div class="stat-project">Oh My OpenCode</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">2.5M+</div>
+                        <div class="stat-label">月活开发者</div>
+                        <div class="stat-project">Combined</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hero-bg"></div>
+    </section>
+
+    <!-- Overview Section -->
+    <section id="overview" class="section">
+        <div class="container">
+            <h2 class="section-title">项目概览</h2>
+            <div class="overview-grid">
+                <!-- OpenCode Card -->
+                <div class="project-card opencode-card">
+                    <div class="card-header">
+                        <div class="card-icon opencode-icon">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M4 6H20M4 12H20M4 18H20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3>OpenCode</h3>
+                            <p class="card-subtitle">开源 AI 编码智能体</p>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-description">
+                            100% 开源的 AI 编码智能体，支持 75+ LLM 提供商，提供 LSP 支持和客户端/服务器架构。
+                        </p>
+                        <div class="card-features">
+                            <div class="feature-tag">提供商无关</div>
+                            <div class="feature-tag">LSP 集成</div>
+                            <div class="feature-tag">TUI 优先</div>
+                            <div class="feature-tag">MIT 协议</div>
+                        </div>
+                        <div class="card-metrics">
+                            <div class="metric">
+                                <span class="metric-label">Stars</span>
+                                <span class="metric-value">110K+</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-label">Contributors</span>
+                                <span class="metric-value">771+</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-label">月活用户</span>
+                                <span class="metric-value">2.5M+</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <a href="https://github.com/anomalyco/opencode" target="_blank" class="btn btn-primary">
+                            查看项目
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                <path d="M6 3L11 8L6 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                        <a href="../research/opencode.md" class="btn btn-secondary">研究报告</a>
+                    </div>
+                </div>
+
+                <!-- Oh My OpenCode Card -->
+                <div class="project-card omoc-card">
+                    <div class="card-header">
+                        <div class="card-icon omoc-icon">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3>Oh My OpenCode</h3>
+                            <p class="card-subtitle">多模型智能体编排工具</p>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-description">
+                            OpenCode 的增强层，提供专业智能体编排、哈希锚定编辑和开箱即用的高级功能。
+                        </p>
+                        <div class="card-features">
+                            <div class="feature-tag">智能体编排</div>
+                            <div class="feature-tag">Ultrawork 模式</div>
+                            <div class="feature-tag">哈希锚定编辑</div>
+                            <div class="feature-tag">Claude Code 兼容</div>
+                        </div>
+                        <div class="card-metrics">
+                            <div class="metric">
+                                <span class="metric-label">Stars</span>
+                                <span class="metric-value">34K+</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-label">Contributors</span>
+                                <span class="metric-value">130+</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-label">成功率提升</span>
+                                <span class="metric-value">10x+</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <a href="https://github.com/code-yeongyu/oh-my-opencode" target="_blank" class="btn btn-primary">
+                            查看项目
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                <path d="M6 3L11 8L6 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                        <a href="../research/oh-my-opencode.md" class="btn btn-secondary">研究报告</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Relationship Section -->
+    <section class="section bg-gradient">
+        <div class="container">
+            <div class="relationship-box">
+                <h2 class="section-title">项目关系</h2>
+                <div class="relationship-content">
+                    <div class="relationship-text">
+                        <p class="lead">
+                            <strong>Oh My OpenCode</strong> 是 <strong>OpenCode</strong> 的插件/扩展层
+                        </p>
+                        <div class="analogy">
+                            <div class="analogy-item">
+                                <span class="analogy-label">OpenCode</span>
+                                <span class="analogy-symbol">≈</span>
+                                <span class="analogy-value">Debian / Arch</span>
+                            </div>
+                            <div class="analogy-item">
+                                <span class="analogy-label">Oh My OpenCode</span>
+                                <span class="analogy-symbol">≈</span>
+                                <span class="analogy-value">Ubuntu / Omarchy</span>
+                            </div>
+                        </div>
+                        <p>
+                            Oh My OpenCode 在 OpenCode 基础上提供开箱即用的智能体编排、
+                            优化的工作流程和预配置的工具集成。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Section -->
+    <section id="comparison" class="section">
+        <div class="container">
+            <h2 class="section-title">功能对比</h2>
+            <div class="comparison-table-wrapper">
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>功能维度</th>
+                            <th>OpenCode</th>
+                            <th>Oh My OpenCode</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>智能体系统</strong></td>
+                            <td>
+                                <div class="feature-list">
+                                    <span class="check">✓</span> Build Agent<br>
+                                    <span class="check">✓</span> Plan Agent<br>
+                                    <span class="check">✓</span> General Subagent
+                                </div>
+                            </td>
+                            <td>
+                                <div class="feature-list highlight">
+                                    <span class="check">✓</span> Sisyphus (编排者)<br>
+                                    <span class="check">✓</span> Hephaestus (工作者)<br>
+                                    <span class="check">✓</span> Prometheus (规划者)<br>
+                                    <span class="check">✓</span> Oracle (顾问)<br>
+                                    <span class="check">✓</span> Librarian (检索)<br>
+                                    <span class="check">✓</span> Explore (探索)
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>编辑工具</strong></td>
+                            <td>标准文件编辑 + LSP</td>
+                            <td class="highlight">
+                                <strong>Hash-Anchored Edits</strong><br>
+                                <small>成功率 6.7% → 68.3%</small>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>工作流程</strong></td>
+                            <td>对话式编程</td>
+                            <td class="highlight">
+                                Ultrawork + Ralph Loop<br>
+                                <small>一键启动，自动完成</small>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>工具集成</strong></td>
+                            <td>LSP + 基础 MCP</td>
+                            <td class="highlight">
+                                LSP + AST-Grep + Tmux<br>
+                                + 3个内置 MCP
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>技能系统</strong></td>
+                            <td>基础配置</td>
+                            <td class="highlight">
+                                内置 3+ 专业技能<br>
+                                <small>playwright, git-master, frontend-ui-ux</small>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>上下文管理</strong></td>
+                            <td>手动管理</td>
+                            <td class="highlight">
+                                /init-deep 自动生成<br>
+                                <small>分层 AGENTS.md</small>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>并行执行</strong></td>
+                            <td>基础异步支持</td>
+                            <td class="highlight">
+                                5+ 智能体并行<br>
+                                <small>后台任务管理</small>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>模型编排</strong></td>
+                            <td>手动选择</td>
+                            <td class="highlight">
+                                Category-Based 自动选择<br>
+                                <small>visual, ultrabrain, quick...</small>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="comparison-cta">
+                <a href="../research/comparison.md" class="btn btn-large btn-primary">
+                    查看详细对比报告
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path d="M7 4L14 10L7 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Architecture Section -->
+    <section id="architecture" class="section bg-dark">
+        <div class="container">
+            <h2 class="section-title">架构对比</h2>
+            <div class="architecture-grid">
+                <div class="architecture-card">
+                    <h3>OpenCode 架构</h3>
+                    <div class="architecture-diagram">
+                        <div class="arch-layer">
+                            <div class="arch-box">Client (TUI/Desktop)</div>
+                        </div>
+                        <div class="arch-arrow">↓</div>
+                        <div class="arch-layer">
+                            <div class="arch-box">Server Core</div>
+                        </div>
+                        <div class="arch-arrow">↓</div>
+                        <div class="arch-layer">
+                            <div class="arch-box">LLM Provider</div>
+                        </div>
+                    </div>
+                    <p class="architecture-desc">
+                        简洁的客户端/服务器架构，专注于核心功能和灵活性。
+                    </p>
+                </div>
+
+                <div class="architecture-card highlight">
+                    <h3>Oh My OpenCode 架构</h3>
+                    <div class="architecture-diagram">
+                        <div class="arch-layer">
+                            <div class="arch-box">Client (TUI/Desktop/IDE)</div>
+                        </div>
+                        <div class="arch-arrow">↓</div>
+                        <div class="arch-layer multi">
+                            <div class="arch-box highlight">
+                                <strong>Oh My OpenCode Layer</strong>
+                                <small>Orchestration • Skills • MCPs</small>
+                            </div>
+                        </div>
+                        <div class="arch-arrow">↓</div>
+                        <div class="arch-layer">
+                            <div class="arch-box">OpenCode Core</div>
+                        </div>
+                        <div class="arch-arrow">↓</div>
+                        <div class="arch-layer">
+                            <div class="arch-box">Multiple LLM Providers</div>
+                        </div>
+                    </div>
+                    <p class="architecture-desc">
+                        在 OpenCode 基础上添加智能编排层，提供企业级功能。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Performance Section -->
+    <section id="performance" class="section">
+        <div class="container">
+            <h2 class="section-title">性能数据</h2>
+            
+            <!-- Efficiency Chart -->
+            <div class="performance-grid">
+                <div class="performance-card">
+                    <h3>开发效率对比</h3>
+                    <div class="chart-container">
+                        <div class="bar-chart">
+                            <div class="bar-item">
+                                <div class="bar-label">人工开发</div>
+                                <div class="bar-wrapper">
+                                    <div class="bar bar-human" style="width: 100%;">
+                                        <span>3 个月</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bar-item">
+                                <div class="bar-label">Claude Code</div>
+                                <div class="bar-wrapper">
+                                    <div class="bar bar-claude" style="width: 80%;">
+                                        <span>7 天</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bar-item">
+                                <div class="bar-label">Sisyphus (OmO)</div>
+                                <div class="bar-wrapper">
+                                    <div class="bar bar-sisyphus" style="width: 15%;">
+                                        <span>1 小时</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="chart-note">
+                        相同功能开发所需时间对比（越短越好）
+                    </p>
+                </div>
+
+                <div class="performance-card">
+                    <h3>编辑成功率提升</h3>
+                    <div class="metric-comparison">
+                        <div class="metric-item">
+                            <div class="metric-bar">
+                                <div class="metric-fill" style="width: 6.7%;"></div>
+                            </div>
+                            <div class="metric-info">
+                                <span class="metric-label">标准编辑工具</span>
+                                <span class="metric-value">6.7%</span>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-bar">
+                                <div class="metric-fill success" style="width: 68.3%;"></div>
+                            </div>
+                            <div class="metric-info">
+                                <span class="metric-label">Hash-Anchored Edit</span>
+                                <span class="metric-value success">68.3%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="improvement-badge">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 4L12 20M12 4L6 10M12 4L18 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <span>提升 <strong>10倍+</strong></span>
+                    </div>
+                    <p class="chart-note">
+                        Grok Code Fast 1 基准测试结果
+                    </p>
+                </div>
+            </div>
+
+            <!-- Community Stats -->
+            <div class="stats-grid">
+                <div class="stat-box">
+                    <div class="stat-icon">
+                        <svg viewBox="0 0 24 24" fill="none">
+                            <path d="M17 21V19C17 17.9391 16.5786 16.9217 15.8284 16.1716C15.0783 15.4214 14.0609 15 13 15H5C3.93913 15 2.92172 15.4214 2.17157 16.1716C1.42143 16.9217 1 17.9391 1 19V21M23 21V19C22.9993 18.1137 22.7044 17.2528 22.1614 16.5523C21.6184 15.8519 20.8581 15.3516 20 15.13M16 3.13C16.8604 3.3503 17.623 3.8507 18.1676 4.55231C18.7122 5.25392 19.0078 6.11683 19.0078 7.005C19.0078 7.89317 18.7122 8.75608 18.1676 9.45769C17.623 10.1593 16.8604 10.6597 16 10.88M13 7C13 9.20914 11.2091 11 9 11C6.79086 11 5 9.20914 5 7C5 4.79086 6.79086 3 9 3C11.2091 3 13 4.79086 13 7Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <div class="stat-content">
+                        <div class="stat-number">900+</div>
+                        <div class="stat-text">总贡献者</div>
+                    </div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-icon">
+                        <svg viewBox="0 0 24 24" fill="none">
+                            <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <div class="stat-content">
+                        <div class="stat-number">144K+</div>
+                        <div class="stat-text">GitHub Stars</div>
+                    </div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-icon">
+                        <svg viewBox="0 0 24 24" fill="none">
+                            <path d="M16 21V5C16 4.46957 15.7893 3.96086 15.4142 3.58579C15.0391 3.21071 14.5304 3 14 3H10C9.46957 3 8.96086 3.21071 8.58579 3.58579C8.21071 3.96086 8 4.46957 8 5V21M4 7H20M4 7C4 6.46957 4.21071 5.96086 4.58579 5.58579C4.96086 5.21071 5.46957 5 6 5H18C18.5304 5 19.0391 5.21071 19.4142 5.58579C19.7893 5.96086 20 6.46957 20 7V19C20 19.5304 19.7893 20.0391 19.4142 20.4142C19.0391 20.7893 18.5304 21 18 21H6C5.46957 21 4.96086 20.7893 4.58579 20.4142C4.21071 20.0391 4 19.5304 4 19V7Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <div class="stat-content">
+                        <div class="stat-number">10K+</div>
+                        <div class="stat-text">总提交数</div>
+                    </div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-icon">
+                        <svg viewBox="0 0 24 24" fill="none">
+                            <path d="M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="currentColor" stroke-width="2"/>
+                            <path d="M12 6V12L16 14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <div class="stat-content">
+                        <div class="stat-number">2.5M+</div>
+                        <div class="stat-text">月活用户</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Use Cases Section -->
+    <section class="section bg-light">
+        <div class="container">
+            <h2 class="section-title">实际案例</h2>
+            <div class="cases-grid">
+                <div class="case-card">
+                    <div class="case-icon">💡</div>
+                    <h3>大规模代码修复</h3>
+                    <blockquote>
+                        "Knocked out 8000 eslint warnings with Oh My Opencode, just in a day"
+                    </blockquote>
+                    <p class="case-author">— Jacob Ferrari</p>
+                    <div class="case-metrics">
+                        <span class="case-metric">8000 warnings</span>
+                        <span class="case-metric">1 day</span>
+                    </div>
+                </div>
+
+                <div class="case-card">
+                    <div class="case-icon">🚀</div>
+                    <h3>应用架构迁移</h3>
+                    <blockquote>
+                        "I converted a 45k line tauri app into a SaaS web app overnight using Ohmyopencode and ralph loop."
+                    </blockquote>
+                    <p class="case-author">— James Hargis</p>
+                    <div class="case-metrics">
+                        <span class="case-metric">45K lines</span>
+                        <span class="case-metric">Overnight</span>
+                    </div>
+                </div>
+
+                <div class="case-card">
+                    <div class="case-icon">⚡</div>
+                    <h3>生产力革命</h3>
+                    <blockquote>
+                        "It made me cancel my Cursor subscription. Unbelievable things are happening in the open source community."
+                    </blockquote>
+                    <p class="case-author">— Arthur Guiot</p>
+                    <div class="case-metrics">
+                        <span class="case-metric">Open Source</span>
+                        <span class="case-metric">No Vendor Lock-in</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section cta-section">
+        <div class="container">
+            <div class="cta-box">
+                <h2>探索完整研究报告</h2>
+                <p>深入了解 OpenCode 和 Oh My OpenCode 的技术细节、最佳实践和使用建议</p>
+                <div class="cta-buttons">
+                    <a href="../research/opencode.md" class="btn btn-large btn-white">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M10 2V18M10 2L4 8M10 2L16 8M10 18L4 12M10 18L16 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        OpenCode 报告
+                    </a>
+                    <a href="../research/oh-my-opencode.md" class="btn btn-large btn-white">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M10 2L2 6L10 10L18 6L10 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M2 14L10 18L18 14M2 10L10 14L18 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        Oh My OpenCode 报告
+                    </a>
+                    <a href="../research/comparison.md" class="btn btn-large btn-outlined">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M8 2H2V8M18 2H12V8M8 18H2V12M18 18H12V12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        详细对比
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>关于项目</h4>
+                    <p>
+                        本研究项目深入分析了 OpenCode 和 Oh My OpenCode 两个开源 AI 编码智能体项目，
+                        旨在帮助开发者做出明智的技术选择。
+                    </p>
+                </div>
+                <div class="footer-section">
+                    <h4>快速链接</h4>
+                    <ul class="footer-links">
+                        <li><a href="https://github.com/anomalyco/opencode">OpenCode GitHub</a></li>
+                        <li><a href="https://github.com/code-yeongyu/oh-my-opencode">Oh My OpenCode GitHub</a></li>
+                        <li><a href="https://opencode.ai">OpenCode 官网</a></li>
+                        <li><a href="https://discord.gg/opencode">OpenCode Discord</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>资源</h4>
+                    <ul class="footer-links">
+                        <li><a href="../research/opencode.md">OpenCode 研究报告</a></li>
+                        <li><a href="../research/oh-my-opencode.md">Oh My OpenCode 研究报告</a></li>
+                        <li><a href="../research/comparison.md">详细对比分析</a></li>
+                        <li><a href="../README.md">项目文档</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 AI Coding Agents Research. 最后更新: 2026年2月25日</p>
+                <p>
+                    <a href="https://github.com/anomalyco/opencode">OpenCode</a> (MIT) • 
+                    <a href="https://github.com/code-yeongyu/oh-my-opencode">Oh My OpenCode</a> (SUL-1.0)
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
