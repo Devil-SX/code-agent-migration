@@ -10,6 +10,19 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [0.1.2] - 2026-02-26
 
+## [0.1.3] - 2026-02-26
+
+### Added
+
+- Added `docs/citations/local-cli/` snapshots for `codex`, `claude`, `opencode`, and `kimi` command help output captured on 2026-02-26.
+- Added 12 command-category claims for permission bypass, resume context, and non-interactive execution coverage across all four CLIs.
+- Added 4 new local CLI citation sources (`SRC-019` to `SRC-022`) and bound them to command category claims.
+
+### Changed
+
+- Added a new command-category comparison matrix in `docs/index.html` with per-cell claim citations.
+- Updated `docs/content/config-comparison.md` Section 5 to align command guidance with current CLI flags and session controls.
+
 ### Added
 
 - Added `docs/pages/verification_report.js` and rebuilt `docs/pages/verification-report.html` as a structured verification dashboard sourced from `claims.json` and `sources.json`.

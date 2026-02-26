@@ -211,47 +211,47 @@
 
 ### 通用模式对比
 
-| 功能 | Claude Code | Codex CLI | OpenCode | Kimi Code |
+| 分类 | Claude Code | Codex CLI | OpenCode | Kimi Code |
 |------|-------------|-----------|----------|-----------|
-| **Headless 模式** | `--headless` | `-` | `opencode serve`, `opencode run` | `-` |
-| **危险跳过权限** | `--dangerous-skip` | 配置文件 | `--dangerously-skip-permissions` (提案中) | `default_yolo` |
-| **输出格式** | `-p` | `-` | `-o` | `-` |
-| **恢复 Session** | `/resume` | `codex resume [--all]` | `opencode --resume` | `-` |
-| **指定目录** | `--cwd` | `--cd`, `--add-dir` | `-` | `-` |
-| **配置覆盖** | `-` | `-c key=value` | `-` | `-` |
+| **跳过许可 / 自动批准** | `--dangerously-skip-permissions` | `--dangerously-bypass-approvals-and-sandbox` | help 未列出统一 yolo/danger 开关 | `--yolo` / `-y` |
+| **恢复上下文 / 会话续接** | `-c --continue`, `-r --resume`, `--fork-session` | `codex resume`, `--last`, `fork` | `-c --continue`, `-s --session`, `--fork` | `--session -S`, `--continue -C` |
+| **非交互执行** | `-p --print` | `codex exec` | `opencode run [message..]` | `--print`（隐式加 `--yolo`） |
+| **指定工作目录** | 依赖当前目录 + `--add-dir` | `--cd`, `--add-dir` | `opencode [project]`, `run --dir` | `--work-dir -w` |
+| **配置覆盖** | `--settings`, `--setting-sources` | `-c key=value`, `--profile` | 主要通过配置文件 + 运行参数 | `--config`, `--config-file` |
 
 ### Claude Code CLI 常用参数
 ```bash
-claude --headless -p <prompt>        # 无交互模式
-claude --dangerous-skip              # 跳过权限检查
-claude /resume                       # 恢复会话
+claude --dangerously-skip-permissions -p "review this diff"
+claude -c --fork-session
+claude -r <session-id>
 ```
 
 ### Codex CLI 常用参数
 ```bash
-codex -c model=gpt-5.3-codex        # 临时覆盖配置
-codex resume --last                 # 恢复最后会话
-codex --cd /path/to/project        # 指定工作目录
-codex --add-dir /extra/path        # 添加访问路径
+codex exec "summarize repo status"      # 非交互执行
+codex resume --last                     # 恢复最后会话
+codex --dangerously-bypass-approvals-and-sandbox
+codex --cd /path/to/project --add-dir /extra/path
 ```
 
 ### OpenCode 常用参数
 ```bash
-opencode serve                      # HTTP 服务器模式
-opencode run "prompt"               # 编程式执行
-opencode --resume <session-id>     # 恢复会话
+opencode run "summarize repository changes"
+opencode run --session abc123 --fork "continue and refactor"
+opencode serve --port 4096
 ```
 
 ### Kimi Code CLI 常用参数
 ```bash
-kimi /login                         # 登录配置向导
-kimi /model                         # 模型选择
+kimi --print --prompt "review this file"
+kimi --session <session-id> --continue
+kimi --yolo --print --prompt "apply formatting fixes"
 ```
 
 **迁移建议**:
-- 脚本化工作流需要重写命令行调用
-- Claude Code 和 OpenCode 的危险模式参数名称几乎一致
-- Codex 的配置覆盖 (`-c`) 是独特的，很方便
+- 先按「权限 / 恢复 / 非交互」三类重写脚本，而不是按工具逐条平移。
+- 从交互流迁移到自动化流水线时，优先统一 `print/exec/run` 的调用契约。
+- 对于自动批准选项（`--dangerously-*`、`--yolo`），必须在外层 CI 沙箱策略下使用。
 
 ---
 

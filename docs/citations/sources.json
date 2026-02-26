@@ -199,6 +199,50 @@
       "accessed_at": "2026-02-26T00:00:00Z",
       "evidence_snippet": "Claude Sonnet 3.5 lists a 200K context window.",
       "status": "active"
+    },
+    {
+      "source_id": "SRC-019",
+      "citation_number": 19,
+      "title": "Codex CLI local help snapshot",
+      "url": "citations/local-cli/codex-help-2026-02-26.txt",
+      "publisher": "Local CLI capture",
+      "source_type": "local_cli_help",
+      "accessed_at": "2026-02-26T06:30:00Z",
+      "evidence_snippet": "codex exec Run Codex non-interactively; --dangerously-bypass-approvals-and-sandbox; codex resume.",
+      "status": "active"
+    },
+    {
+      "source_id": "SRC-020",
+      "citation_number": 20,
+      "title": "Claude Code CLI local help snapshot",
+      "url": "citations/local-cli/claude-help-2026-02-26.txt",
+      "publisher": "Local CLI capture",
+      "source_type": "local_cli_help",
+      "accessed_at": "2026-02-26T06:30:00Z",
+      "evidence_snippet": "--dangerously-skip-permissions; -c/--continue; -r/--resume; -p/--print.",
+      "status": "active"
+    },
+    {
+      "source_id": "SRC-021",
+      "citation_number": 21,
+      "title": "OpenCode CLI local help snapshot",
+      "url": "citations/local-cli/opencode-help-2026-02-26.txt",
+      "publisher": "Local CLI capture",
+      "source_type": "local_cli_help",
+      "accessed_at": "2026-02-26T06:30:00Z",
+      "evidence_snippet": "opencode run [message..]; -c/--continue; -s/--session; --fork; no yolo/danger skip flag listed.",
+      "status": "active"
+    },
+    {
+      "source_id": "SRC-022",
+      "citation_number": 22,
+      "title": "Kimi CLI local help snapshot",
+      "url": "citations/local-cli/kimi-help-2026-02-26.txt",
+      "publisher": "Local CLI capture",
+      "source_type": "local_cli_help",
+      "accessed_at": "2026-02-26T06:30:00Z",
+      "evidence_snippet": "--yolo auto-approves actions; --session/-S; --continue/-C; --print for non-interactive mode.",
+      "status": "active"
     }
   ]
 }

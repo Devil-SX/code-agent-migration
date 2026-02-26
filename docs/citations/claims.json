@@ -578,6 +578,222 @@
       ],
       "last_verified_at": "2026-02-26T00:00:00Z",
       "notes": "skills 能力可证实，但具体迁移映射属于实践建议，官方未给逐步保证。"
+    },
+    {
+      "claim_id": "CLAIM-CMD-PERM-CLAUDE",
+      "concept": "Claude CLI exposes a dangerous permission bypass flag.",
+      "site_snippet": "--dangerously-skip-permissions",
+      "locations": [
+        {
+          "file": "docs/index.html",
+          "selector": "[data-claim-id*='CLAIM-CMD-PERM-CLAUDE']"
+        }
+      ],
+      "verification_status": "verified",
+      "evidence_level": "L2_LOCAL_TOOLING",
+      "source_ids": [
+        "SRC-020"
+      ],
+      "last_verified_at": "2026-02-26T06:30:00Z",
+      "notes": "Verified against local CLI --help snapshot captured on 2026-02-26."
+    },
+    {
+      "claim_id": "CLAIM-CMD-PERM-CODEX",
+      "concept": "Codex CLI provides a bypass flag for approvals and sandbox.",
+      "site_snippet": "--dangerously-bypass-approvals-and-sandbox",
+      "locations": [
+        {
+          "file": "docs/index.html",
+          "selector": "[data-claim-id*='CLAIM-CMD-PERM-CODEX']"
+        }
+      ],
+      "verification_status": "verified",
+      "evidence_level": "L2_LOCAL_TOOLING",
+      "source_ids": [
+        "SRC-019"
+      ],
+      "last_verified_at": "2026-02-26T06:30:00Z",
+      "notes": "Verified against local CLI --help snapshot captured on 2026-02-26."
+    },
+    {
+      "claim_id": "CLAIM-CMD-PERM-OPENCODE",
+      "concept": "OpenCode help output does not list a single global yolo/danger skip-permission switch.",
+      "site_snippet": "未见统一 skip-permission 开关",
+      "locations": [
+        {
+          "file": "docs/index.html",
+          "selector": "[data-claim-id*='CLAIM-CMD-PERM-OPENCODE']"
+        }
+      ],
+      "verification_status": "partially_verified",
+      "evidence_level": "L2_LOCAL_TOOLING",
+      "source_ids": [
+        "SRC-021"
+      ],
+      "last_verified_at": "2026-02-26T06:30:00Z",
+      "notes": "Verified against local CLI --help snapshot captured on 2026-02-26."
+    },
+    {
+      "claim_id": "CLAIM-CMD-PERM-KIMI",
+      "concept": "Kimi CLI supports automatic approval via yolo option.",
+      "site_snippet": "--yolo / -y 自动批准",
+      "locations": [
+        {
+          "file": "docs/index.html",
+          "selector": "[data-claim-id*='CLAIM-CMD-PERM-KIMI']"
+        }
+      ],
+      "verification_status": "verified",
+      "evidence_level": "L2_LOCAL_TOOLING",
+      "source_ids": [
+        "SRC-022"
+      ],
+      "last_verified_at": "2026-02-26T06:30:00Z",
+      "notes": "Verified against local CLI --help snapshot captured on 2026-02-26."
+    },
+    {
+      "claim_id": "CLAIM-CMD-RESUME-CLAUDE",
+      "concept": "Claude CLI provides continue/resume/session fork options.",
+      "site_snippet": "-c/--continue, -r/--resume, --fork-session",
+      "locations": [
+        {
+          "file": "docs/index.html",
+          "selector": "[data-claim-id*='CLAIM-CMD-RESUME-CLAUDE']"
+        }
+      ],
+      "verification_status": "verified",
+      "evidence_level": "L2_LOCAL_TOOLING",
+      "source_ids": [
+        "SRC-020"
+      ],
+      "last_verified_at": "2026-02-26T06:30:00Z",
+      "notes": "Verified against local CLI --help snapshot captured on 2026-02-26."
+    },
+    {
+      "claim_id": "CLAIM-CMD-RESUME-CODEX",
+      "concept": "Codex CLI supports explicit session resume flow.",
+      "site_snippet": "codex resume with --last",
+      "locations": [
+        {
+          "file": "docs/index.html",
+          "selector": "[data-claim-id*='CLAIM-CMD-RESUME-CODEX']"
+        }
+      ],
+      "verification_status": "verified",
+      "evidence_level": "L2_LOCAL_TOOLING",
+      "source_ids": [
+        "SRC-019"
+      ],
+      "last_verified_at": "2026-02-26T06:30:00Z",
+      "notes": "Verified against local CLI --help snapshot captured on 2026-02-26."
+    },
+    {
+      "claim_id": "CLAIM-CMD-RESUME-OPENCODE",
+      "concept": "OpenCode supports continue/session/fork session options.",
+      "site_snippet": "-c/--continue, -s/--session, --fork",
+      "locations": [
+        {
+          "file": "docs/index.html",
+          "selector": "[data-claim-id*='CLAIM-CMD-RESUME-OPENCODE']"
+        }
+      ],
+      "verification_status": "verified",
+      "evidence_level": "L2_LOCAL_TOOLING",
+      "source_ids": [
+        "SRC-021"
+      ],
+      "last_verified_at": "2026-02-26T06:30:00Z",
+      "notes": "Verified against local CLI --help snapshot captured on 2026-02-26."
+    },
+    {
+      "claim_id": "CLAIM-CMD-RESUME-KIMI",
+      "concept": "Kimi supports explicit session id and continue flags.",
+      "site_snippet": "--session/-S and --continue/-C",
+      "locations": [
+        {
+          "file": "docs/index.html",
+          "selector": "[data-claim-id*='CLAIM-CMD-RESUME-KIMI']"
+        }
+      ],
+      "verification_status": "verified",
+      "evidence_level": "L2_LOCAL_TOOLING",
+      "source_ids": [
+        "SRC-022"
+      ],
+      "last_verified_at": "2026-02-26T06:30:00Z",
+      "notes": "Verified against local CLI --help snapshot captured on 2026-02-26."
+    },
+    {
+      "claim_id": "CLAIM-CMD-NONINTERACTIVE-CLAUDE",
+      "concept": "Claude provides print mode for non-interactive output.",
+      "site_snippet": "-p/--print",
+      "locations": [
+        {
+          "file": "docs/index.html",
+          "selector": "[data-claim-id*='CLAIM-CMD-NONINTERACTIVE-CLAUDE']"
+        }
+      ],
+      "verification_status": "verified",
+      "evidence_level": "L2_LOCAL_TOOLING",
+      "source_ids": [
+        "SRC-020"
+      ],
+      "last_verified_at": "2026-02-26T06:30:00Z",
+      "notes": "Verified against local CLI --help snapshot captured on 2026-02-26."
+    },
+    {
+      "claim_id": "CLAIM-CMD-NONINTERACTIVE-CODEX",
+      "concept": "Codex has an exec command for non-interactive runs.",
+      "site_snippet": "codex exec",
+      "locations": [
+        {
+          "file": "docs/index.html",
+          "selector": "[data-claim-id*='CLAIM-CMD-NONINTERACTIVE-CODEX']"
+        }
+      ],
+      "verification_status": "verified",
+      "evidence_level": "L2_LOCAL_TOOLING",
+      "source_ids": [
+        "SRC-019"
+      ],
+      "last_verified_at": "2026-02-26T06:30:00Z",
+      "notes": "Verified against local CLI --help snapshot captured on 2026-02-26."
+    },
+    {
+      "claim_id": "CLAIM-CMD-NONINTERACTIVE-OPENCODE",
+      "concept": "OpenCode run command executes message non-interactively.",
+      "site_snippet": "opencode run [message..]",
+      "locations": [
+        {
+          "file": "docs/index.html",
+          "selector": "[data-claim-id*='CLAIM-CMD-NONINTERACTIVE-OPENCODE']"
+        }
+      ],
+      "verification_status": "verified",
+      "evidence_level": "L2_LOCAL_TOOLING",
+      "source_ids": [
+        "SRC-021"
+      ],
+      "last_verified_at": "2026-02-26T06:30:00Z",
+      "notes": "Verified against local CLI --help snapshot captured on 2026-02-26."
+    },
+    {
+      "claim_id": "CLAIM-CMD-NONINTERACTIVE-KIMI",
+      "concept": "Kimi print mode is non-interactive and implies yolo.",
+      "site_snippet": "--print (implicitly adds --yolo)",
+      "locations": [
+        {
+          "file": "docs/index.html",
+          "selector": "[data-claim-id*='CLAIM-CMD-NONINTERACTIVE-KIMI']"
+        }
+      ],
+      "verification_status": "verified",
+      "evidence_level": "L2_LOCAL_TOOLING",
+      "source_ids": [
+        "SRC-022"
+      ],
+      "last_verified_at": "2026-02-26T06:30:00Z",
+      "notes": "Verified against local CLI --help snapshot captured on 2026-02-26."
     }
   ]
 }

@@ -372,10 +372,10 @@
                         <tr data-group="execution">
                             <td><strong>5. 命令行参数</strong></td>
                             <td><span class="group-tag">执行与权限</span></td>
-                            <td>--headless<br><small>--dangerous-skip</small></td>
-                            <td>-c key=value<br><small>--cd, --add-dir</small></td>
-                            <td>opencode serve<br><small>opencode run</small></td>
-                            <td>/login<br><small>/model 选择</small></td>
+                            <td>按执行模式分层<br><small>见下方命令矩阵</small></td>
+                            <td>权限 / 恢复 / 非交互<br><small>见下方命令矩阵</small></td>
+                            <td>会话参数集中<br><small>见下方命令矩阵</small></td>
+                            <td>会话 + print/yolo<br><small>见下方命令矩阵</small></td>
                         </tr>
                         <tr data-group="model">
                             <td><strong>6. LLM 提供商</strong></td>
@@ -467,6 +467,52 @@
                         <path d="M7 4L14 10L7 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
                 </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Command Category Matrix -->
+    <section id="command-matrix" class="section bg-light">
+        <div class="container">
+            <h2 class="section-title">命令执行模式对比（分类矩阵）</h2>
+            <p class="comparison-hint">
+                按 <strong>跳过许可</strong> / <strong>恢复上下文</strong> / <strong>非交互执行</strong> 三类拆分，所有单元格均绑定 claim 引用。
+            </p>
+            <div class="comparison-table-wrapper">
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>分类</th>
+                            <th>Claude Code</th>
+                            <th>Codex CLI</th>
+                            <th>OpenCode</th>
+                            <th>Kimi Code</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>跳过许可 / 自动批准</strong></td>
+                            <td data-claim-id="CLAIM-CMD-PERM-CLAUDE">--dangerously-skip-permissions<br><small>可绕过权限检查</small></td>
+                            <td data-claim-id="CLAIM-CMD-PERM-CODEX">--dangerously-bypass-approvals-and-sandbox<br><small>跳过审批与沙箱</small></td>
+                            <td data-claim-id="CLAIM-CMD-PERM-OPENCODE">未见统一 skip-permission 开关<br><small>help 以会话参数为主</small></td>
+                            <td data-claim-id="CLAIM-CMD-PERM-KIMI">--yolo / -y<br><small>自动批准全部动作</small></td>
+                        </tr>
+                        <tr>
+                            <td><strong>恢复上下文 / 会话续接</strong></td>
+                            <td data-claim-id="CLAIM-CMD-RESUME-CLAUDE">-c / --continue<br><small>-r / --resume, --fork-session</small></td>
+                            <td data-claim-id="CLAIM-CMD-RESUME-CODEX">codex resume<br><small>--last, fork previous session</small></td>
+                            <td data-claim-id="CLAIM-CMD-RESUME-OPENCODE">-c / --continue<br><small>-s / --session, --fork</small></td>
+                            <td data-claim-id="CLAIM-CMD-RESUME-KIMI">--session / -S<br><small>--continue / -C</small></td>
+                        </tr>
+                        <tr>
+                            <td><strong>非交互执行</strong></td>
+                            <td data-claim-id="CLAIM-CMD-NONINTERACTIVE-CLAUDE">-p / --print<br><small>print 模式直接输出</small></td>
+                            <td data-claim-id="CLAIM-CMD-NONINTERACTIVE-CODEX">codex exec<br><small>Run Codex non-interactively</small></td>
+                            <td data-claim-id="CLAIM-CMD-NONINTERACTIVE-OPENCODE">opencode run [message..]<br><small>run opencode with a message</small></td>
+                            <td data-claim-id="CLAIM-CMD-NONINTERACTIVE-KIMI">--print<br><small>non-interactive，且隐式启用 --yolo</small></td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </section>
