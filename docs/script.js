@@ -409,7 +409,7 @@ function createSourceCitationAnchor(source, status) {
 function createUnverifiedCitationAnchor(claim) {
     const anchor = document.createElement('a');
     anchor.className = `citation-link citation-${claim.verification_status || 'unverified'}`;
-    anchor.href = `citations/verification-report.md#${claim.claim_id.toLowerCase()}`;
+    anchor.href = `pages/verification-report.html#${claim.claim_id.toLowerCase()}`;
     anchor.target = '_blank';
     anchor.rel = 'noopener noreferrer';
     anchor.textContent = '[?]';

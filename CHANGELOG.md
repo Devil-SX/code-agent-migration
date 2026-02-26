@@ -6,6 +6,19 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased]
 
+## [0.1.1] - 2026-02-26
+
+### Added
+
+- Added `docs/pages/*` HTML documentation pages for comparison, migration, methodology, glossary, overview, project status, verification report, and citation data model.
+- Added shared page renderer assets: `docs/pages/markdown_page.js` and `docs/pages/page.css`.
+
+### Changed
+
+- Replaced all user-facing markdown navigation links in `docs/index.html` with HTML page routes under `docs/pages/`.
+- Updated unverified citation jump target in `docs/script.js` from markdown report to HTML verification page route.
+- Kept markdown files under `docs/content/*` and `docs/citations/*` as source material while making HTML pages the navigation surface.
+
 ### Added
 
 - Added a structured citation data model under `docs/citations/` with `sources.json`, `claims.json`, and a human-readable `verification-report.md`.
