@@ -1,0 +1,33 @@
+name: Citation Integrity Check
+
+on:
+  pull_request:
+    paths:
+      - 'docs/index.html'
+      - 'docs/citations/**'
+      - 'tools/check_citations.js'
+      - '.github/workflows/citation-check.yml'
+  push:
+    branches:
+      - master
+    paths:
+      - 'docs/index.html'
+      - 'docs/citations/**'
+      - 'tools/check_citations.js'
+      - '.github/workflows/citation-check.yml'
+  workflow_dispatch:
+
+jobs:
+  citation-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Validate citation registry
+        run: node tools/check_citations.js

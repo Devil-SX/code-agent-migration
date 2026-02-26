@@ -1,0 +1,583 @@
+{
+  "version": "1.0",
+  "claims": [
+    {
+      "claim_id": "CLAIM-CODEX-CUSTOM-PROMPTS-DEPRECATED",
+      "concept": "Codex custom prompts 已弃用，建议改用 skills。",
+      "site_snippet": "Custom prompts are deprecated. Use skills for reusable instructions.",
+      "locations": [
+        {
+          "file": "docs/index.html",
+          "selector": "[data-claim-id*='CLAIM-CODEX-CUSTOM-PROMPTS-DEPRECATED']"
+        }
+      ],
+      "verification_status": "verified",
+      "evidence_level": "L1_OFFICIAL",
+      "source_ids": [
+        "SRC-001"
+      ],
+      "last_verified_at": "2026-02-26T00:00:00Z",
+      "notes": "OpenAI Codex 官方文档已明确标记弃用。"
+    },
+    {
+      "claim_id": "CLAIM-CLAUDE-CLAUDEMD",
+      "concept": "Claude Code 使用 CLAUDE.md 作为项目/全局指令载体。",
+      "site_snippet": "系统提示：CLAUDE.md",
+      "locations": [
+        {
+          "file": "docs/index.html",
+          "selector": "[data-claim-id*='CLAIM-CLAUDE-CLAUDEMD']"
+        },
+        {
+          "file": "README.md",
+          "line": 17
+        },
+        {
+          "file": "CLI_TOOLS_CONFIG_COMPARISON.md",
+          "line": 18
+        }
+      ],
+      "verification_status": "verified",
+      "evidence_level": "L1_OFFICIAL",
+      "source_ids": [
+        "SRC-005"
+      ],
+      "last_verified_at": "2026-02-26T00:00:00Z",
+      "notes": "Anthropic memory 文档给出 CLAUDE.md 层级与位置。"
+    },
+    {
+      "claim_id": "CLAIM-CLAUDE-SKILLS-MCP",
+      "concept": "Claude Code 支持 skills 和 MCP。",
+      "site_snippet": "Skills + MCP",
+      "locations": [
+        {
+          "file": "docs/index.html",
+          "selector": "[data-claim-id*='CLAIM-CLAUDE-SKILLS-MCP']"
+        },
+        {
+          "file": "README.md",
+          "line": 140
+        },
+        {
+          "file": "MIGRATION_QUICK_REFERENCE.md",
+          "line": 12
+        }
+      ],
+      "verification_status": "verified",
+      "evidence_level": "L1_OFFICIAL",
+      "source_ids": [
+        "SRC-007",
+        "SRC-008"
+      ],
+      "last_verified_at": "2026-02-26T00:00:00Z",
+      "notes": "skills 与 MCP 分别由 Anthropic 官方文档描述。"
+    },
+    {
+      "claim_id": "CLAIM-CLAUDE-SETTINGS-JSON",
+      "concept": "Claude Code 主要配置文件为 settings.json。",
+      "site_snippet": "settings.json",
+      "locations": [
+        {
+          "file": "docs/index.html",
+          "selector": "[data-claim-id*='CLAIM-CLAUDE-SETTINGS-JSON']"
+        },
+        {
+          "file": "README.md",
+          "line": 17
+        },
+        {
+          "file": "EXAMPLES.md",
+          "line": 82
+        }
+      ],
+      "verification_status": "verified",
+      "evidence_level": "L1_OFFICIAL",
+      "source_ids": [
+        "SRC-006"
+      ],
+      "last_verified_at": "2026-02-26T00:00:00Z",
+      "notes": "Anthropic settings 页给出 `~/.claude/settings.json`。"
+    },
+    {
+      "claim_id": "CLAIM-CODEX-AGENTS",
+      "concept": "Codex 使用 AGENTS.md 提供自定义指令。",
+      "site_snippet": "支持 AGENTS.md 系统提示",
+      "locations": [
+        {
+          "file": "docs/index.html",
+          "selector": "[data-claim-id*='CLAIM-CODEX-AGENTS']"
+        },
+        {
+          "file": "README.md",
+          "line": 18
+        },
+        {
+          "file": "CLI_TOOLS_CONFIG_COMPARISON.md",
+          "line": 27
+        }
+      ],
+      "verification_status": "verified",
+      "evidence_level": "L1_OFFICIAL",
+      "source_ids": [
+        "SRC-002"
+      ],
+      "last_verified_at": "2026-02-26T00:00:00Z",
+      "notes": "OpenAI AGENTS.md 文档直接定义用途。"
+    },
+    {
+      "claim_id": "CLAIM-CODEX-SANDBOX",
+      "concept": "Codex 具备隔离沙箱执行能力。",
+      "site_snippet": "沙箱执行环境，严格隔离",
+      "locations": [
+        {
+          "file": "docs/index.html",
+          "selector": "[data-claim-id*='CLAIM-CODEX-SANDBOX']"
+        },
+        {
+          "file": "README.md",
+          "line": 154
+        },
+        {
+          "file": "EXAMPLES.md",
+          "line": 264
+        }
+      ],
+      "verification_status": "verified",
+      "evidence_level": "L1_OFFICIAL",
+      "source_ids": [
+        "SRC-003"
+      ],
+      "last_verified_at": "2026-02-26T00:00:00Z",
+      "notes": "OpenAI sandboxing 文档明确建议每个任务独立沙箱。"
+    },
+    {
+      "claim_id": "CLAIM-CODEX-CONFIG-TOML",
+      "concept": "Codex 配置文件为 `~/.codex/config.toml`。",
+      "site_snippet": "TOML / config.toml",
+      "locations": [
+        {
+          "file": "docs/index.html",
+          "selector": "[data-claim-id*='CLAIM-CODEX-CONFIG-TOML']"
+        },
+        {
+          "file": "README.md",
+          "line": 18
+        },
+        {
+          "file": "EXAMPLES.md",
+          "line": 94
+        }
+      ],
+      "verification_status": "verified",
+      "evidence_level": "L2_PRIMARY_REPO",
+      "source_ids": [
+        "SRC-004"
+      ],
+      "last_verified_at": "2026-02-26T00:00:00Z",
+      "notes": "来自 openai/codex 仓库 README。"
+    },
+    {
+      "claim_id": "CLAIM-CODEX-SESSIONS-DATE",
+      "concept": "Codex session 按 `YYYY/MM/DD` 层级存储。",
+      "site_snippet": "按日期分层 / YYYY/MM/DD",
+      "locations": [
+        {
+          "file": "docs/index.html",
+          "selector": "[data-claim-id*='CLAIM-CODEX-SESSIONS-DATE']"
+        },
+        {
+          "file": "MIGRATION_QUICK_REFERENCE.md",
+          "line": 10
+        },
+        {
+          "file": "CLI_TOOLS_CONFIG_COMPARISON.md",
+          "line": 75
+        }
+      ],
+      "verification_status": "verified",
+      "evidence_level": "L2_PRIMARY_REPO",
+      "source_ids": [
+        "SRC-004"
+      ],
+      "last_verified_at": "2026-02-26T00:00:00Z",
+      "notes": "openai/codex README 中包含目录结构示例。"
+    },
+    {
+      "claim_id": "CLAIM-OPENCODE-OPEN-SOURCE",
+      "concept": "OpenCode 为开源项目。",
+      "site_snippet": "100% 开源",
+      "locations": [
+        {
+          "file": "docs/index.html",
+          "selector": "[data-claim-id*='CLAIM-OPENCODE-OPEN-SOURCE']"
+        },
+        {
+          "file": "README.md",
+          "line": 19
+        }
+      ],
+      "verification_status": "verified",
+      "evidence_level": "L1_OFFICIAL",
+      "source_ids": [
+        "SRC-009"
+      ],
+      "last_verified_at": "2026-02-26T00:00:00Z",
+      "notes": "OpenCode 官网标题直接声明 open source。"
+    },
+    {
+      "claim_id": "CLAIM-OPENCODE-75-PROVIDERS",
+      "concept": "OpenCode 支持 75+ providers。",
+      "site_snippet": "75+ 提供商",
+      "locations": [
+        {
+          "file": "docs/index.html",
+          "selector": "[data-claim-id*='CLAIM-OPENCODE-75-PROVIDERS']"
+        },
+        {
+          "file": "README.md",
+          "line": 169
+        },
+        {
+          "file": "CLI_TOOLS_CONFIG_COMPARISON.md",
+          "line": 324
+        }
+      ],
+      "verification_status": "verified",
+      "evidence_level": "L1_OFFICIAL",
+      "source_ids": [
+        "SRC-009",
+        "SRC-010"
+      ],
+      "last_verified_at": "2026-02-26T00:00:00Z",
+      "notes": "官网与 providers 文档均包含 75+ 表述。"
+    },
+    {
+      "claim_id": "CLAIM-OPENCODE-OLLAMA",
+      "concept": "OpenCode 支持本地模型（包括 Ollama）。",
+      "site_snippet": "Ollama 本地",
+      "locations": [
+        {
+          "file": "docs/index.html",
+          "selector": "[data-claim-id*='CLAIM-OPENCODE-OLLAMA']"
+        },
+        {
+          "file": "README.md",
+          "line": 170
+        },
+        {
+          "file": "MIGRATION_QUICK_REFERENCE.md",
+          "line": 93
+        }
+      ],
+      "verification_status": "verified",
+      "evidence_level": "L1_OFFICIAL",
+      "source_ids": [
+        "SRC-010"
+      ],
+      "last_verified_at": "2026-02-26T00:00:00Z",
+      "notes": "providers 页同时列出 local models 与 Ollama。"
+    },
+    {
+      "claim_id": "CLAIM-OPENCODE-AGENTSMD",
+      "concept": "OpenCode 会自动读取 AGENTS.md。",
+      "site_snippet": "OpenCode reads AGENTS.md files automatically",
+      "locations": [
+        {
+          "file": "README.md",
+          "line": 200
+        },
+        {
+          "file": "CLI_TOOLS_CONFIG_COMPARISON.md",
+          "line": 39
+        }
+      ],
+      "verification_status": "verified",
+      "evidence_level": "L1_OFFICIAL",
+      "source_ids": [
+        "SRC-011"
+      ],
+      "last_verified_at": "2026-02-26T00:00:00Z",
+      "notes": "OpenCode agents 文档给出 AGENTS.md 与模式继承规则。"
+    },
+    {
+      "claim_id": "CLAIM-OPENCODE-MIT",
+      "concept": "OpenCode 仓库许可证为 MIT。",
+      "site_snippet": "OpenCode: MIT License",
+      "locations": [
+        {
+          "file": "README.md",
+          "line": 355
+        },
+        {
+          "file": "docs/index.html",
+          "selector": "[data-claim-id*='CLAIM-OPENCODE-MIT']"
+        }
+      ],
+      "verification_status": "verified",
+      "evidence_level": "L2_PRIMARY_REPO",
+      "source_ids": [
+        "SRC-012"
+      ],
+      "last_verified_at": "2026-02-26T00:00:00Z",
+      "notes": "sst/opencode 仓库显示 MIT license。"
+    },
+    {
+      "claim_id": "CLAIM-KIMI-MOONSHOT",
+      "concept": "Kimi Code CLI 由 Moonshot AI 提供。",
+      "site_snippet": "Moonshot AI 工具",
+      "locations": [
+        {
+          "file": "docs/index.html",
+          "selector": "[data-claim-id*='CLAIM-KIMI-MOONSHOT']"
+        },
+        {
+          "file": "README.md",
+          "line": 20
+        },
+        {
+          "file": "CLI_TOOLS_CONFIG_COMPARISON.md",
+          "line": 9
+        }
+      ],
+      "verification_status": "verified",
+      "evidence_level": "L1_OFFICIAL",
+      "source_ids": [
+        "SRC-013"
+      ],
+      "last_verified_at": "2026-02-26T00:00:00Z",
+      "notes": "Kimi 官方 getting-started 首段给出归属。"
+    },
+    {
+      "claim_id": "CLAIM-KIMI-ZSH-INTEGRATION",
+      "concept": "Kimi CLI 支持深度 zsh 集成。",
+      "site_snippet": "Shell 深度集成 / Zsh",
+      "locations": [
+        {
+          "file": "docs/index.html",
+          "selector": "[data-claim-id*='CLAIM-KIMI-ZSH-INTEGRATION']"
+        },
+        {
+          "file": "README.md",
+          "line": 185
+        },
+        {
+          "file": "CLI_TOOLS_CONFIG_COMPARISON.md",
+          "line": 200
+        }
+      ],
+      "verification_status": "verified",
+      "evidence_level": "L1_OFFICIAL",
+      "source_ids": [
+        "SRC-014"
+      ],
+      "last_verified_at": "2026-02-26T00:00:00Z",
+      "notes": "Kimi key features 中明确包含 deep zsh integration。"
+    },
+    {
+      "claim_id": "CLAIM-KIMI-AUTO-SAVE",
+      "concept": "Kimi CLI 会自动保存对话上下文。",
+      "site_snippet": "自动保存",
+      "locations": [
+        {
+          "file": "docs/index.html",
+          "selector": "[data-claim-id*='CLAIM-KIMI-AUTO-SAVE']"
+        },
+        {
+          "file": "README.md",
+          "line": 187
+        },
+        {
+          "file": "CLI_TOOLS_CONFIG_COMPARISON.md",
+          "line": 302
+        }
+      ],
+      "verification_status": "verified",
+      "evidence_level": "L1_OFFICIAL",
+      "source_ids": [
+        "SRC-016"
+      ],
+      "last_verified_at": "2026-02-26T00:00:00Z",
+      "notes": "session 管理文档写明自动保存。"
+    },
+    {
+      "claim_id": "CLAIM-KIMI-SHELL-CTRLK",
+      "concept": "Kimi Shell 快捷键为 Ctrl-K。",
+      "site_snippet": "Ctrl-K 快捷键",
+      "locations": [
+        {
+          "file": "docs/index.html",
+          "selector": "[data-claim-id*='CLAIM-KIMI-SHELL-CTRLK']"
+        },
+        {
+          "file": "README.md",
+          "line": 185
+        },
+        {
+          "file": "CLI_TOOLS_CONFIG_COMPARISON.md",
+          "line": 199
+        }
+      ],
+      "verification_status": "conflicted",
+      "evidence_level": "L1_OFFICIAL",
+      "source_ids": [
+        "SRC-015"
+      ],
+      "last_verified_at": "2026-02-26T00:00:00Z",
+      "notes": "官方 interaction mode 文档显示快捷键为 Ctrl+X。"
+    },
+    {
+      "claim_id": "CLAIM-KIMI-CONTEXT-256K",
+      "concept": "Kimi Code CLI 上下文窗口为 256K。",
+      "site_snippet": "256K 上下文窗口",
+      "locations": [
+        {
+          "file": "docs/index.html",
+          "selector": "[data-claim-id*='CLAIM-KIMI-CONTEXT-256K']"
+        },
+        {
+          "file": "README.md",
+          "line": 184
+        },
+        {
+          "file": "CLI_TOOLS_CONFIG_COMPARISON.md",
+          "line": 378
+        }
+      ],
+      "verification_status": "unverified",
+      "evidence_level": "L1_OFFICIAL",
+      "source_ids": [],
+      "last_verified_at": "2026-02-26T00:00:00Z",
+      "notes": "当前官方 Kimi CLI 文档未检索到 256K 明确陈述。"
+    },
+    {
+      "claim_id": "CLAIM-KIMI-CONFIG-TOML-PATH",
+      "concept": "Kimi 全局配置位于 `~/.kimi/config.toml`。",
+      "site_snippet": "config.toml / ~/.kimi/",
+      "locations": [
+        {
+          "file": "docs/index.html",
+          "selector": "[data-claim-id*='CLAIM-KIMI-CONFIG-TOML-PATH']"
+        },
+        {
+          "file": "MIGRATION_QUICK_REFERENCE.md",
+          "line": 9
+        },
+        {
+          "file": "CLI_TOOLS_CONFIG_COMPARISON.md",
+          "line": 44
+        }
+      ],
+      "verification_status": "unverified",
+      "evidence_level": "L1_OFFICIAL",
+      "source_ids": [],
+      "last_verified_at": "2026-02-26T00:00:00Z",
+      "notes": "官方页面存在命令示例，但未找到明确配置文件路径说明。"
+    },
+    {
+      "claim_id": "CLAIM-CLAUDE-CONTEXT-200K",
+      "concept": "Claude Sonnet 3.5 的上下文窗口为 200K。",
+      "site_snippet": "200K / Claude 3.5 Sonnet",
+      "locations": [
+        {
+          "file": "docs/index.html",
+          "selector": "[data-claim-id*='CLAIM-CLAUDE-CONTEXT-200K']"
+        },
+        {
+          "file": "README.md",
+          "line": 205
+        }
+      ],
+      "verification_status": "verified",
+      "evidence_level": "L1_OFFICIAL",
+      "source_ids": [
+        "SRC-018"
+      ],
+      "last_verified_at": "2026-02-26T00:00:00Z",
+      "notes": "Anthropic 模型总览保留 Sonnet 3.5 的 200K 指标。"
+    },
+    {
+      "claim_id": "CLAIM-CODEX-CONTEXT-128K",
+      "concept": "Codex 上下文窗口为 128K（GPT-4 Turbo）。",
+      "site_snippet": "128K / GPT-4 Turbo",
+      "locations": [
+        {
+          "file": "docs/index.html",
+          "selector": "[data-claim-id*='CLAIM-CODEX-CONTEXT-128K']"
+        },
+        {
+          "file": "README.md",
+          "line": 205
+        }
+      ],
+      "verification_status": "conflicted",
+      "evidence_level": "L1_OFFICIAL",
+      "source_ids": [
+        "SRC-017"
+      ],
+      "last_verified_at": "2026-02-26T00:00:00Z",
+      "notes": "当前 OpenAI GPT-5-Codex 文档为 400K context，页面陈述疑似过时。"
+    },
+    {
+      "claim_id": "CLAIM-OHMYOPENCODE-100-COMPAT",
+      "concept": "Oh My OpenCode 与 Claude Code 配置 100% 兼容。",
+      "site_snippet": "100% 兼容 Skills 和 MCPs",
+      "locations": [
+        {
+          "file": "docs/index.html",
+          "selector": "[data-claim-id*='CLAIM-OHMYOPENCODE-100-COMPAT']"
+        },
+        {
+          "file": "README.md",
+          "line": 230
+        }
+      ],
+      "verification_status": "unverified",
+      "evidence_level": "L1_OFFICIAL",
+      "source_ids": [],
+      "last_verified_at": "2026-02-26T00:00:00Z",
+      "notes": "未定位到稳定官方页面可验证“100%”的量化兼容承诺。"
+    },
+    {
+      "claim_id": "CLAIM-OHMYOPENCODE-10X",
+      "concept": "Oh My OpenCode 带来 10x+ 编辑成功率提升。",
+      "site_snippet": "10x+ 性能提升",
+      "locations": [
+        {
+          "file": "docs/index.html",
+          "selector": "[data-claim-id*='CLAIM-OHMYOPENCODE-10X']"
+        }
+      ],
+      "verification_status": "unverified",
+      "evidence_level": "L1_OFFICIAL",
+      "source_ids": [],
+      "last_verified_at": "2026-02-26T00:00:00Z",
+      "notes": "未找到可核验的公开基准报告与统计口径。"
+    },
+    {
+      "claim_id": "CLAIM-OPENCODE-MIGRATION-CLAUDE-TO-SKILLS",
+      "concept": "从 Claude 迁移到 OpenCode 时可映射 skills 到 `.opencode/skills/`。",
+      "site_snippet": "Skills → .opencode/skills/",
+      "locations": [
+        {
+          "file": "docs/index.html",
+          "line": 433
+        },
+        {
+          "file": "README.md",
+          "line": 219
+        },
+        {
+          "file": "MIGRATION_QUICK_REFERENCE.md",
+          "line": 209
+        }
+      ],
+      "verification_status": "partially_verified",
+      "evidence_level": "L1_OFFICIAL",
+      "source_ids": [
+        "SRC-007"
+      ],
+      "last_verified_at": "2026-02-26T00:00:00Z",
+      "notes": "skills 能力可证实，但具体迁移映射属于实践建议，官方未给逐步保证。"
+    }
+  ]
+}

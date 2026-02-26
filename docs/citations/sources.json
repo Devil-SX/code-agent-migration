@@ -1,0 +1,204 @@
+{
+  "version": "1.0",
+  "generated_at": "2026-02-26",
+  "sources": [
+    {
+      "source_id": "SRC-001",
+      "citation_number": 1,
+      "title": "Custom prompts - OpenAI Codex",
+      "url": "https://developers.openai.com/codex/custom-prompts",
+      "publisher": "OpenAI",
+      "source_type": "official_doc",
+      "accessed_at": "2026-02-26T00:00:00Z",
+      "evidence_snippet": "Custom prompts are deprecated. Use skills for reusable instructions.",
+      "status": "active"
+    },
+    {
+      "source_id": "SRC-002",
+      "citation_number": 2,
+      "title": "AGENTS.md - OpenAI Codex",
+      "url": "https://developers.openai.com/codex/agents",
+      "publisher": "OpenAI",
+      "source_type": "official_doc",
+      "accessed_at": "2026-02-26T00:00:00Z",
+      "evidence_snippet": "AGENTS.md files are a way to provide custom instructions.",
+      "status": "active"
+    },
+    {
+      "source_id": "SRC-003",
+      "citation_number": 3,
+      "title": "Security and sandboxing - OpenAI Codex",
+      "url": "https://developers.openai.com/codex/sandboxing",
+      "publisher": "OpenAI",
+      "source_type": "official_doc",
+      "accessed_at": "2026-02-26T00:00:00Z",
+      "evidence_snippet": "Run each task in a separate cloud sandbox.",
+      "status": "active"
+    },
+    {
+      "source_id": "SRC-004",
+      "citation_number": 4,
+      "title": "openai/codex README",
+      "url": "https://github.com/openai/codex",
+      "publisher": "OpenAI GitHub",
+      "source_type": "primary_repo",
+      "accessed_at": "2026-02-26T00:00:00Z",
+      "evidence_snippet": "`~/.codex/config.toml` and sessions stored in `~/.codex/sessions/YYYY/MM/DD`.",
+      "status": "active"
+    },
+    {
+      "source_id": "SRC-005",
+      "citation_number": 5,
+      "title": "Manage memory with CLAUDE.md",
+      "url": "https://docs.anthropic.com/en/docs/claude-code/memory",
+      "publisher": "Anthropic",
+      "source_type": "official_doc",
+      "accessed_at": "2026-02-26T00:00:00Z",
+      "evidence_snippet": "Use CLAUDE.md files to give Claude instructions.",
+      "status": "active"
+    },
+    {
+      "source_id": "SRC-006",
+      "citation_number": 6,
+      "title": "Settings - Claude Code",
+      "url": "https://docs.anthropic.com/en/docs/claude-code/settings",
+      "publisher": "Anthropic",
+      "source_type": "official_doc",
+      "accessed_at": "2026-02-26T00:00:00Z",
+      "evidence_snippet": "Global settings file is `~/.claude/settings.json`.",
+      "status": "active"
+    },
+    {
+      "source_id": "SRC-007",
+      "citation_number": 7,
+      "title": "Slash commands and skills - Claude Code",
+      "url": "https://docs.anthropic.com/en/docs/claude-code/slash-commands",
+      "publisher": "Anthropic",
+      "source_type": "official_doc",
+      "accessed_at": "2026-02-26T00:00:00Z",
+      "evidence_snippet": "Extend Claude Code with custom slash commands and skills.",
+      "status": "active"
+    },
+    {
+      "source_id": "SRC-008",
+      "citation_number": 8,
+      "title": "Model Context Protocol (MCP) - Claude Code",
+      "url": "https://docs.anthropic.com/en/docs/claude-code/mcp",
+      "publisher": "Anthropic",
+      "source_type": "official_doc",
+      "accessed_at": "2026-02-26T00:00:00Z",
+      "evidence_snippet": "Connect Claude Code to hundreds of external tools through MCP.",
+      "status": "active"
+    },
+    {
+      "source_id": "SRC-009",
+      "citation_number": 9,
+      "title": "OpenCode homepage",
+      "url": "https://opencode.ai",
+      "publisher": "OpenCode",
+      "source_type": "official_doc",
+      "accessed_at": "2026-02-26T00:00:00Z",
+      "evidence_snippet": "Open source AI coding agent built for the terminal.",
+      "status": "active"
+    },
+    {
+      "source_id": "SRC-010",
+      "citation_number": 10,
+      "title": "Providers - OpenCode docs",
+      "url": "https://opencode.ai/docs/providers",
+      "publisher": "OpenCode",
+      "source_type": "official_doc",
+      "accessed_at": "2026-02-26T00:00:00Z",
+      "evidence_snippet": "Bring your own API keys from 75+ providers and local models.",
+      "status": "active"
+    },
+    {
+      "source_id": "SRC-011",
+      "citation_number": 11,
+      "title": "Agents - OpenCode docs",
+      "url": "https://opencode.ai/docs/agents",
+      "publisher": "OpenCode",
+      "source_type": "official_doc",
+      "accessed_at": "2026-02-26T00:00:00Z",
+      "evidence_snippet": "OpenCode reads AGENTS.md files automatically.",
+      "status": "active"
+    },
+    {
+      "source_id": "SRC-012",
+      "citation_number": 12,
+      "title": "sst/opencode repository",
+      "url": "https://github.com/sst/opencode",
+      "publisher": "GitHub",
+      "source_type": "primary_repo",
+      "accessed_at": "2026-02-26T00:00:00Z",
+      "evidence_snippet": "Repository license: MIT.",
+      "status": "active"
+    },
+    {
+      "source_id": "SRC-013",
+      "citation_number": 13,
+      "title": "Kimi Code CLI getting started",
+      "url": "https://moonshotai.github.io/kimi-cli/en/getting-started.html",
+      "publisher": "Moonshot AI",
+      "source_type": "official_doc",
+      "accessed_at": "2026-02-26T00:00:00Z",
+      "evidence_snippet": "Kimi Code is an AI coding assistant by Moonshot AI.",
+      "status": "active"
+    },
+    {
+      "source_id": "SRC-014",
+      "citation_number": 14,
+      "title": "Kimi Code CLI key features",
+      "url": "https://moonshotai.github.io/kimi-cli/en/guide/key-features.html",
+      "publisher": "Moonshot AI",
+      "source_type": "official_doc",
+      "accessed_at": "2026-02-26T00:00:00Z",
+      "evidence_snippet": "Highlights deep zsh integration, MCP support, and permission management.",
+      "status": "active"
+    },
+    {
+      "source_id": "SRC-015",
+      "citation_number": 15,
+      "title": "Kimi Code CLI interaction mode",
+      "url": "https://moonshotai.github.io/kimi-cli/en/guide/interaction-mode.html",
+      "publisher": "Moonshot AI",
+      "source_type": "official_doc",
+      "accessed_at": "2026-02-26T00:00:00Z",
+      "evidence_snippet": "Shell mode shortcut is Ctrl+X; /yolo enables automatic execution.",
+      "status": "active"
+    },
+    {
+      "source_id": "SRC-016",
+      "citation_number": 16,
+      "title": "Kimi Code CLI session management",
+      "url": "https://moonshotai.github.io/kimi-cli/en/guide/sessions.html",
+      "publisher": "Moonshot AI",
+      "source_type": "official_doc",
+      "accessed_at": "2026-02-26T00:00:00Z",
+      "evidence_snippet": "Kimi automatically saves conversation history and context.",
+      "status": "active"
+    },
+    {
+      "source_id": "SRC-017",
+      "citation_number": 17,
+      "title": "GPT-5-Codex model card",
+      "url": "https://platform.openai.com/docs/models/gpt-5-codex",
+      "publisher": "OpenAI",
+      "source_type": "official_doc",
+      "accessed_at": "2026-02-26T00:00:00Z",
+      "evidence_snippet": "gpt-5-codex supports a 400,000 token context window.",
+      "status": "active"
+    },
+    {
+      "source_id": "SRC-018",
+      "citation_number": 18,
+      "title": "Models overview - Anthropic",
+      "url": "https://docs.anthropic.com/en/docs/about-claude/models/all-models",
+      "publisher": "Anthropic",
+      "source_type": "official_doc",
+      "accessed_at": "2026-02-26T00:00:00Z",
+      "evidence_snippet": "Claude Sonnet 3.5 lists a 200K context window.",
+      "status": "active"
+    }
+  ]
+}

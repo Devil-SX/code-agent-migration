@@ -123,11 +123,11 @@
                         </div>
                     </div>
                     <div class="card-body">
-                        <p class="card-description">
+                        <p class="card-description" data-claim-id="CLAIM-CLAUDE-SKILLS-MCP">
                             Anthropic 官方 AI 编程助手，提供交互式推理、Skills 系统和 MCP 集成。
                         </p>
                         <div class="card-features">
-                            <div class="feature-tag">CLAUDE.md</div>
+                            <div class="feature-tag" data-claim-id="CLAIM-CLAUDE-CLAUDEMD">CLAUDE.md</div>
                             <div class="feature-tag">JSON 配置</div>
                             <div class="feature-tag">Skills + MCP</div>
                             <div class="feature-tag">~/.claude/</div>
@@ -139,11 +139,11 @@
                             </div>
                             <div class="metric">
                                 <span class="metric-label">系统提示</span>
-                                <span class="metric-value">CLAUDE.md</span>
+                                <span class="metric-value" data-claim-id="CLAIM-CLAUDE-CLAUDEMD">CLAUDE.md</span>
                             </div>
                             <div class="metric">
                                 <span class="metric-label">插件系统</span>
-                                <span class="metric-value">Skills + MCP</span>
+                                <span class="metric-value" data-claim-id="CLAIM-CLAUDE-SKILLS-MCP">Skills + MCP</span>
                             </div>
                         </div>
                     </div>
@@ -163,27 +163,28 @@
                         </div>
                     </div>
                     <div class="card-body">
-                        <p class="card-description">
+                        <p class="card-description" data-claim-id="CLAIM-CODEX-AGENTS,CLAIM-CODEX-SANDBOX,CLAIM-CODEX-CUSTOM-PROMPTS-DEPRECATED">
                             OpenAI 代码生成工具，支持 AGENTS.md 系统提示和沙箱执行环境。
+                            Custom prompts 已弃用，推荐使用 skills 作为可复用指令。
                         </p>
                         <div class="card-features">
-                            <div class="feature-tag">AGENTS.md</div>
+                            <div class="feature-tag" data-claim-id="CLAIM-CODEX-AGENTS">AGENTS.md</div>
                             <div class="feature-tag">TOML 配置</div>
-                            <div class="feature-tag">沙箱执行</div>
+                            <div class="feature-tag" data-claim-id="CLAIM-CODEX-SANDBOX">沙箱执行</div>
                             <div class="feature-tag">~/.codex/</div>
                         </div>
                         <div class="card-metrics">
                             <div class="metric">
                                 <span class="metric-label">配置格式</span>
-                                <span class="metric-value">TOML</span>
+                                <span class="metric-value" data-claim-id="CLAIM-CODEX-CONFIG-TOML">TOML</span>
                             </div>
                             <div class="metric">
                                 <span class="metric-label">系统提示</span>
-                                <span class="metric-value">AGENTS.md</span>
+                                <span class="metric-value" data-claim-id="CLAIM-CODEX-AGENTS">AGENTS.md</span>
                             </div>
                             <div class="metric">
                                 <span class="metric-label">Session 存储</span>
-                                <span class="metric-value">按日期分层</span>
+                                <span class="metric-value" data-claim-id="CLAIM-CODEX-SESSIONS-DATE">按日期分层</span>
                             </div>
                         </div>
                     </div>
@@ -203,12 +204,12 @@
                         </div>
                     </div>
                     <div class="card-body">
-                        <p class="card-description">
+                        <p class="card-description" data-claim-id="CLAIM-OPENCODE-OPEN-SOURCE,CLAIM-OPENCODE-75-PROVIDERS,CLAIM-OPENCODE-OLLAMA">
                             100% 开源，支持 75+ LLM 提供商，分布式配置架构，本地模型 Ollama 支持。
                         </p>
                         <div class="card-features">
                             <div class="feature-tag">分布式配置</div>
-                            <div class="feature-tag">75+ 提供商</div>
+                            <div class="feature-tag" data-claim-id="CLAIM-OPENCODE-75-PROVIDERS">75+ 提供商</div>
                             <div class="feature-tag">LSP 集成</div>
                             <div class="feature-tag">.opencode/</div>
                         </div>
@@ -219,11 +220,11 @@
                             </div>
                             <div class="metric">
                                 <span class="metric-label">LLM 支持</span>
-                                <span class="metric-value">75+</span>
+                                <span class="metric-value" data-claim-id="CLAIM-OPENCODE-75-PROVIDERS">75+</span>
                             </div>
                             <div class="metric">
                                 <span class="metric-label">本地模型</span>
-                                <span class="metric-value">Ollama</span>
+                                <span class="metric-value" data-claim-id="CLAIM-OPENCODE-OLLAMA">Ollama</span>
                             </div>
                         </div>
                     </div>
@@ -240,31 +241,31 @@
                         </div>
                         <div>
                             <h3>Kimi Code CLI</h3>
-                            <p class="card-subtitle">Moonshot AI 工具</p>
+                            <p class="card-subtitle" data-claim-id="CLAIM-KIMI-MOONSHOT">Moonshot AI 工具</p>
                         </div>
                     </div>
                     <div class="card-body">
-                        <p class="card-description">
+                        <p class="card-description" data-claim-id="CLAIM-KIMI-MOONSHOT,CLAIM-KIMI-CONFIG-TOML-PATH,CLAIM-KIMI-ZSH-INTEGRATION,CLAIM-KIMI-CONTEXT-256K">
                             Moonshot AI 的命令行工具，TOML 集中配置，Shell 深度集成，256K 上下文窗口。
                         </p>
                         <div class="card-features">
-                            <div class="feature-tag">TOML 配置</div>
-                            <div class="feature-tag">Shell 集成</div>
-                            <div class="feature-tag">256K 上下文</div>
-                            <div class="feature-tag">~/.kimi/</div>
+                            <div class="feature-tag" data-claim-id="CLAIM-KIMI-CONFIG-TOML-PATH">TOML 配置</div>
+                            <div class="feature-tag" data-claim-id="CLAIM-KIMI-ZSH-INTEGRATION">Shell 集成</div>
+                            <div class="feature-tag" data-claim-id="CLAIM-KIMI-CONTEXT-256K">256K 上下文</div>
+                            <div class="feature-tag" data-claim-id="CLAIM-KIMI-CONFIG-TOML-PATH">~/.kimi/</div>
                         </div>
                         <div class="card-metrics">
                             <div class="metric">
                                 <span class="metric-label">配置格式</span>
-                                <span class="metric-value">TOML</span>
+                                <span class="metric-value" data-claim-id="CLAIM-KIMI-CONFIG-TOML-PATH">TOML</span>
                             </div>
                             <div class="metric">
                                 <span class="metric-label">Shell 快捷键</span>
-                                <span class="metric-value">Ctrl-K</span>
+                                <span class="metric-value" data-claim-id="CLAIM-KIMI-SHELL-CTRLK">Ctrl-K</span>
                             </div>
                             <div class="metric">
                                 <span class="metric-label">上下文窗口</span>
-                                <span class="metric-value">256K</span>
+                                <span class="metric-value" data-claim-id="CLAIM-KIMI-CONTEXT-256K">256K</span>
                             </div>
                         </div>
                     </div>
@@ -326,30 +327,30 @@
                     <tbody>
                         <tr>
                             <td><strong>1. 系统提示文件</strong></td>
-                            <td>CLAUDE.md<br><small>~/.claude/</small></td>
-                            <td>AGENTS.md<br><small>~/.codex/</small></td>
+                            <td data-claim-id="CLAIM-CLAUDE-CLAUDEMD">CLAUDE.md<br><small>~/.claude/</small></td>
+                            <td data-claim-id="CLAIM-CODEX-AGENTS">AGENTS.md<br><small>~/.codex/</small></td>
                             <td>分布式配置<br><small>.opencode/</small></td>
-                            <td>config.toml<br><small>~/.kimi/</small></td>
+                            <td data-claim-id="CLAIM-KIMI-CONFIG-TOML-PATH">config.toml<br><small>~/.kimi/</small></td>
                         </tr>
                         <tr>
                             <td><strong>2. 配置格式</strong></td>
-                            <td>JSON<br><small>settings.json</small></td>
-                            <td>TOML<br><small>config.toml</small></td>
+                            <td data-claim-id="CLAIM-CLAUDE-SETTINGS-JSON">JSON<br><small>settings.json</small></td>
+                            <td data-claim-id="CLAIM-CODEX-CONFIG-TOML">TOML<br><small>config.toml</small></td>
                             <td>多格式<br><small>JSON + Markdown</small></td>
-                            <td>TOML<br><small>集中配置</small></td>
+                            <td data-claim-id="CLAIM-KIMI-CONFIG-TOML-PATH">TOML<br><small>集中配置</small></td>
                         </tr>
                         <tr>
                             <td><strong>3. Session 存储</strong></td>
                             <td>按项目路径<br><small>~/.claude/projects/</small></td>
-                            <td>按日期分层<br><small>YYYY/MM/DD/</small></td>
+                            <td data-claim-id="CLAIM-CODEX-SESSIONS-DATE">按日期分层<br><small>YYYY/MM/DD/</small></td>
                             <td>实时连接<br><small>无持久化 session</small></td>
-                            <td>~/.kimi/<br><small>自动保存</small></td>
+                            <td data-claim-id="CLAIM-KIMI-CONFIG-TOML-PATH,CLAIM-KIMI-AUTO-SAVE">~/.kimi/<br><small>自动保存</small></td>
                         </tr>
                         <tr>
                             <td><strong>4. 插件系统</strong></td>
-                            <td class="highlight">Skills + MCP<br><small>Claude Code 生态</small></td>
+                            <td class="highlight" data-claim-id="CLAIM-CLAUDE-SKILLS-MCP">Skills + MCP<br><small>Claude Code 生态</small></td>
                             <td>无插件系统<br><small>沙箱执行</small></td>
-                            <td>统一扩展系统<br><small>75+ 提供商</small></td>
+                            <td data-claim-id="CLAIM-OPENCODE-75-PROVIDERS">统一扩展系统<br><small>75+ 提供商</small></td>
                             <td>无插件系统<br><small>内置集成</small></td>
                         </tr>
                         <tr>
@@ -363,8 +364,8 @@
                             <td><strong>6. LLM 提供商</strong></td>
                             <td>Claude (Anthropic)<br><small>原生支持</small></td>
                             <td>OpenAI Codex<br><small>GPT 系列</small></td>
-                            <td class="highlight">75+ 提供商<br><small>Ollama 本地</small></td>
-                            <td>Moonshot AI<br><small>Kimi 模型</small></td>
+                            <td class="highlight" data-claim-id="CLAIM-OPENCODE-75-PROVIDERS,CLAIM-OPENCODE-OLLAMA">75+ 提供商<br><small>Ollama 本地</small></td>
+                            <td data-claim-id="CLAIM-KIMI-MOONSHOT">Moonshot AI<br><small>Kimi 模型</small></td>
                         </tr>
                         <tr>
                             <td><strong>7. 环境变量</strong></td>
@@ -375,22 +376,22 @@
                         </tr>
                         <tr>
                             <td><strong>8. 上下文窗口</strong></td>
-                            <td>200K<br><small>Claude 3.5 Sonnet</small></td>
-                            <td>128K<br><small>GPT-4 Turbo</small></td>
+                            <td data-claim-id="CLAIM-CLAUDE-CONTEXT-200K">200K<br><small>Claude 3.5 Sonnet</small></td>
+                            <td data-claim-id="CLAIM-CODEX-CONTEXT-128K">128K<br><small>GPT-4 Turbo</small></td>
                             <td>取决于模型<br><small>最高 200K+</small></td>
-                            <td class="highlight">256K<br><small>Kimi 特色</small></td>
+                            <td class="highlight" data-claim-id="CLAIM-KIMI-CONTEXT-256K">256K<br><small>Kimi 特色</small></td>
                         </tr>
                         <tr>
                             <td><strong>9. Shell 集成</strong></td>
                             <td>基础<br><small>CLI 调用</small></td>
                             <td>中等<br><small>Zsh 集成</small></td>
                             <td>高级<br><small>TUI + HTTP</small></td>
-                            <td class="highlight">深度<br><small>Ctrl-K 快捷键</small></td>
+                            <td class="highlight" data-claim-id="CLAIM-KIMI-ZSH-INTEGRATION,CLAIM-KIMI-SHELL-CTRLK">深度<br><small>Ctrl-K 快捷键</small></td>
                         </tr>
                         <tr>
                             <td><strong>10. 项目权限</strong></td>
                             <td>--dangerous-skip<br><small>交互式确认</small></td>
-                            <td>沙箱模式<br><small>严格隔离</small></td>
+                            <td data-claim-id="CLAIM-CODEX-SANDBOX">沙箱模式<br><small>严格隔离</small></td>
                             <td>灵活配置<br><small>手动设置</small></td>
                             <td>default_yolo<br><small>自动同意</small></td>
                         </tr>
@@ -430,7 +431,7 @@
                     <h3>Claude Code → OpenCode</h3>
                     <div class="migration-steps">
                         <p><strong>1.</strong> 拆分 CLAUDE.md → .opencode/agents/</p>
-                        <p><strong>2.</strong> Skills → .opencode/skills/</p>
+                        <p data-claim-id="CLAIM-OPENCODE-MIGRATION-CLAUDE-TO-SKILLS"><strong>2.</strong> Skills → .opencode/skills/</p>
                         <p><strong>3.</strong> MCPs → .opencode/tools/</p>
                         <p><strong>4.</strong> 配置多 LLM 提供商</p>
                     </div>
@@ -493,7 +494,7 @@
                     <h3>企业级项目</h3>
                     <p class="case-desc">
                         <strong>推荐：Claude Code CLI</strong><br>
-                        强大的 Skills 系统和 MCP 集成，适合大型团队协作
+                        <span data-claim-id="CLAIM-CLAUDE-SKILLS-MCP">强大的 Skills 系统和 MCP 集成</span>，适合大型团队协作
                     </p>
                     <div class="case-metrics">
                         <span class="case-metric">交互式推理</span>
@@ -506,7 +507,7 @@
                     <h3>研究与实验</h3>
                     <p class="case-desc">
                         <strong>推荐：Codex CLI</strong><br>
-                        沙箱执行环境，严格隔离，适合安全性要求高的场景
+                        <span data-claim-id="CLAIM-CODEX-SANDBOX">沙箱执行环境，严格隔离</span>，适合安全性要求高的场景
                     </p>
                     <div class="case-metrics">
                         <span class="case-metric">安全沙箱</span>
@@ -519,7 +520,7 @@
                     <h3>多模型切换</h3>
                     <p class="case-desc">
                         <strong>推荐：OpenCode</strong><br>
-                        75+ LLM 提供商支持，本地模型 Ollama，成本可控
+                        <span data-claim-id="CLAIM-OPENCODE-75-PROVIDERS,CLAIM-OPENCODE-OLLAMA">75+ LLM 提供商支持，本地模型 Ollama</span>，成本可控
                     </p>
                     <div class="case-metrics">
                         <span class="case-metric">75+ 提供商</span>
@@ -532,7 +533,7 @@
                     <h3>快速开发</h3>
                     <p class="case-desc">
                         <strong>推荐：Kimi Code CLI</strong><br>
-                        256K 超长上下文，Shell 深度集成，Ctrl-K 快速调用
+                        <span data-claim-id="CLAIM-KIMI-CONTEXT-256K,CLAIM-KIMI-ZSH-INTEGRATION,CLAIM-KIMI-SHELL-CTRLK">256K 超长上下文，Shell 深度集成，Ctrl-K 快速调用</span>
                     </p>
                     <div class="case-metrics">
                         <span class="case-metric">256K 上下文</span>
@@ -545,7 +546,7 @@
                     <h3>从 Claude Code 迁移</h3>
                     <p class="case-desc">
                         <strong>推荐：Oh My OpenCode</strong><br>
-                        100% 兼容 Claude Code 配置，无缝迁移，10x+ 性能提升
+                        <span data-claim-id="CLAIM-OHMYOPENCODE-100-COMPAT,CLAIM-OHMYOPENCODE-10X">100% 兼容 Claude Code 配置，无缝迁移，10x+ 性能提升</span>
                     </p>
                     <div class="case-metrics">
                         <span class="case-metric">100% 兼容</span>
@@ -617,6 +618,7 @@
                         <li><a href="https://github.com/Devil-SX/code-agent-migration/blob/main/MIGRATION_QUICK_REFERENCE.md">快速参考指南 (371 行)</a></li>
                         <li><a href="https://github.com/Devil-SX/code-agent-migration/blob/main/EXAMPLES.md">迁移示例</a></li>
                         <li><a href="https://github.com/Devil-SX/code-agent-migration/tree/main/tools">自动化工具</a></li>
+                        <li><a href="citations/verification-report.md">来源验证报告</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
@@ -624,7 +626,7 @@
                     <ul class="footer-links">
                         <li><a href="https://code.claude.com">Claude Code CLI</a></li>
                         <li><a href="https://openai.com/codex">Codex CLI (OpenAI)</a></li>
-                        <li><a href="https://github.com/anomalyco/opencode">OpenCode (GitHub)</a></li>
+                        <li><a href="https://github.com/sst/opencode" data-claim-id="CLAIM-OPENCODE-MIT">OpenCode (GitHub, MIT)</a></li>
                         <li><a href="https://kimi.moonshot.ai">Kimi Code CLI</a></li>
                     </ul>
                 </div>

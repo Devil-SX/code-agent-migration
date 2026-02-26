@@ -313,3 +313,153 @@ document.addEventListener('keydown', (e) => {
         }, 5000);
     }
 });
+
+function injectCitationStyles() {
+    if (document.getElementById('citation-inline-style')) {
+        return;
+    }
+    const style = document.createElement('style');
+    style.id = 'citation-inline-style';
+    style.textContent = `
+        .citation-sup {
+            margin-left: 0.25rem;
+            font-size: 0.72em;
+            line-height: 1;
+            vertical-align: super;
+            white-space: nowrap;
+        }
+        .citation-link {
+            color: #1f4bd8;
+            text-decoration: none;
+            margin-left: 0.12rem;
+            font-weight: 600;
+        }
+        .citation-link:hover {
+            text-decoration: underline;
+        }
+        .citation-link.citation-unverified,
+        .citation-link.citation-conflicted {
+            color: #cc5500;
+        }
+    `;
+    document.head.appendChild(style);
+}
+
+function parseClaimIds(attributeValue) {
+    if (!attributeValue || typeof attributeValue !== 'string') {
+        return [];
+    }
+    return attributeValue
+        .split(',')
+        .map((id) => id.trim())
+        .filter(Boolean);
+}
+
+function createSourceCitationAnchor(source, status) {
+    const anchor = document.createElement('a');
+    anchor.className = `citation-link citation-${status}`;
+    anchor.href = source.url;
+    anchor.target = '_blank';
+    anchor.rel = 'noopener noreferrer';
+    anchor.textContent = `[${source.citation_number}]`;
+    anchor.title = `${source.title} | ${source.publisher} | ${status}`;
+    return anchor;
+}
+
+function createUnverifiedCitationAnchor(claim) {
+    const anchor = document.createElement('a');
+    anchor.className = `citation-link citation-${claim.verification_status || 'unverified'}`;
+    anchor.href = `citations/verification-report.md#${claim.claim_id.toLowerCase()}`;
+    anchor.target = '_blank';
+    anchor.rel = 'noopener noreferrer';
+    anchor.textContent = '[?]';
+    anchor.title = `${claim.claim_id} | ${claim.verification_status || 'unverified'}`;
+    return anchor;
+}
+
+async function initCitations() {
+    injectCitationStyles();
+
+    let claimsPayload;
+    let sourcesPayload;
+    try {
+        const [claimsResponse, sourcesResponse] = await Promise.all([
+            fetch('citations/claims.json', { cache: 'no-cache' }),
+            fetch('citations/sources.json', { cache: 'no-cache' })
+        ]);
+
+        if (!claimsResponse.ok || !sourcesResponse.ok) {
+            throw new Error('failed to load citation data');
+        }
+
+        [claimsPayload, sourcesPayload] = await Promise.all([
+            claimsResponse.json(),
+            sourcesResponse.json()
+        ]);
+    } catch (error) {
+        console.warn('[citations] unable to load citation files:', error);
+        return;
+    }
+
+    const claims = new Map();
+    (claimsPayload.claims || []).forEach((claim) => {
+        claims.set(claim.claim_id, claim);
+    });
+
+    const sourcesById = new Map();
+    (sourcesPayload.sources || []).forEach((source) => {
+        sourcesById.set(source.source_id, source);
+    });
+
+    document.querySelectorAll('[data-claim-id]').forEach((node) => {
+        const claimIds = parseClaimIds(node.getAttribute('data-claim-id'));
+        if (claimIds.length === 0) {
+            return;
+        }
+
+        node.querySelectorAll(':scope > .citation-sup').forEach((existingSup) => {
+            existingSup.remove();
+        });
+
+        const sup = document.createElement('sup');
+        sup.className = 'citation-sup';
+
+        const appendedTokens = new Set();
+        claimIds.forEach((claimId) => {
+            const claim = claims.get(claimId);
+            if (!claim) {
+                return;
+            }
+
+            const sourceIds = Array.isArray(claim.source_ids) ? claim.source_ids : [];
+            const resolvedSources = sourceIds
+                .map((sourceId) => sourcesById.get(sourceId))
+                .filter(Boolean)
+                .sort((a, b) => a.citation_number - b.citation_number);
+
+            if (resolvedSources.length === 0) {
+                const token = `${claimId}:?`;
+                if (!appendedTokens.has(token)) {
+                    sup.appendChild(createUnverifiedCitationAnchor(claim));
+                    appendedTokens.add(token);
+                }
+                return;
+            }
+
+            resolvedSources.forEach((source) => {
+                const token = `source:${source.source_id}`;
+                if (appendedTokens.has(token)) {
+                    return;
+                }
+                sup.appendChild(createSourceCitationAnchor(source, claim.verification_status || 'verified'));
+                appendedTokens.add(token);
+            });
+        });
+
+        if (sup.childElementCount > 0) {
+            node.appendChild(sup);
+        }
+    });
+}
+
+document.addEventListener('DOMContentLoaded', initCitations);
