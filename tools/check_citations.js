@@ -56,6 +56,16 @@ function parseClaimIdsFromHtml(html) {
   return ids;
 }
 
+function parseAnchorHrefs(html) {
+  const hrefs = [];
+  const pattern = /<a\b[^>]*href\s*=\s*(['"])(.*?)\1/gims;
+  let match;
+  while ((match = pattern.exec(html)) !== null) {
+    hrefs.push((match[2] || '').trim());
+  }
+  return hrefs;
+}
+
 function isNonEmptyString(value) {
   return typeof value === 'string' && value.trim().length > 0;
 }
@@ -142,8 +152,20 @@ function main() {
   }
 
   const htmlClaimIds = parseClaimIdsFromHtml(html);
+  const anchorHrefs = parseAnchorHrefs(html);
   if (htmlClaimIds.size === 0) {
     warnings.push('docs/index.html has no data-claim-id markers');
+  }
+
+  for (const href of anchorHrefs) {
+    if (!href) continue;
+    const lowered = href.toLowerCase();
+    if (lowered.includes('github.com')) {
+      errors.push(`docs/index.html contains forbidden GitHub content link: ${href}`);
+    }
+    if (lowered.startsWith('http://') || lowered.startsWith('https://')) {
+      errors.push(`docs/index.html must use internal navigation only; external anchor detected: ${href}`);
+    }
   }
 
   for (const htmlClaimId of htmlClaimIds) {

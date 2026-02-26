@@ -1,0 +1,39 @@
+name: Docs Structure Check
+
+on:
+  pull_request:
+    paths:
+      - 'README.md'
+      - 'CHANGELOG.md'
+      - 'AGENTS.md'
+      - 'docs/index.html'
+      - 'docs/content/**'
+      - 'tools/check_docs_structure.js'
+      - '.github/workflows/docs-structure-check.yml'
+  push:
+    branches:
+      - master
+    paths:
+      - 'README.md'
+      - 'CHANGELOG.md'
+      - 'AGENTS.md'
+      - 'docs/index.html'
+      - 'docs/content/**'
+      - 'tools/check_docs_structure.js'
+      - '.github/workflows/docs-structure-check.yml'
+  workflow_dispatch:
+
+jobs:
+  docs-structure-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Validate docs structure
+        run: node tools/check_docs_structure.js

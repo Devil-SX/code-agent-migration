@@ -65,7 +65,8 @@
                 <a href="#comparison">配置对比</a>
                 <a href="#migration">迁移指南</a>
                 <a href="#use-cases">使用场景</a>
-                <a href="https://github.com/Devil-SX/code-agent-migration" target="_blank">GitHub</a>
+                <a href="#content-hub">内容导航</a>
+                <a href="#evidence">验证状态</a>
             </div>
         </div>
     </nav>
@@ -204,7 +205,7 @@
                         </div>
                     </div>
                     <div class="card-body">
-                        <p class="card-description" data-claim-id="CLAIM-OPENCODE-OPEN-SOURCE,CLAIM-OPENCODE-75-PROVIDERS,CLAIM-OPENCODE-OLLAMA">
+                        <p class="card-description" data-claim-id="CLAIM-OPENCODE-OPEN-SOURCE,CLAIM-OPENCODE-75-PROVIDERS,CLAIM-OPENCODE-OLLAMA,CLAIM-OPENCODE-MIT">
                             100% 开源，支持 75+ LLM 提供商，分布式配置架构，本地模型 Ollama 支持。
                         </p>
                         <div class="card-features">
@@ -313,11 +314,22 @@
     <section id="comparison" class="section">
         <div class="container">
             <h2 class="section-title">配置对比 (15 维度)</h2>
+            <div class="comparison-controls">
+                <button class="compare-filter is-active" data-filter="all">全部维度</button>
+                <button class="compare-filter" data-filter="configuration">配置与提示</button>
+                <button class="compare-filter" data-filter="execution">执行与权限</button>
+                <button class="compare-filter" data-filter="model">模型与上下文</button>
+                <button class="compare-filter" data-filter="ecosystem">生态与协作</button>
+            </div>
+            <p class="comparison-hint">
+                当前展示 <span id="visible-dimension-count">15</span> / 15 个维度。冲突或未验证项请查看上标引用与验证状态。
+            </p>
             <div class="comparison-table-wrapper">
                 <table class="comparison-table">
                     <thead>
                         <tr>
                             <th>配置维度</th>
+                            <th>分组</th>
                             <th>Claude Code</th>
                             <th>Codex CLI</th>
                             <th>OpenCode</th>
@@ -325,82 +337,132 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
+                        <tr data-group="configuration">
                             <td><strong>1. 系统提示文件</strong></td>
+                            <td><span class="group-tag">配置与提示</span></td>
                             <td data-claim-id="CLAIM-CLAUDE-CLAUDEMD">CLAUDE.md<br><small>~/.claude/</small></td>
                             <td data-claim-id="CLAIM-CODEX-AGENTS">AGENTS.md<br><small>~/.codex/</small></td>
                             <td>分布式配置<br><small>.opencode/</small></td>
                             <td data-claim-id="CLAIM-KIMI-CONFIG-TOML-PATH">config.toml<br><small>~/.kimi/</small></td>
                         </tr>
-                        <tr>
+                        <tr data-group="configuration">
                             <td><strong>2. 配置格式</strong></td>
+                            <td><span class="group-tag">配置与提示</span></td>
                             <td data-claim-id="CLAIM-CLAUDE-SETTINGS-JSON">JSON<br><small>settings.json</small></td>
                             <td data-claim-id="CLAIM-CODEX-CONFIG-TOML">TOML<br><small>config.toml</small></td>
                             <td>多格式<br><small>JSON + Markdown</small></td>
                             <td data-claim-id="CLAIM-KIMI-CONFIG-TOML-PATH">TOML<br><small>集中配置</small></td>
                         </tr>
-                        <tr>
+                        <tr data-group="configuration">
                             <td><strong>3. Session 存储</strong></td>
+                            <td><span class="group-tag">配置与提示</span></td>
                             <td>按项目路径<br><small>~/.claude/projects/</small></td>
                             <td data-claim-id="CLAIM-CODEX-SESSIONS-DATE">按日期分层<br><small>YYYY/MM/DD/</small></td>
                             <td>实时连接<br><small>无持久化 session</small></td>
                             <td data-claim-id="CLAIM-KIMI-CONFIG-TOML-PATH,CLAIM-KIMI-AUTO-SAVE">~/.kimi/<br><small>自动保存</small></td>
                         </tr>
-                        <tr>
+                        <tr data-group="ecosystem">
                             <td><strong>4. 插件系统</strong></td>
+                            <td><span class="group-tag">生态与协作</span></td>
                             <td class="highlight" data-claim-id="CLAIM-CLAUDE-SKILLS-MCP">Skills + MCP<br><small>Claude Code 生态</small></td>
                             <td>无插件系统<br><small>沙箱执行</small></td>
                             <td data-claim-id="CLAIM-OPENCODE-75-PROVIDERS">统一扩展系统<br><small>75+ 提供商</small></td>
                             <td>无插件系统<br><small>内置集成</small></td>
                         </tr>
-                        <tr>
+                        <tr data-group="execution">
                             <td><strong>5. 命令行参数</strong></td>
+                            <td><span class="group-tag">执行与权限</span></td>
                             <td>--headless<br><small>--dangerous-skip</small></td>
                             <td>-c key=value<br><small>--cd, --add-dir</small></td>
                             <td>opencode serve<br><small>opencode run</small></td>
                             <td>/login<br><small>/model 选择</small></td>
                         </tr>
-                        <tr>
+                        <tr data-group="model">
                             <td><strong>6. LLM 提供商</strong></td>
+                            <td><span class="group-tag">模型与上下文</span></td>
                             <td>Claude (Anthropic)<br><small>原生支持</small></td>
                             <td>OpenAI Codex<br><small>GPT 系列</small></td>
                             <td class="highlight" data-claim-id="CLAIM-OPENCODE-75-PROVIDERS,CLAIM-OPENCODE-OLLAMA">75+ 提供商<br><small>Ollama 本地</small></td>
                             <td data-claim-id="CLAIM-KIMI-MOONSHOT">Moonshot AI<br><small>Kimi 模型</small></td>
                         </tr>
-                        <tr>
+                        <tr data-group="configuration">
                             <td><strong>7. 环境变量</strong></td>
+                            <td><span class="group-tag">配置与提示</span></td>
                             <td>ANTHROPIC_API_KEY<br><small>CLAUDE_*</small></td>
                             <td>OPENAI_API_KEY<br><small>CODEX_*</small></td>
                             <td>多提供商 KEY<br><small>OPENCODE_*</small></td>
                             <td>MOONSHOT_API_KEY<br><small>KIMI_*</small></td>
                         </tr>
-                        <tr>
+                        <tr data-group="model">
                             <td><strong>8. 上下文窗口</strong></td>
+                            <td><span class="group-tag">模型与上下文</span></td>
                             <td data-claim-id="CLAIM-CLAUDE-CONTEXT-200K">200K<br><small>Claude 3.5 Sonnet</small></td>
                             <td data-claim-id="CLAIM-CODEX-CONTEXT-128K">128K<br><small>GPT-4 Turbo</small></td>
                             <td>取决于模型<br><small>最高 200K+</small></td>
                             <td class="highlight" data-claim-id="CLAIM-KIMI-CONTEXT-256K">256K<br><small>Kimi 特色</small></td>
                         </tr>
-                        <tr>
+                        <tr data-group="execution">
                             <td><strong>9. Shell 集成</strong></td>
+                            <td><span class="group-tag">执行与权限</span></td>
                             <td>基础<br><small>CLI 调用</small></td>
                             <td>中等<br><small>Zsh 集成</small></td>
                             <td>高级<br><small>TUI + HTTP</small></td>
                             <td class="highlight" data-claim-id="CLAIM-KIMI-ZSH-INTEGRATION,CLAIM-KIMI-SHELL-CTRLK">深度<br><small>Ctrl-K 快捷键</small></td>
                         </tr>
-                        <tr>
+                        <tr data-group="execution">
                             <td><strong>10. 项目权限</strong></td>
+                            <td><span class="group-tag">执行与权限</span></td>
                             <td>--dangerous-skip<br><small>交互式确认</small></td>
                             <td data-claim-id="CLAIM-CODEX-SANDBOX">沙箱模式<br><small>严格隔离</small></td>
                             <td>灵活配置<br><small>手动设置</small></td>
                             <td>default_yolo<br><small>自动同意</small></td>
                         </tr>
+                        <tr data-group="execution">
+                            <td><strong>11. 多项目工作区</strong></td>
+                            <td><span class="group-tag">执行与权限</span></td>
+                            <td>支持多目录上下文<br><small>按项目记忆</small></td>
+                            <td>通过 `--add-dir` 扩展<br><small>目录白名单</small></td>
+                            <td>项目级与用户级并存<br><small>.opencode + 全局配置</small></td>
+                            <td>偏单工作区会话<br><small>按当前会话持续</small></td>
+                        </tr>
+                        <tr data-group="ecosystem">
+                            <td><strong>12. 内置工具能力</strong></td>
+                            <td><span class="group-tag">生态与协作</span></td>
+                            <td>Skills + MCP 工具编排</td>
+                            <td>沙箱命令执行 + 任务代理</td>
+                            <td>TUI + HTTP + Provider 抽象</td>
+                            <td>Shell 模式 + 权限模式</td>
+                        </tr>
+                        <tr data-group="ecosystem">
+                            <td><strong>13. API / 协议兼容性</strong></td>
+                            <td><span class="group-tag">生态与协作</span></td>
+                            <td>Claude 生态优先</td>
+                            <td>OpenAI 平台优先</td>
+                            <td>多提供商协议适配</td>
+                            <td>Moonshot 生态优先</td>
+                        </tr>
+                        <tr data-group="model">
+                            <td><strong>14. 性能与资源消耗</strong></td>
+                            <td><span class="group-tag">模型与上下文</span></td>
+                            <td>强调推理质量</td>
+                            <td>强调受控执行与稳定性</td>
+                            <td>可按模型成本优化</td>
+                            <td>强调长上下文与 Shell 流程</td>
+                        </tr>
+                        <tr data-group="ecosystem">
+                            <td><strong>15. 社区与生态成熟度</strong></td>
+                            <td><span class="group-tag">生态与协作</span></td>
+                            <td>官方文档与技能生态稳定</td>
+                            <td>官方模型与平台联动强</td>
+                            <td>开源社区迭代快</td>
+                            <td>中文开发者生态增长中</td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
             <div class="comparison-cta">
-                <a href="https://github.com/Devil-SX/code-agent-migration/blob/main/CLI_TOOLS_CONFIG_COMPARISON.md" class="btn btn-large btn-primary">
-                    查看完整 15 维度对比报告
+                <a href="content/config-comparison.md" class="btn btn-large btn-primary">
+                    查看站内完整对比文档
                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
                         <path d="M7 4L14 10L7 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
@@ -470,14 +532,14 @@
             <div class="comparison-cta">
                 <h3 style="margin-bottom: 1.5rem; color: white;">自动化迁移工具</h3>
                 <div class="cta-buttons" style="gap: 1rem; display: flex; flex-wrap: wrap; justify-content: center;">
-                    <a href="https://github.com/Devil-SX/code-agent-migration/blob/main/tools/convert_config.py" class="btn btn-large btn-white">
-                        convert_config.py
+                    <a href="content/migration-examples.md" class="btn btn-large btn-white">
+                        迁移示例手册
                     </a>
-                    <a href="https://github.com/Devil-SX/code-agent-migration/blob/main/tools/migrate_cli_tool.sh" class="btn btn-large btn-outlined">
-                        migrate_cli_tool.sh
+                    <a href="content/migration-quick-reference.md" class="btn btn-large btn-outlined">
+                        迁移速查表
                     </a>
-                    <a href="https://github.com/Devil-SX/code-agent-migration/blob/main/MIGRATION_QUICK_REFERENCE.md" class="btn btn-large btn-outlined">
-                        快速参考指南
+                    <a href="content/methodology.md" class="btn btn-large btn-outlined">
+                        验证方法与规则
                     </a>
                 </div>
             </div>
@@ -570,30 +632,109 @@
         </div>
     </section>
 
+    <!-- Content Hub Section -->
+    <section id="content-hub" class="section bg-light">
+        <div class="container">
+            <h2 class="section-title">站内内容导航</h2>
+            <div class="overview-grid">
+                <div class="project-card">
+                    <div class="card-header">
+                        <div>
+                            <h3>完整对比</h3>
+                            <p class="card-subtitle">15 维度深度文档</p>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-description">包含配置、执行、模型、生态四大类完整差异解释。</p>
+                        <a href="content/config-comparison.md" class="btn btn-primary">打开对比文档</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="card-header">
+                        <div>
+                            <h3>迁移与示例</h3>
+                            <p class="card-subtitle">速查 + 场景操作</p>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-description">从策略到命令级步骤，覆盖跨工具迁移常见路径。</p>
+                        <div class="cta-buttons">
+                            <a href="content/migration-quick-reference.md" class="btn btn-secondary">迁移速查</a>
+                            <a href="content/migration-examples.md" class="btn btn-secondary">迁移示例</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="card-header">
+                        <div>
+                            <h3>方法与术语</h3>
+                            <p class="card-subtitle">保证信息可审计</p>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-description">说明验证标准、证据等级、状态定义和更新方式。</p>
+                        <div class="cta-buttons">
+                            <a href="content/methodology.md" class="btn btn-secondary">验证方法</a>
+                            <a href="content/glossary.md" class="btn btn-secondary">术语表</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Evidence Section -->
+    <section id="evidence" class="section">
+        <div class="container">
+            <h2 class="section-title">验证状态总览</h2>
+            <div class="stats-grid">
+                <div class="stat-box">
+                    <div class="stat-number">17</div>
+                    <div class="stat-text">Verified</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">1</div>
+                    <div class="stat-text">Partially Verified</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">2</div>
+                    <div class="stat-text">Conflicted</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">4</div>
+                    <div class="stat-text">Unverified</div>
+                </div>
+            </div>
+            <div class="comparison-cta">
+                <a href="citations/verification-report.md" class="btn btn-large btn-primary">查看完整验证报告</a>
+            </div>
+        </div>
+    </section>
+
     <!-- CTA Section -->
     <section class="section cta-section">
         <div class="container">
             <div class="cta-box">
-                <h2>探索完整配置对比报告</h2>
-                <p>深入了解 15 个配置维度的详细对比、迁移最佳实践和自动化工具</p>
+                <h2>站内完整内容导航</h2>
+                <p>所有核心信息均在站内维护，不依赖 GitHub 文档跳转承载正文内容。</p>
                 <div class="cta-buttons">
-                    <a href="https://github.com/Devil-SX/code-agent-migration/blob/main/CLI_TOOLS_CONFIG_COMPARISON.md" class="btn btn-large btn-white">
+                    <a href="content/config-comparison.md" class="btn btn-large btn-white">
                         <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
                             <path d="M4 6H16M4 12H16M4 18H16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
                         </svg>
-                        完整对比报告 (703 行)
+                        完整对比文档
                     </a>
-                    <a href="https://github.com/Devil-SX/code-agent-migration/blob/main/MIGRATION_QUICK_REFERENCE.md" class="btn btn-large btn-white">
+                    <a href="content/migration-quick-reference.md" class="btn btn-large btn-white">
                         <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
                             <path d="M10 2V18M10 2L4 8M10 2L16 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
-                        快速参考指南 (371 行)
+                        迁移快速参考
                     </a>
-                    <a href="https://github.com/Devil-SX/code-agent-migration" class="btn btn-large btn-outlined">
+                    <a href="content/migration-examples.md" class="btn btn-large btn-outlined">
                         <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                            <path d="M10 2C5.58172 2 2 5.58172 2 10C2 13.5397 4.29203 16.5317 7.47065 17.5957C7.87065 17.6697 8.01672 17.4197 8.01672 17.1997C8.01672 17.0037 8.00872 16.4157 8.00472 15.7917C5.67272 16.2717 5.20472 14.7117 5.20472 14.7117C4.84072 13.7917 4.31472 13.5437 4.31472 13.5437C3.59072 13.0477 4.36872 13.0597 4.36872 13.0597C5.16872 13.1157 5.58872 13.8837 5.58872 13.8837C6.30072 15.0917 7.46072 14.7397 8.03272 14.5277C8.10472 14.0077 8.32072 13.6557 8.56072 13.4477C6.84672 13.2397 5.05272 12.5477 5.05272 9.47772C5.05272 8.60372 5.36472 7.89172 5.60472 7.33172C5.52472 7.11972 5.23672 6.30372 5.68872 5.20372C5.68872 5.20372 6.36072 4.98172 7.99672 6.08172C8.64672 5.89172 9.33672 5.79572 10.0267 5.79172C10.7167 5.79572 11.4067 5.89172 12.0567 6.08172C13.6927 4.98172 14.3647 5.20372 14.3647 5.20372C14.8167 6.30372 14.5287 7.11972 14.4487 7.33172C14.6887 7.89172 14.9967 8.60372 14.9967 9.47772C14.9967 12.5557 13.1967 13.2357 11.4767 13.4397C11.7727 13.7037 12.0407 14.2277 12.0407 15.0277C12.0407 16.1517 12.0327 17.0557 12.0327 17.1997C12.0327 17.4237 12.1767 17.6757 12.5847 17.5957C15.7633 16.5317 18 13.5397 18 10C18 5.58172 14.4183 2 10 2Z" stroke="currentColor" stroke-width="0.5" fill="currentColor"/>
+                            <path d="M3 10H17M10 3L17 10L10 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
-                        GitHub 仓库
+                        场景化迁移示例
                     </a>
                 </div>
             </div>
@@ -614,20 +755,20 @@
                 <div class="footer-section">
                     <h4>核心资源</h4>
                     <ul class="footer-links">
-                        <li><a href="https://github.com/Devil-SX/code-agent-migration/blob/main/CLI_TOOLS_CONFIG_COMPARISON.md">完整对比报告 (703 行)</a></li>
-                        <li><a href="https://github.com/Devil-SX/code-agent-migration/blob/main/MIGRATION_QUICK_REFERENCE.md">快速参考指南 (371 行)</a></li>
-                        <li><a href="https://github.com/Devil-SX/code-agent-migration/blob/main/EXAMPLES.md">迁移示例</a></li>
-                        <li><a href="https://github.com/Devil-SX/code-agent-migration/tree/main/tools">自动化工具</a></li>
+                        <li><a href="content/config-comparison.md">完整对比文档</a></li>
+                        <li><a href="content/migration-quick-reference.md">快速参考指南</a></li>
+                        <li><a href="content/migration-examples.md">迁移示例</a></li>
+                        <li><a href="content/overview.md">站点总览</a></li>
                         <li><a href="citations/verification-report.md">来源验证报告</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
-                    <h4>官方文档</h4>
+                    <h4>方法与规则</h4>
                     <ul class="footer-links">
-                        <li><a href="https://code.claude.com">Claude Code CLI</a></li>
-                        <li><a href="https://openai.com/codex">Codex CLI (OpenAI)</a></li>
-                        <li><a href="https://github.com/sst/opencode" data-claim-id="CLAIM-OPENCODE-MIT">OpenCode (GitHub, MIT)</a></li>
-                        <li><a href="https://kimi.moonshot.ai">Kimi Code CLI</a></li>
+                        <li><a href="content/methodology.md">验证方法</a></li>
+                        <li><a href="content/glossary.md">术语表</a></li>
+                        <li><a href="citations/README.md">引用数据结构</a></li>
+                        <li><a href="content/project-status.md">项目状态</a></li>
                     </ul>
                 </div>
             </div>

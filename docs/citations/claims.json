@@ -33,7 +33,7 @@
           "line": 17
         },
         {
-          "file": "CLI_TOOLS_CONFIG_COMPARISON.md",
+          "file": "docs/content/config-comparison.md",
           "line": 18
         }
       ],
@@ -59,7 +59,7 @@
           "line": 140
         },
         {
-          "file": "MIGRATION_QUICK_REFERENCE.md",
+          "file": "docs/content/migration-quick-reference.md",
           "line": 12
         }
       ],
@@ -86,7 +86,7 @@
           "line": 17
         },
         {
-          "file": "EXAMPLES.md",
+          "file": "docs/content/migration-examples.md",
           "line": 82
         }
       ],
@@ -112,7 +112,7 @@
           "line": 18
         },
         {
-          "file": "CLI_TOOLS_CONFIG_COMPARISON.md",
+          "file": "docs/content/config-comparison.md",
           "line": 27
         }
       ],
@@ -138,7 +138,7 @@
           "line": 154
         },
         {
-          "file": "EXAMPLES.md",
+          "file": "docs/content/migration-examples.md",
           "line": 264
         }
       ],
@@ -164,7 +164,7 @@
           "line": 18
         },
         {
-          "file": "EXAMPLES.md",
+          "file": "docs/content/migration-examples.md",
           "line": 94
         }
       ],
@@ -186,11 +186,11 @@
           "selector": "[data-claim-id*='CLAIM-CODEX-SESSIONS-DATE']"
         },
         {
-          "file": "MIGRATION_QUICK_REFERENCE.md",
+          "file": "docs/content/migration-quick-reference.md",
           "line": 10
         },
         {
-          "file": "CLI_TOOLS_CONFIG_COMPARISON.md",
+          "file": "docs/content/config-comparison.md",
           "line": 75
         }
       ],
@@ -238,7 +238,7 @@
           "line": 169
         },
         {
-          "file": "CLI_TOOLS_CONFIG_COMPARISON.md",
+          "file": "docs/content/config-comparison.md",
           "line": 324
         }
       ],
@@ -265,7 +265,7 @@
           "line": 170
         },
         {
-          "file": "MIGRATION_QUICK_REFERENCE.md",
+          "file": "docs/content/migration-quick-reference.md",
           "line": 93
         }
       ],
@@ -287,7 +287,7 @@
           "line": 200
         },
         {
-          "file": "CLI_TOOLS_CONFIG_COMPARISON.md",
+          "file": "docs/content/config-comparison.md",
           "line": 39
         }
       ],
@@ -335,7 +335,7 @@
           "line": 20
         },
         {
-          "file": "CLI_TOOLS_CONFIG_COMPARISON.md",
+          "file": "docs/content/config-comparison.md",
           "line": 9
         }
       ],
@@ -361,7 +361,7 @@
           "line": 185
         },
         {
-          "file": "CLI_TOOLS_CONFIG_COMPARISON.md",
+          "file": "docs/content/config-comparison.md",
           "line": 200
         }
       ],
@@ -387,7 +387,7 @@
           "line": 187
         },
         {
-          "file": "CLI_TOOLS_CONFIG_COMPARISON.md",
+          "file": "docs/content/config-comparison.md",
           "line": 302
         }
       ],
@@ -413,7 +413,7 @@
           "line": 185
         },
         {
-          "file": "CLI_TOOLS_CONFIG_COMPARISON.md",
+          "file": "docs/content/config-comparison.md",
           "line": 199
         }
       ],
@@ -439,7 +439,7 @@
           "line": 184
         },
         {
-          "file": "CLI_TOOLS_CONFIG_COMPARISON.md",
+          "file": "docs/content/config-comparison.md",
           "line": 378
         }
       ],
@@ -459,11 +459,11 @@
           "selector": "[data-claim-id*='CLAIM-KIMI-CONFIG-TOML-PATH']"
         },
         {
-          "file": "MIGRATION_QUICK_REFERENCE.md",
+          "file": "docs/content/migration-quick-reference.md",
           "line": 9
         },
         {
-          "file": "CLI_TOOLS_CONFIG_COMPARISON.md",
+          "file": "docs/content/config-comparison.md",
           "line": 44
         }
       ],
@@ -567,7 +567,7 @@
           "line": 219
         },
         {
-          "file": "MIGRATION_QUICK_REFERENCE.md",
+          "file": "docs/content/migration-quick-reference.md",
           "line": 209
         }
       ],

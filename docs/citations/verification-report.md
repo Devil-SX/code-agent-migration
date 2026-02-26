@@ -1,7 +1,7 @@
 # Citation Verification Report
 
 - Generated: 2026-02-26
-- Scope: `docs/index.html`, `README.md`, `CLI_TOOLS_CONFIG_COMPARISON.md`, `MIGRATION_QUICK_REFERENCE.md`, `EXAMPLES.md`
+- Scope: `docs/index.html`, `README.md`, `docs/content/config-comparison.md`, `docs/content/migration-quick-reference.md`, `docs/content/migration-examples.md`
 - Method: web search + fetch from official docs / primary repos
 
 ## Status Summary

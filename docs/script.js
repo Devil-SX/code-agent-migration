@@ -153,7 +153,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Interactive comparison table
 document.addEventListener('DOMContentLoaded', () => {
-    const table = document.querySelector('.comparison-table table');
+    const table = document.querySelector('.comparison-table');
     if (table) {
         const rows = table.querySelectorAll('tbody tr');
         rows.forEach((row, index) => {
@@ -167,6 +167,46 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
+});
+
+// Comparison dimension filter
+document.addEventListener('DOMContentLoaded', () => {
+    const filters = document.querySelectorAll('.compare-filter');
+    const rows = document.querySelectorAll('.comparison-table tbody tr[data-group]');
+    const counter = document.getElementById('visible-dimension-count');
+
+    if (filters.length === 0 || rows.length === 0) {
+        return;
+    }
+
+    const updateVisibleCount = () => {
+        if (!counter) {
+            return;
+        }
+        const visible = Array.from(rows).filter((row) => !row.classList.contains('is-hidden')).length;
+        counter.textContent = String(visible);
+    };
+
+    const applyFilter = (group) => {
+        rows.forEach((row) => {
+            if (group === 'all' || row.dataset.group === group) {
+                row.classList.remove('is-hidden');
+            } else {
+                row.classList.add('is-hidden');
+            }
+        });
+        updateVisibleCount();
+    };
+
+    filters.forEach((button) => {
+        button.addEventListener('click', () => {
+            filters.forEach((item) => item.classList.remove('is-active'));
+            button.classList.add('is-active');
+            applyFilter(button.dataset.filter || 'all');
+        });
+    });
+
+    applyFilter('all');
 });
 
 // Copy code functionality (if code blocks exist)
