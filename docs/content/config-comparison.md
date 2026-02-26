@@ -104,76 +104,25 @@
 
 ### Claude Code CLI
 
-#### Skills
-- **位置**:
-  - 用户级: `~/.claude/skills/`
-  - 项目级: `.claude/skills/`
-- **格式**: 目录结构，每个 skill 一个子目录
-- **激活**: 自动发现，通过 `/skill-name` 调用
+| 维度 | Claude Code | Codex CLI | OpenCode | Kimi Code |
+|------|-------------|-----------|----------|-----------|
+| **Plugin** | `plugin` 子命令 + `--plugin-dir` | 未见独立 plugin 子命令（更偏 skills + MCP） | 更偏 agent/tool 扩展模型 | 未见独立 plugin 子命令 |
+| **Skills** | 官方 skills + slash 协同 | 官方声明 custom prompts 弃用，转向 skills | 主要用 agent/commands/tool 组织扩展 | 提供 `--skills-dir` |
+| **Slash Command** | 官方 slash commands 文档完备 | 帮助信息未见 slash command 入口 | 官方文档支持 built-in 与 custom slash commands | 当前资料未确认 |
+| **Hook** | 官方 hooks 参考文档可查 | 帮助信息未见 dedicated hook 入口 | 当前资料未形成稳定 hook 接口说明 | 当前资料未确认 |
+| **MCP** | 官方 MCP 文档与配置体系 | `codex mcp` 命令管理外部服务 | `opencode mcp` + MCP docs | `kimi mcp` 命令可用 |
 
-#### Plugins (Marketplace)
-- **位置**: `~/.claude/plugins/`
-- **安装方式**:
-  - Marketplace: `claude plugin install <name>`
-  - 本地开发: 直接放入目录
-- **配置**: `settings.json` 中的 `plugins` 字段
+### 五维迁移要点
 
-#### MCP (Model Context Protocol)
-- **配置位置**: `~/.claude/settings.json` → `mcpServers` 字段
-- **示例**:
-  ```json
-  {
-    "mcpServers": {
-      "filesystem": {
-        "command": "npx",
-        "args": ["-y", "@modelcontextprotocol/server-filesystem", "/path"]
-      }
-    }
-  }
-  ```
-
-### Codex CLI
-
-#### 插件系统
-- **配置位置**: `~/.codex/config.toml`
-- **类型**:
-  - 工具扩展
-  - 沙箱策略
-  - 审批策略
-- **特点**: 通过 TOML 配置启用/禁用
-
-### OpenCode
-
-#### 统一扩展架构
-- **位置**:
-  - 项目: `.opencode/plugins/`
-  - 用户: `~/.config/opencode/plugins/`
-- **来源**:
-  - 本地文件
-  - npm 包
-  - MCP 服务器
-
-#### MCP 支持
-- **配置**: 通过 `mcp` 选项
-- **特点**:
-  - 支持本地和远程 MCP 服务器
-  - 工具自动对 LLM 可用
-- **命令**:
-  - 添加: `opencode mcp add`
-  - 列表: `opencode mcp list`
-
-#### 技能系统
-- **位置**: `.opencode/skills/` 或 `~/.config/opencode/skills/`
-- **配置**: 通过插件配置启用
-
-### Kimi Code CLI
-- **扩展性**: 文档较少，主要依赖配置文件
-- **Provider 配置**: 在 `config.toml` 中定义 API 提供商
+- **Plugin 到 Skills 的转换**: 从“插件包”迁移时，需要先确认目标工具使用的是 plugin 模型还是 skills/agent 模型。
+- **Slash 依赖梳理**: 如果现有工作流重度依赖 slash commands，优先选择文档完备的平台，避免隐藏迁移成本。
+- **Hook 风险控制**: hook 机制在多工具间差异大，未证实前不要直接承诺“等价迁移”。
+- **MCP 最易复用**: MCP 在四类工具中可比性最强，通常可作为跨工具迁移的第一优先能力层。
 
 **迁移建议**:
-- Claude Code → OpenCode: Skills 需转换为 OpenCode 的技能格式
-- MCP 服务器配置基本通用（遵循 MCP 协议）
-- Marketplace 插件需逐个检查是否有对应实现
+- 先把扩展能力拆成五维，再做目标工具选型，而不是只比较“有没有插件系统”。
+- 对 `unverified` / `partially_verified` 维度单独建风险清单，避免一次性切换失败。
+- MCP 服务器配置通常可优先迁移，其余维度逐步灰度替换。
 
 ---
 

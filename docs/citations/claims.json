@@ -794,6 +794,364 @@
       ],
       "last_verified_at": "2026-02-26T06:30:00Z",
       "notes": "Verified against local CLI --help snapshot captured on 2026-02-26."
+    },
+    {
+      "claim_id": "CLAIM-EXT-PLUGIN-CLAUDE",
+      "concept": "Claude CLI includes explicit plugin management interfaces.",
+      "site_snippet": "plugin command and --plugin-dir",
+      "locations": [
+        {
+          "file": "docs/index.html",
+          "selector": "[data-claim-id*='CLAIM-EXT-PLUGIN-CLAUDE']"
+        }
+      ],
+      "verification_status": "verified",
+      "evidence_level": "L1_OFFICIAL",
+      "source_ids": [
+        "SRC-020"
+      ],
+      "last_verified_at": "2026-02-26T06:45:00Z",
+      "notes": "Matrix claim for plugin/skills/slash/hook/MCP comparison."
+    },
+    {
+      "claim_id": "CLAIM-EXT-PLUGIN-CODEX",
+      "concept": "Codex CLI help does not expose a standalone plugin subcommand; extension emphasis is skills/MCP.",
+      "site_snippet": "no plugin subcommand in help",
+      "locations": [
+        {
+          "file": "docs/index.html",
+          "selector": "[data-claim-id*='CLAIM-EXT-PLUGIN-CODEX']"
+        }
+      ],
+      "verification_status": "partially_verified",
+      "evidence_level": "L2_LOCAL_TOOLING",
+      "source_ids": [
+        "SRC-019",
+        "SRC-001"
+      ],
+      "last_verified_at": "2026-02-26T06:45:00Z",
+      "notes": "Matrix claim for plugin/skills/slash/hook/MCP comparison."
+    },
+    {
+      "claim_id": "CLAIM-EXT-PLUGIN-OPENCODE",
+      "concept": "OpenCode extension model is centered on agents/tools rather than a plugin marketplace command.",
+      "site_snippet": "agent and command/tool extension focus",
+      "locations": [
+        {
+          "file": "docs/index.html",
+          "selector": "[data-claim-id*='CLAIM-EXT-PLUGIN-OPENCODE']"
+        }
+      ],
+      "verification_status": "partially_verified",
+      "evidence_level": "L2_LOCAL_TOOLING",
+      "source_ids": [
+        "SRC-021",
+        "SRC-024"
+      ],
+      "last_verified_at": "2026-02-26T06:45:00Z",
+      "notes": "Matrix claim for plugin/skills/slash/hook/MCP comparison."
+    },
+    {
+      "claim_id": "CLAIM-EXT-PLUGIN-KIMI",
+      "concept": "Kimi CLI help does not show a standalone plugin management subcommand.",
+      "site_snippet": "no plugin subcommand in help",
+      "locations": [
+        {
+          "file": "docs/index.html",
+          "selector": "[data-claim-id*='CLAIM-EXT-PLUGIN-KIMI']"
+        }
+      ],
+      "verification_status": "partially_verified",
+      "evidence_level": "L2_LOCAL_TOOLING",
+      "source_ids": [
+        "SRC-022"
+      ],
+      "last_verified_at": "2026-02-26T06:45:00Z",
+      "notes": "Matrix claim for plugin/skills/slash/hook/MCP comparison."
+    },
+    {
+      "claim_id": "CLAIM-EXT-SKILLS-CLAUDE",
+      "concept": "Claude Code supports skills integrated with slash commands.",
+      "site_snippet": "skills and slash command integration",
+      "locations": [
+        {
+          "file": "docs/index.html",
+          "selector": "[data-claim-id*='CLAIM-EXT-SKILLS-CLAUDE']"
+        }
+      ],
+      "verification_status": "verified",
+      "evidence_level": "L1_OFFICIAL",
+      "source_ids": [
+        "SRC-007"
+      ],
+      "last_verified_at": "2026-02-26T06:45:00Z",
+      "notes": "Matrix claim for plugin/skills/slash/hook/MCP comparison."
+    },
+    {
+      "claim_id": "CLAIM-EXT-SKILLS-CODEX",
+      "concept": "Codex indicates custom prompts are deprecated and reusable instructions should use skills.",
+      "site_snippet": "Custom prompts are deprecated. Use skills...",
+      "locations": [
+        {
+          "file": "docs/index.html",
+          "selector": "[data-claim-id*='CLAIM-EXT-SKILLS-CODEX']"
+        }
+      ],
+      "verification_status": "verified",
+      "evidence_level": "L1_OFFICIAL",
+      "source_ids": [
+        "SRC-001"
+      ],
+      "last_verified_at": "2026-02-26T06:45:00Z",
+      "notes": "Matrix claim for plugin/skills/slash/hook/MCP comparison."
+    },
+    {
+      "claim_id": "CLAIM-EXT-SKILLS-OPENCODE",
+      "concept": "OpenCode documents extension via commands/agents/tools rather than an identical skills abstraction.",
+      "site_snippet": "custom commands and agents as primary extension units",
+      "locations": [
+        {
+          "file": "docs/index.html",
+          "selector": "[data-claim-id*='CLAIM-EXT-SKILLS-OPENCODE']"
+        }
+      ],
+      "verification_status": "partially_verified",
+      "evidence_level": "L2_LOCAL_TOOLING",
+      "source_ids": [
+        "SRC-011",
+        "SRC-024"
+      ],
+      "last_verified_at": "2026-02-26T06:45:00Z",
+      "notes": "Matrix claim for plugin/skills/slash/hook/MCP comparison."
+    },
+    {
+      "claim_id": "CLAIM-EXT-SKILLS-KIMI",
+      "concept": "Kimi CLI exposes a configurable skills directory.",
+      "site_snippet": "--skills-dir path option",
+      "locations": [
+        {
+          "file": "docs/index.html",
+          "selector": "[data-claim-id*='CLAIM-EXT-SKILLS-KIMI']"
+        }
+      ],
+      "verification_status": "verified",
+      "evidence_level": "L1_OFFICIAL",
+      "source_ids": [
+        "SRC-022"
+      ],
+      "last_verified_at": "2026-02-26T06:45:00Z",
+      "notes": "Matrix claim for plugin/skills/slash/hook/MCP comparison."
+    },
+    {
+      "claim_id": "CLAIM-EXT-SLASH-CLAUDE",
+      "concept": "Claude Code has official slash commands documentation.",
+      "site_snippet": "slash commands docs",
+      "locations": [
+        {
+          "file": "docs/index.html",
+          "selector": "[data-claim-id*='CLAIM-EXT-SLASH-CLAUDE']"
+        }
+      ],
+      "verification_status": "verified",
+      "evidence_level": "L1_OFFICIAL",
+      "source_ids": [
+        "SRC-007"
+      ],
+      "last_verified_at": "2026-02-26T06:45:00Z",
+      "notes": "Matrix claim for plugin/skills/slash/hook/MCP comparison."
+    },
+    {
+      "claim_id": "CLAIM-EXT-SLASH-CODEX",
+      "concept": "Codex CLI help does not expose slash command style interfaces.",
+      "site_snippet": "no slash command entry in help",
+      "locations": [
+        {
+          "file": "docs/index.html",
+          "selector": "[data-claim-id*='CLAIM-EXT-SLASH-CODEX']"
+        }
+      ],
+      "verification_status": "partially_verified",
+      "evidence_level": "L2_LOCAL_TOOLING",
+      "source_ids": [
+        "SRC-019"
+      ],
+      "last_verified_at": "2026-02-26T06:45:00Z",
+      "notes": "Matrix claim for plugin/skills/slash/hook/MCP comparison."
+    },
+    {
+      "claim_id": "CLAIM-EXT-SLASH-OPENCODE",
+      "concept": "OpenCode supports built-in and custom slash commands.",
+      "site_snippet": "built-in commands like /init and /undo",
+      "locations": [
+        {
+          "file": "docs/index.html",
+          "selector": "[data-claim-id*='CLAIM-EXT-SLASH-OPENCODE']"
+        }
+      ],
+      "verification_status": "verified",
+      "evidence_level": "L1_OFFICIAL",
+      "source_ids": [
+        "SRC-024"
+      ],
+      "last_verified_at": "2026-02-26T06:45:00Z",
+      "notes": "Matrix claim for plugin/skills/slash/hook/MCP comparison."
+    },
+    {
+      "claim_id": "CLAIM-EXT-SLASH-KIMI",
+      "concept": "Kimi slash command support is not explicitly documented in current cited sources.",
+      "site_snippet": "slash command support pending explicit source",
+      "locations": [
+        {
+          "file": "docs/index.html",
+          "selector": "[data-claim-id*='CLAIM-EXT-SLASH-KIMI']"
+        }
+      ],
+      "verification_status": "unverified",
+      "evidence_level": "L2_LOCAL_TOOLING",
+      "source_ids": [],
+      "last_verified_at": "2026-02-26T06:45:00Z",
+      "notes": "No stable official source found yet; keep claim wording explicitly tentative."
+    },
+    {
+      "claim_id": "CLAIM-EXT-HOOK-CLAUDE",
+      "concept": "Claude Code provides hooks reference documentation.",
+      "site_snippet": "hooks reference docs",
+      "locations": [
+        {
+          "file": "docs/index.html",
+          "selector": "[data-claim-id*='CLAIM-EXT-HOOK-CLAUDE']"
+        }
+      ],
+      "verification_status": "verified",
+      "evidence_level": "L1_OFFICIAL",
+      "source_ids": [
+        "SRC-023"
+      ],
+      "last_verified_at": "2026-02-26T06:45:00Z",
+      "notes": "Matrix claim for plugin/skills/slash/hook/MCP comparison."
+    },
+    {
+      "claim_id": "CLAIM-EXT-HOOK-CODEX",
+      "concept": "Codex CLI help does not show a dedicated hook configuration surface.",
+      "site_snippet": "no hook option in codex help output",
+      "locations": [
+        {
+          "file": "docs/index.html",
+          "selector": "[data-claim-id*='CLAIM-EXT-HOOK-CODEX']"
+        }
+      ],
+      "verification_status": "partially_verified",
+      "evidence_level": "L2_LOCAL_TOOLING",
+      "source_ids": [
+        "SRC-019"
+      ],
+      "last_verified_at": "2026-02-26T06:45:00Z",
+      "notes": "Matrix claim for plugin/skills/slash/hook/MCP comparison."
+    },
+    {
+      "claim_id": "CLAIM-EXT-HOOK-OPENCODE",
+      "concept": "OpenCode hook capability lacks a clearly scoped official interface in current sources.",
+      "site_snippet": "hook interface pending direct doc evidence",
+      "locations": [
+        {
+          "file": "docs/index.html",
+          "selector": "[data-claim-id*='CLAIM-EXT-HOOK-OPENCODE']"
+        }
+      ],
+      "verification_status": "unverified",
+      "evidence_level": "L2_LOCAL_TOOLING",
+      "source_ids": [],
+      "last_verified_at": "2026-02-26T06:45:00Z",
+      "notes": "No stable official source found yet; keep claim wording explicitly tentative."
+    },
+    {
+      "claim_id": "CLAIM-EXT-HOOK-KIMI",
+      "concept": "Kimi hook lifecycle interface is not confirmed by cited sources.",
+      "site_snippet": "hook support pending explicit source",
+      "locations": [
+        {
+          "file": "docs/index.html",
+          "selector": "[data-claim-id*='CLAIM-EXT-HOOK-KIMI']"
+        }
+      ],
+      "verification_status": "unverified",
+      "evidence_level": "L2_LOCAL_TOOLING",
+      "source_ids": [],
+      "last_verified_at": "2026-02-26T06:45:00Z",
+      "notes": "No stable official source found yet; keep claim wording explicitly tentative."
+    },
+    {
+      "claim_id": "CLAIM-EXT-MCP-CLAUDE",
+      "concept": "Claude Code supports MCP via official docs and config flow.",
+      "site_snippet": "MCP docs",
+      "locations": [
+        {
+          "file": "docs/index.html",
+          "selector": "[data-claim-id*='CLAIM-EXT-MCP-CLAUDE']"
+        }
+      ],
+      "verification_status": "verified",
+      "evidence_level": "L1_OFFICIAL",
+      "source_ids": [
+        "SRC-008"
+      ],
+      "last_verified_at": "2026-02-26T06:45:00Z",
+      "notes": "Matrix claim for plugin/skills/slash/hook/MCP comparison."
+    },
+    {
+      "claim_id": "CLAIM-EXT-MCP-CODEX",
+      "concept": "Codex CLI includes mcp command for external MCP server management.",
+      "site_snippet": "mcp manage external MCP servers",
+      "locations": [
+        {
+          "file": "docs/index.html",
+          "selector": "[data-claim-id*='CLAIM-EXT-MCP-CODEX']"
+        }
+      ],
+      "verification_status": "verified",
+      "evidence_level": "L1_OFFICIAL",
+      "source_ids": [
+        "SRC-019"
+      ],
+      "last_verified_at": "2026-02-26T06:45:00Z",
+      "notes": "Matrix claim for plugin/skills/slash/hook/MCP comparison."
+    },
+    {
+      "claim_id": "CLAIM-EXT-MCP-OPENCODE",
+      "concept": "OpenCode includes mcp command set and MCP server docs.",
+      "site_snippet": "opencode mcp + MCP servers docs",
+      "locations": [
+        {
+          "file": "docs/index.html",
+          "selector": "[data-claim-id*='CLAIM-EXT-MCP-OPENCODE']"
+        }
+      ],
+      "verification_status": "verified",
+      "evidence_level": "L1_OFFICIAL",
+      "source_ids": [
+        "SRC-021",
+        "SRC-025"
+      ],
+      "last_verified_at": "2026-02-26T06:45:00Z",
+      "notes": "Matrix claim for plugin/skills/slash/hook/MCP comparison."
+    },
+    {
+      "claim_id": "CLAIM-EXT-MCP-KIMI",
+      "concept": "Kimi CLI includes mcp command for MCP configuration.",
+      "site_snippet": "kimi mcp command",
+      "locations": [
+        {
+          "file": "docs/index.html",
+          "selector": "[data-claim-id*='CLAIM-EXT-MCP-KIMI']"
+        }
+      ],
+      "verification_status": "verified",
+      "evidence_level": "L1_OFFICIAL",
+      "source_ids": [
+        "SRC-022"
+      ],
+      "last_verified_at": "2026-02-26T06:45:00Z",
+      "notes": "Matrix claim for plugin/skills/slash/hook/MCP comparison."
     }
   ]
 }

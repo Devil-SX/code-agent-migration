@@ -243,6 +243,39 @@
       "accessed_at": "2026-02-26T06:30:00Z",
       "evidence_snippet": "--yolo auto-approves actions; --session/-S; --continue/-C; --print for non-interactive mode.",
       "status": "active"
+    },
+    {
+      "source_id": "SRC-023",
+      "citation_number": 23,
+      "title": "Claude Code Hooks reference",
+      "url": "https://docs.anthropic.com/en/docs/claude-code/hooks",
+      "publisher": "Anthropic",
+      "source_type": "official_doc",
+      "accessed_at": "2026-02-26T06:45:00Z",
+      "evidence_snippet": "This page provides reference documentation for implementing hooks in Claude Code.",
+      "status": "active"
+    },
+    {
+      "source_id": "SRC-024",
+      "citation_number": 24,
+      "title": "OpenCode Commands docs",
+      "url": "https://opencode.ai/docs/commands/",
+      "publisher": "OpenCode",
+      "source_type": "official_doc",
+      "accessed_at": "2026-02-26T06:45:00Z",
+      "evidence_snippet": "Custom commands can be configured to execute JavaScript code. OpenCode also includes built-in commands like /init and /undo.",
+      "status": "active"
+    },
+    {
+      "source_id": "SRC-025",
+      "citation_number": 25,
+      "title": "OpenCode MCP servers docs",
+      "url": "https://opencode.ai/docs/mcp-servers/",
+      "publisher": "OpenCode",
+      "source_type": "official_doc",
+      "accessed_at": "2026-02-26T06:45:00Z",
+      "evidence_snippet": "MCP servers can be configured globally or by project and are exposed via opencode mcp commands.",
+      "status": "active"
     }
   ]
 }

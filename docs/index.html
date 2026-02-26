@@ -364,10 +364,10 @@
                         <tr data-group="ecosystem">
                             <td><strong>4. 插件系统</strong></td>
                             <td><span class="group-tag">生态与协作</span></td>
-                            <td class="highlight" data-claim-id="CLAIM-CLAUDE-SKILLS-MCP">Skills + MCP<br><small>Claude Code 生态</small></td>
-                            <td>无插件系统<br><small>沙箱执行</small></td>
-                            <td data-claim-id="CLAIM-OPENCODE-75-PROVIDERS">统一扩展系统<br><small>75+ 提供商</small></td>
-                            <td>无插件系统<br><small>内置集成</small></td>
+                            <td class="highlight">插件/技能/Slash/Hook/MCP<br><small>见下方五维矩阵</small></td>
+                            <td>以技能 + MCP 为主<br><small>见下方五维矩阵</small></td>
+                            <td data-claim-id="CLAIM-OPENCODE-75-PROVIDERS">代理 + 工具 + MCP<br><small>见下方五维矩阵</small></td>
+                            <td>skills + MCP 能力<br><small>见下方五维矩阵</small></td>
                         </tr>
                         <tr data-group="execution">
                             <td><strong>5. 命令行参数</strong></td>
@@ -467,6 +467,66 @@
                         <path d="M7 4L14 10L7 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
                 </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ecosystem Capability Matrix -->
+    <section id="ecosystem-matrix" class="section">
+        <div class="container">
+            <h2 class="section-title">扩展生态五维矩阵</h2>
+            <p class="comparison-hint">
+                维度：<strong>Plugin / Skills / Slash Command / Hook / MCP</strong>。含 <code>unverified</code> 或 <code>partially_verified</code> 的单元格会以警示引用标识。
+            </p>
+            <div class="comparison-table-wrapper">
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>能力维度</th>
+                            <th>Claude Code</th>
+                            <th>Codex CLI</th>
+                            <th>OpenCode</th>
+                            <th>Kimi Code</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Plugin</strong></td>
+                            <td data-claim-id="CLAIM-EXT-PLUGIN-CLAUDE">支持 plugin 命令与目录注入<br><small>`plugin` / `--plugin-dir`</small></td>
+                            <td data-claim-id="CLAIM-EXT-PLUGIN-CODEX">未见独立 plugin 子命令<br><small>当前以 skills + MCP 为主</small></td>
+                            <td data-claim-id="CLAIM-EXT-PLUGIN-OPENCODE">以 agent + tools 架构扩展<br><small>非独立 plugin marketplace</small></td>
+                            <td data-claim-id="CLAIM-EXT-PLUGIN-KIMI">未见独立 plugin 子命令<br><small>主要通过 skills 与 MCP 扩展</small></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Skills</strong></td>
+                            <td data-claim-id="CLAIM-EXT-SKILLS-CLAUDE">官方 skills 文档与 slash 集成</td>
+                            <td data-claim-id="CLAIM-EXT-SKILLS-CODEX">Custom prompts 已弃用，转向 skills</td>
+                            <td data-claim-id="CLAIM-EXT-SKILLS-OPENCODE">技能能力更多以 agent/tool 描述</td>
+                            <td data-claim-id="CLAIM-EXT-SKILLS-KIMI">提供 skills 搜索路径与 `--skills-dir`</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Slash Command</strong></td>
+                            <td data-claim-id="CLAIM-EXT-SLASH-CLAUDE">slash commands 文档完备<br><small>与 skills 协同</small></td>
+                            <td data-claim-id="CLAIM-EXT-SLASH-CODEX">CLI 帮助中未见 slash command 入口</td>
+                            <td data-claim-id="CLAIM-EXT-SLASH-OPENCODE">官方文档提及 custom slash commands</td>
+                            <td data-claim-id="CLAIM-EXT-SLASH-KIMI">是否支持 slash command 仍待验证</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Hook</strong></td>
+                            <td data-claim-id="CLAIM-EXT-HOOK-CLAUDE">提供 hooks 生命周期与配置结构</td>
+                            <td data-claim-id="CLAIM-EXT-HOOK-CODEX">CLI 帮助未见 hook 配置入口</td>
+                            <td data-claim-id="CLAIM-EXT-HOOK-OPENCODE">hook 机制未形成独立稳定接口说明</td>
+                            <td data-claim-id="CLAIM-EXT-HOOK-KIMI">hook 机制暂无明确官方入口说明</td>
+                        </tr>
+                        <tr>
+                            <td><strong>MCP</strong></td>
+                            <td data-claim-id="CLAIM-EXT-MCP-CLAUDE">支持 MCP 文档与命令生态</td>
+                            <td data-claim-id="CLAIM-EXT-MCP-CODEX">提供 `mcp` 子命令管理外部 MCP 服务</td>
+                            <td data-claim-id="CLAIM-EXT-MCP-OPENCODE">提供 `opencode mcp` 命令族</td>
+                            <td data-claim-id="CLAIM-EXT-MCP-KIMI">提供 `kimi mcp` 命令管理 MCP 配置</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </section>

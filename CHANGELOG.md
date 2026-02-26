@@ -12,6 +12,19 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [0.1.3] - 2026-02-26
 
+## [0.1.4] - 2026-02-26
+
+### Added
+
+- Added a five-dimension extension ecosystem matrix in `docs/index.html` covering plugin, skills, slash commands, hook, and MCP for all compared CLIs.
+- Added 20 extension-related claims (`CLAIM-EXT-*`) to `docs/citations/claims.json` with explicit verification states for supported and pending dimensions.
+- Added new official citation sources `SRC-023` (Claude hooks), `SRC-024` (OpenCode commands), and `SRC-025` (OpenCode MCP servers).
+
+### Changed
+
+- Updated the high-level plugin row in the main comparison table to route readers to the new five-dimension matrix.
+- Rewrote Section 3 in `docs/content/config-comparison.md` to align with the same five-dimension comparison model and migration risk framing.
+
 ### Added
 
 - Added `docs/citations/local-cli/` snapshots for `codex`, `claude`, `opencode`, and `kimi` command help output captured on 2026-02-26.
