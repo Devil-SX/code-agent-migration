@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Methodology | CLI Agent Migration</title>
+  <link rel="stylesheet" href="../page.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="home-link" href="../../en/index.html">English Home</a>
+      <nav class="nav-links">
+        <a href="overview.html">Overview</a>
+        <a href="comparison.html">Comparison</a>
+        <a href="migration.html">Migration</a>
+        <a href="methodology.html">Methodology</a>
+        <a href="verification.html">Verification</a>
+        <a data-lang-switch href="../zh/methodology.html">中文</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="page-head">
+      <h1>Verification Methodology</h1>
+      <p>Claims are tracked as data and rendered in UI through claim markers.</p>
+    </section>
+    <article class="content-card markdown-content">
+      <h2>Data Model</h2>
+      <ul>
+        <li><code>sources.json</code>: source registry and citation numbering.</li>
+        <li><code>claims.json</code>: claim text, bindings, status, timestamps.</li>
+        <li><code>data-claim-id</code> in HTML: binding between UI text and claim registry.</li>
+      </ul>
+      <h2>Status Semantics</h2>
+      <ul>
+        <li><strong>verified</strong>: directly supported by source evidence.</li>
+        <li><strong>partially_verified</strong>: partially supported, needs narrower wording.</li>
+        <li><strong>conflicted</strong>: source contradicts current wording.</li>
+        <li><strong>unverified</strong>: no stable source found yet.</li>
+      </ul>
+      <h2>Freshness Rules</h2>
+      <p>Both <code>last_verified_at</code> (claim) and <code>accessed_at</code> (source) are required and validated in CI.</p>
+    </article>
+  </main>
+</body>
+</html>

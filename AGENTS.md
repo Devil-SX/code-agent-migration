@@ -23,5 +23,11 @@ These rules apply to website content under `docs/*`.
    - Do not present unverified or conflicted claims as settled facts.
 
 5. Prefer internal navigation.
-   - Link to `docs/content/*` for extended reading.
+   - Link to HTML pages under `docs/pages/*` or language routes (`docs/en/*`, `docs/zh/*`) for end-user reading.
+   - Markdown under `docs/content/*` is source material and must not be exposed as primary navigation targets.
    - Keep navigation stable even when external sources change.
+
+6. English-first documentation policy.
+   - Keep `README.md` and GitHub-facing entry docs in English by default.
+   - Provide paired Chinese routes and keep EN/ZH core page structure aligned.
+   - Add explicit language switches on EN/ZH pages to preserve navigation context.

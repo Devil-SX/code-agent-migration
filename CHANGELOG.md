@@ -14,6 +14,22 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [0.1.4] - 2026-02-26
 
+## [0.1.5] - 2026-02-26
+
+### Added
+
+- Added English and Chinese language entry routes: `docs/en/index.html` and `docs/zh/index.html`.
+- Added bilingual core pages under `docs/pages/en/*` and `docs/pages/zh/*` (overview, comparison, migration, methodology, verification) with per-page language switches.
+- Added `README.zh-CN.md` and linked it from the English-first `README.md`.
+- Added i18n policy CI check: `tools/check_i18n.js` and `.github/workflows/i18n-check.yml`.
+
+### Changed
+
+- Updated `README.md` to an English-first entry document and included bilingual website routing references.
+- Updated `docs/index.html` navigation to include EN/中文 entry links.
+- Updated `AGENTS.md` with HTML-only navigation and English-first bilingual policy rules.
+- Updated docs structure validation to allow and require `README.zh-CN.md` at repository root.
+
 ### Added
 
 - Added a five-dimension extension ecosystem matrix in `docs/index.html` covering plugin, skills, slash commands, hook, and MCP for all compared CLIs.

@@ -4,6 +4,7 @@ on:
   pull_request:
     paths:
       - 'README.md'
+      - 'README.zh-CN.md'
       - 'CHANGELOG.md'
       - 'AGENTS.md'
       - 'docs/index.html'
@@ -15,6 +16,7 @@ on:
       - master
     paths:
       - 'README.md'
+      - 'README.zh-CN.md'
       - 'CHANGELOG.md'
       - 'AGENTS.md'
       - 'docs/index.html'

@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>验证方法 | CLI 迁移知识库</title>
+  <link rel="stylesheet" href="../page.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="home-link" href="../../zh/index.html">中文首页</a>
+      <nav class="nav-links">
+        <a href="overview.html">总览</a>
+        <a href="comparison.html">对比</a>
+        <a href="migration.html">迁移</a>
+        <a href="methodology.html">方法</a>
+        <a href="verification.html">验证</a>
+        <a data-lang-switch href="../en/methodology.html">EN</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="page-head">
+      <h1>验证方法</h1>
+      <p>将事实表达、引用来源和验证状态绑定为结构化数据。</p>
+    </section>
+    <article class="content-card markdown-content">
+      <h2>数据模型</h2>
+      <ul>
+        <li><code>sources.json</code>：来源注册与引用编号。</li>
+        <li><code>claims.json</code>：claim 文本、状态、时间与来源映射。</li>
+        <li><code>data-claim-id</code>：网页文本与 claim 的绑定点。</li>
+      </ul>
+      <h2>状态语义</h2>
+      <ul>
+        <li><strong>verified</strong>：有直接证据支持。</li>
+        <li><strong>partially_verified</strong>：仅部分支持，需收窄表述。</li>
+        <li><strong>conflicted</strong>：来源与当前文案冲突。</li>
+        <li><strong>unverified</strong>：暂无稳定来源。</li>
+      </ul>
+      <h2>时效性规则</h2>
+      <p>CI 强制校验 <code>last_verified_at</code>（claim）与 <code>accessed_at</code>（source）。</p>
+    </article>
+  </main>
+</body>
+</html>

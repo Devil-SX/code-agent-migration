@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Migration | CLI Agent Migration</title>
+  <link rel="stylesheet" href="../page.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="home-link" href="../../en/index.html">English Home</a>
+      <nav class="nav-links">
+        <a href="overview.html">Overview</a>
+        <a href="comparison.html">Comparison</a>
+        <a href="migration.html">Migration</a>
+        <a href="methodology.html">Methodology</a>
+        <a href="verification.html">Verification</a>
+        <a data-lang-switch href="../zh/migration.html">中文</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="page-head">
+      <h1>Migration Strategy</h1>
+      <p>Use a staged workflow to reduce risk when moving between coding agents.</p>
+    </section>
+    <article class="content-card markdown-content">
+      <h2>Recommended Sequence</h2>
+      <ol>
+        <li>Inventory current commands and extension dependencies (skills/slash/hook/MCP).</li>
+        <li>Map command categories first, not tool names first.</li>
+        <li>Migrate MCP and session continuity before advanced extension behaviors.</li>
+        <li>Run verification checks and mark unresolved claims as unverified.</li>
+      </ol>
+      <h2>Common Failure Modes</h2>
+      <ul>
+        <li>Assuming all plugin systems are equivalent.</li>
+        <li>Ignoring non-interactive execution differences in CI scripts.</li>
+        <li>Treating partially verified claims as hard guarantees.</li>
+      </ul>
+      <h2>Reference Pages</h2>
+      <ul>
+        <li><a href="../migration-quick-reference.html">Quick Reference</a></li>
+        <li><a href="../migration-examples.html">Migration Examples</a></li>
+      </ul>
+    </article>
+  </main>
+</body>
+</html>

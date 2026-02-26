@@ -6,7 +6,7 @@ const path = require('path');
 const root = process.cwd();
 const errors = [];
 
-const allowedRootMarkdown = new Set(['README.md', 'CHANGELOG.md', 'AGENTS.md']);
+const allowedRootMarkdown = new Set(['README.md', 'README.zh-CN.md', 'CHANGELOG.md', 'AGENTS.md']);
 const requiredDocsContent = [
   'overview.md',
   'config-comparison.md',

@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>迁移策略 | CLI 迁移知识库</title>
+  <link rel="stylesheet" href="../page.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="home-link" href="../../zh/index.html">中文首页</a>
+      <nav class="nav-links">
+        <a href="overview.html">总览</a>
+        <a href="comparison.html">对比</a>
+        <a href="migration.html">迁移</a>
+        <a href="methodology.html">方法</a>
+        <a href="verification.html">验证</a>
+        <a data-lang-switch href="../en/migration.html">EN</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="page-head">
+      <h1>迁移策略</h1>
+      <p>建议采用分阶段迁移，先保连续性，再替换高级扩展能力。</p>
+    </section>
+    <article class="content-card markdown-content">
+      <h2>推荐顺序</h2>
+      <ol>
+        <li>先盘点命令与扩展依赖（skills/slash/hook/MCP）。</li>
+        <li>先对齐命令分类，再对齐工具品牌。</li>
+        <li>优先迁移 MCP 与会话续接能力。</li>
+        <li>完成验证检查后再放大到团队范围。</li>
+      </ol>
+      <h2>常见失败点</h2>
+      <ul>
+        <li>把不同插件系统当成“可直接替换”。</li>
+        <li>忽略 CI 中非交互执行参数差异。</li>
+        <li>把 partially_verified 当成已证实结论。</li>
+      </ul>
+      <h2>参考页面</h2>
+      <ul>
+        <li><a href="../migration-quick-reference.html">迁移速查</a></li>
+        <li><a href="../migration-examples.html">迁移示例</a></li>
+      </ul>
+    </article>
+  </main>
+</body>
+</html>
