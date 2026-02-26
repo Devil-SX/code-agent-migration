@@ -23,13 +23,21 @@
   <main class="container">
     <section class="page-head">
       <h1>来源验证报告</h1>
-      <p>按 claim 展示来源和验证状态，来源于 docs/citations/verification-report.md</p>
-      
+      <p>本页直接读取 claims/sources 数据，展示状态、来源证据片段与最后验证时间。</p>
+      <p class="warning">提示：状态为 <code>conflicted</code> 或 <code>unverified</code> 的条目不应被当作结论使用。</p>
     </section>
 
-    <article class="content-card markdown-content" data-markdown-src="../citations/verification-report.md" data-link-mode="all"></article>
+    <section class="content-card" style="margin-bottom: 1rem;">
+      <h2 style="margin-top: 0;">状态概览</h2>
+      <div id="verification-summary" class="summary-grid"></div>
+    </section>
+
+    <section class="content-card">
+      <h2 style="margin-top: 0;">Claim 详情</h2>
+      <div id="claim-list" class="claim-list"></div>
+    </section>
   </main>
 
-  <script src="markdown_page.js"></script>
+  <script src="verification_report.js"></script>
 </body>
 </html>

@@ -8,6 +8,18 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [0.1.1] - 2026-02-26
 
+## [0.1.2] - 2026-02-26
+
+### Added
+
+- Added `docs/pages/verification_report.js` and rebuilt `docs/pages/verification-report.html` as a structured verification dashboard sourced from `claims.json` and `sources.json`.
+- Added claim-level and source-level timestamp validation in `tools/check_citations.js` for `last_verified_at` and `accessed_at`.
+
+### Changed
+
+- Updated citation superscript tooltips in `docs/script.js` to include claim verification date metadata.
+- Updated verification page UI styles in `docs/pages/page.css` to show status badges, summaries, and source evidence blocks.
+
 ### Added
 
 - Added `docs/pages/*` HTML documentation pages for comparison, migration, methodology, glossary, overview, project status, verification report, and citation data model.

@@ -70,6 +70,15 @@ function isNonEmptyString(value) {
   return typeof value === 'string' && value.trim().length > 0;
 }
 
+function isIsoTimestamp(value) {
+  if (!isNonEmptyString(value)) return false;
+  if (!/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z$/.test(value)) {
+    return false;
+  }
+  const parsed = Date.parse(value);
+  return !Number.isNaN(parsed);
+}
+
 function main() {
   const html = readText(files.html);
   const claimsPayload = parseJson(files.claims, 'docs/citations/claims.json');
@@ -107,6 +116,9 @@ function main() {
     if (!isNonEmptyString(source.url)) {
       errors.push(`source ${source.source_id}: url must be a non-empty string`);
     }
+    if (!isIsoTimestamp(source.accessed_at)) {
+      errors.push(`source ${source.source_id}: accessed_at must be an ISO timestamp (YYYY-MM-DDTHH:mm:ssZ)`);
+    }
   }
 
   const allowedStatuses = new Set([
@@ -130,6 +142,9 @@ function main() {
       errors.push(
         `claim ${claim.claim_id}: verification_status must be one of ${Array.from(allowedStatuses).join(', ')}`
       );
+    }
+    if (!isIsoTimestamp(claim.last_verified_at)) {
+      errors.push(`claim ${claim.claim_id}: last_verified_at must be an ISO timestamp (YYYY-MM-DDTHH:mm:ssZ)`);
     }
 
     if (!Array.isArray(claim.source_ids)) {

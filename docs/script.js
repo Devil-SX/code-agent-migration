@@ -395,25 +395,39 @@ function parseClaimIds(attributeValue) {
         .filter(Boolean);
 }
 
-function createSourceCitationAnchor(source, status) {
+function formatVerificationDate(value) {
+    if (!value || typeof value !== 'string') {
+        return 'unknown';
+    }
+    const parsed = new Date(value);
+    if (Number.isNaN(parsed.getTime())) {
+        return value;
+    }
+    return parsed.toISOString().slice(0, 10);
+}
+
+function createSourceCitationAnchor(source, claim) {
+    const status = claim.verification_status || 'verified';
+    const verifiedOn = formatVerificationDate(claim.last_verified_at);
     const anchor = document.createElement('a');
     anchor.className = `citation-link citation-${status}`;
     anchor.href = source.url;
     anchor.target = '_blank';
     anchor.rel = 'noopener noreferrer';
     anchor.textContent = `[${source.citation_number}]`;
-    anchor.title = `${source.title} | ${source.publisher} | ${status}`;
+    anchor.title = `${source.title} | ${source.publisher} | ${status} | verified ${verifiedOn}`;
     return anchor;
 }
 
 function createUnverifiedCitationAnchor(claim) {
+    const verifiedOn = formatVerificationDate(claim.last_verified_at);
     const anchor = document.createElement('a');
     anchor.className = `citation-link citation-${claim.verification_status || 'unverified'}`;
     anchor.href = `pages/verification-report.html#${claim.claim_id.toLowerCase()}`;
     anchor.target = '_blank';
     anchor.rel = 'noopener noreferrer';
     anchor.textContent = '[?]';
-    anchor.title = `${claim.claim_id} | ${claim.verification_status || 'unverified'}`;
+    anchor.title = `${claim.claim_id} | ${claim.verification_status || 'unverified'} | verified ${verifiedOn}`;
     return anchor;
 }
 
@@ -491,7 +505,7 @@ async function initCitations() {
                 if (appendedTokens.has(token)) {
                     return;
                 }
-                sup.appendChild(createSourceCitationAnchor(source, claim.verification_status || 'verified'));
+                sup.appendChild(createSourceCitationAnchor(source, claim));
                 appendedTokens.add(token);
             });
         });
